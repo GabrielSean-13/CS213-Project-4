@@ -14,14 +14,14 @@ import java.io.IOException;
  *
  * @author Mark Holleran, Abhitej Bokka
  */
-public class HelloApplication extends Application {
+public class ShopMainMenuMain extends Application {
 
 
-    public HelloApplication (){}
+    public ShopMainMenuMain(){}
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloController.class.getResource("ShopDonutView.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(ShopMainMenuMain.class.getResource("OrderingBasketView.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 480, 480);
         stage.setTitle("RUCafe");
         stage.setScene(scene);
@@ -32,3 +32,4 @@ public class HelloApplication extends Application {
         launch();
     }
 }
+

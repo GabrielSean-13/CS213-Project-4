@@ -60,7 +60,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>rucafe.cs213project4/rucafe.cs213project4.HelloApplication</mainClass>
+                            <mainClass>rucafe.cs213project4/rucafe.cs213project4.ShopMainMenuMain</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>
