@@ -6,7 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 
 public class OrderingBasketController {
-
+    //all instance variables in controllers should be private
     @FXML
     private Label totalOrderCost;
 

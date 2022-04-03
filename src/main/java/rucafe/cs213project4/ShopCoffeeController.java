@@ -8,7 +8,7 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 
 public class ShopCoffeeController {
-
+    //all instance variables in controllers should be private
     @FXML
     private ToggleGroup coffeeToppingType;
 

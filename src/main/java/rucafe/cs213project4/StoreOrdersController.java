@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 
 public class StoreOrdersController {
-
+    //all instance variables in controllers should be private
     @FXML
     private ListView<?> allOrdersOutput;
 

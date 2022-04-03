@@ -4,7 +4,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
 public class ShopMainMenuController {
-
+    //all instance variables in controllers should be private
+    //this (the primary stage) must remain visible while navigating between guis
     @FXML
     void displayAllOrders(ActionEvent event) {
 
@@ -17,6 +18,8 @@ public class ShopMainMenuController {
 
     @FXML
     void orderCoffee(ActionEvent event) {
+
+
 
     }
 
