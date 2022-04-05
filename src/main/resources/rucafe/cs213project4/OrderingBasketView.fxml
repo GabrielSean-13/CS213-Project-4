@@ -27,20 +27,26 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <GridPane>
+            <Button mnemonicParsing="false" onAction="#placeOrder" prefHeight="63.0" prefWidth="90.0" text="Place Order" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+            <GridPane prefHeight="46.0" prefWidth="100.0">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="82.0" minWidth="10.0" prefWidth="67.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="45.0" minWidth="10.0" prefWidth="33.0" />
               </columnConstraints>
               <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="29.0" minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="29.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="57.0" minHeight="10.0" prefHeight="21.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label text="Total: $" GridPane.halignment="RIGHT" />
-                  <Label fx:id="totalOrderCost" text="0.00" GridPane.columnIndex="1" />
+                  <Label text="Total: $" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                  <Label fx:id="totalOrderCost" text="0.00" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label prefHeight="17.0" prefWidth="64.0" text="Sub-Total: $" GridPane.halignment="RIGHT" />
+                  <Label fx:id="subTotalOrderCost" text="0.00" GridPane.columnIndex="1" />
+                  <Label text="Sales-Tax" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                  <Label fx:id="totalOrderTax" text="0.00" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                </children>
             </GridPane>
-            <Button mnemonicParsing="false" onAction="#placeOrder" prefHeight="47.0" prefWidth="84.0" text="Place Order" GridPane.columnIndex="1" />
          </children>
       </GridPane>
    </children>
