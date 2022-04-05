@@ -31,7 +31,7 @@ public class Donut extends MenuItem {
             price = YEAST_PRICE;
         }else if(type.equals(CAKE)){
             price = CAKE_PRICE;
-        }else{
+        }else if(type.equals(HOLE)){
             price = HOLE_PRICE;
         }
 
@@ -39,15 +39,28 @@ public class Donut extends MenuItem {
     }
     
     public String getDonutType (){
-
         return this.type;
+    }
 
+    public String getFlavor (){
+        return this.flavor;
     }
 
     public ArrayList<String> getDonutAddins(){
 
         return this.addins;
 
+    }
+
+    @Override
+    public String toString(){
+
+        String str = this.getQuantity() + " " + this.getFlavor() + " " + this.getDonutType();
+        if(this.getQuantity() > 1){
+            str += "s";
+        }
+                // 1 Glazed Yeast Donut
+        return str;
     }
 
 }
