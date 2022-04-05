@@ -3,7 +3,11 @@ package rucafe.cs213project4;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class ShopMainMenuController {
     //all instance variables in controllers should be private
@@ -11,15 +15,68 @@ public class ShopMainMenuController {
     @FXML
     void displayAllOrders(ActionEvent event) {
 
+        try {
+
+            FXMLLoader fxmlLoader = new FXMLLoader(ShopMainMenuMain.class.getResource("StoreOrdersView.fxml"));
+            Parent root1 = (Parent) (fxmlLoader.load());
+            Stage stage = new Stage();
+            stage.setTitle("Store Orders");
+            stage.setScene(new Scene(root1));
+
+            stage.show();
+
+
+        } catch (Exception e) {
+
+            System.err.println(e.getMessage());
+        }
+
+
     }
 
     @FXML
     void displayCurrentOrder(ActionEvent event) {
 
+        try {
+
+            FXMLLoader fxmlLoader = new FXMLLoader(ShopMainMenuMain.class.getResource("OrderingBasketView.fxml"));
+            Parent root1 = (Parent) (fxmlLoader.load());
+            Stage stage = new Stage();
+            stage.setTitle("Current Order");
+            stage.setScene(new Scene(root1));
+
+            stage.show();
+
+
+        } catch (Exception e) {
+
+            System.err.println(e.getMessage());
+        }
+
+
+
     }
 
     @FXML
     void orderCoffee(ActionEvent event) {
+
+        try {
+
+            FXMLLoader fxmlLoader = new FXMLLoader(ShopMainMenuMain.class.getResource("ShopCoffeeView.fxml"));
+            Parent root1 = (Parent) (fxmlLoader.load());
+            Stage stage = new Stage();
+            stage.setTitle("Order a Coffee");
+            stage.setScene(new Scene(root1));
+
+            stage.show();
+
+
+        } catch (Exception e) {
+
+            System.err.println(e.getMessage());
+        }
+
+
 
 
 
@@ -27,8 +84,21 @@ public class ShopMainMenuController {
 
     @FXML
     void orderDonut(ActionEvent event) {
+        try {
 
+            FXMLLoader fxmlLoader = new FXMLLoader(ShopMainMenuMain.class.getResource("ShopDonutView.fxml"));
+            Parent root1 = (Parent) (fxmlLoader.load());
+            Stage stage = new Stage();
+            stage.setTitle("Order a Donut");
+            stage.setScene(new Scene(root1));
+
+            stage.show();
+
+
+        } catch (Exception e) {
+
+            System.err.println(e.getMessage());
+        }
 
     }
-
 }

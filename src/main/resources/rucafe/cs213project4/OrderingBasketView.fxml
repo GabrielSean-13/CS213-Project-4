@@ -43,7 +43,7 @@
                   <Label fx:id="totalOrderCost" text="0.00" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <Label prefHeight="17.0" prefWidth="64.0" text="Sub-Total: $" GridPane.halignment="RIGHT" />
                   <Label fx:id="subTotalOrderCost" text="0.00" GridPane.columnIndex="1" />
-                  <Label text="Sales-Tax" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                  <Label text="Sales-Tax: $" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
                   <Label fx:id="totalOrderTax" text="0.00" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                </children>
             </GridPane>
