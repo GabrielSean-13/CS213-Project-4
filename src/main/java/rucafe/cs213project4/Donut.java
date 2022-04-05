@@ -1,9 +1,12 @@
 package rucafe.cs213project4;
 
+import java.util.ArrayList;
+
 public class Donut extends MenuItem {
 
     protected String flavor;
     protected String type;
+    protected ArrayList<String> addins;
 
     public static final String YEAST = "Yeast Donut";
     public static final String CAKE = "Cake Donut";
@@ -33,6 +36,18 @@ public class Donut extends MenuItem {
         }
 
         return this.price;
+    }
+    
+    public String getDonutType (){
+
+        return this.type;
+
+    }
+
+    public ArrayList<String> getDonutAddins(){
+
+        return this.addins;
+
     }
 
 }

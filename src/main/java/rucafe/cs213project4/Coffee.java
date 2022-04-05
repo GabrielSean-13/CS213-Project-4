@@ -43,6 +43,16 @@ public class Coffee extends MenuItem {
 
     }
 
+    public String getCoffeeSize(){
+
+        return this.size;
+    }
+
+    public ArrayList<String> getCoffeeAddins(){
+
+        return this.addins;
+    }
+
 }
 
 
