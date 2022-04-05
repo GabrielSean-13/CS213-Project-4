@@ -51,6 +51,7 @@ public class Coffee extends MenuItem {
     public ArrayList<String> getCoffeeAddins(){
 
         return this.addins;
+
     }
 
 }

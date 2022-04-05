@@ -6,6 +6,7 @@ public class Donut extends MenuItem {
 
     protected String flavor;
     protected String type;
+    protected int quantity;
     protected ArrayList<String> addins;
 
     public static final String YEAST = "Yeast Donut";
@@ -17,7 +18,7 @@ public class Donut extends MenuItem {
     public static final double HOLE_PRICE = 0.39;
 
 
-    public Donut(String donutType, String donutFlavor){
+    public Donut(String donutType, String donutFlavor, int quantity){
         type = donutType;
         flavor = donutFlavor;
 
@@ -37,7 +38,7 @@ public class Donut extends MenuItem {
 
         return this.price;
     }
-    
+
     public String getDonutType (){
 
         return this.type;
@@ -47,7 +48,6 @@ public class Donut extends MenuItem {
     public ArrayList<String> getDonutAddins(){
 
         return this.addins;
-
     }
 
 }
