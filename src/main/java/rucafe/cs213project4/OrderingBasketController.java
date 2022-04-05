@@ -6,12 +6,18 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 
 public class OrderingBasketController {
-    //all instance variables in controllers should be private
+
+    @FXML
+    private Label subTotalOrderCost;
+
     @FXML
     private Label totalOrderCost;
 
     @FXML
     private ListView<?> totalOrderOutput;
+
+    @FXML
+    private Label totalOrderTax;
 
     @FXML
     void placeOrder(ActionEvent event) {
@@ -24,3 +30,4 @@ public class OrderingBasketController {
     }
 
 }
+

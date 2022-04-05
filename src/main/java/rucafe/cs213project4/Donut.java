@@ -37,7 +37,7 @@ public class Donut extends MenuItem {
 
         return this.price;
     }
-    
+
     public String getDonutType (){
         return this.type;
     }
@@ -49,7 +49,6 @@ public class Donut extends MenuItem {
     public ArrayList<String> getDonutAddins(){
 
         return this.addins;
-
     }
 
     @Override

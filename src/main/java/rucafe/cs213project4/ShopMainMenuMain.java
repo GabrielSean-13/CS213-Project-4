@@ -21,7 +21,7 @@ public class ShopMainMenuMain extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(ShopMainMenuMain.class.getResource("OrderingBasketView.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(ShopMainMenuMain.class.getResource("ShopMainMenuView.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 480, 480);
         stage.setTitle("RUCafe");
         stage.setScene(scene);
