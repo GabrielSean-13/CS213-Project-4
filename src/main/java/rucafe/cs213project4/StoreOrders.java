@@ -5,10 +5,10 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class StoreOrders {
+public class StoreOrders implements Customizable{
 
     private ArrayList<Order> orders;
-    private static int orderNumber = 1;
+    //private static int orderNumber = 1;
 
     public StoreOrders() {
         orders = new ArrayList<>();
@@ -20,12 +20,24 @@ public class StoreOrders {
     }
 
 
-    public void addOrder(Order order){
-        orders.add(order);
+    public boolean add(Object obj){
+
+        if(obj instanceof Order){
+            Order order = (Order) obj;
+            orders.add(order);
+            return true;
+        }
+        return false;
     }
 
-    public void removeOrder(Order order){
-        orders.remove(order);
+    public boolean remove(Object obj){
+
+        if(obj instanceof Order){
+            Order order = (Order) obj;
+            orders.remove(order);
+            return true;
+        }
+        return false;
     }
 
 

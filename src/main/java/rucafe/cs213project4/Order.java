@@ -2,7 +2,7 @@ package rucafe.cs213project4;
 
 import java.util.ArrayList;
 
-public class Order {
+public class Order implements Customizable{
 
     public static final double TAX_MULTIPLIER = 1.06625;
 
@@ -14,12 +14,22 @@ public class Order {
         order = new ArrayList<>();
     }
 
-    public void addMenuItem(MenuItem item){
-        order.add(item);
+    public boolean add(Object obj){
+        if(obj instanceof Order){
+            MenuItem item = (MenuItem) obj;
+            order.add(item);
+            return true;
+        }
+        return false;
     }
 
-    public void removeMenuItem(MenuItem item){
-        order.remove(item);
+    public boolean remove(Object obj){
+        if(obj instanceof Order){
+            MenuItem item = (MenuItem) obj;
+            order.remove(item);
+            return true;
+        }
+        return false;
     }
     // how to add and remove with interface idk
 

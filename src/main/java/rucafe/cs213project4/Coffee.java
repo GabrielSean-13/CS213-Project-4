@@ -2,7 +2,7 @@ package rucafe.cs213project4;
 
 import java.util.ArrayList;
 
-public class Coffee extends MenuItem {
+public class Coffee extends MenuItem implements Customizable{
 
     public static final double PRICE_OF_SIZE_SHORT = 1.69;
     public static final double PRICE_OF_SIZE_TALL = 2.09;
@@ -57,6 +57,25 @@ public class Coffee extends MenuItem {
 
         return this.addins;
 
+    }
+
+
+    public boolean add(Object obj){
+        if(obj instanceof String){
+            String topping = (String) obj;
+            addins.add(topping);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean remove(Object obj){
+        if(obj instanceof String){
+            String topping = (String) obj;
+            addins.add(topping);
+            return true;
+        }
+        return false;
     }
 
     @Override
