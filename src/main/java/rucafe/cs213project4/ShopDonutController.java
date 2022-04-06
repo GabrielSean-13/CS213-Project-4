@@ -48,9 +48,6 @@ public class ShopDonutController {
         //look at quantity
         //create and put into order arraylist
 
-        System.out.println(donutFlavor.getSelectedToggle().toString());
-
-
         if (donutType.getSelectedToggle() != null && donutFlavor.getSelectedToggle() != null && !(quantityOfOrder.getText().equals(""))){
 
             //if here everything is filled out
@@ -64,9 +61,6 @@ public class ShopDonutController {
 
             String selectedDonutFlavor = selectedDonutFlavorButtonToString.substring(selectedDonutFlavorButtonToString.indexOf("'")+1, selectedDonutFlavorButtonToString.lastIndexOf("'"));
 
-
-
-
             Donut newDonutOrder = new Donut(selectedDonutType, selectedDonutFlavor);
 
             newDonutOrder.quantity = parseInt(quantityOfOrder.getText());
@@ -75,14 +69,7 @@ public class ShopDonutController {
 
             System.out.println(newDonutOrder.toString());
 
-
-
-
-
-
-
-
-
+            
         }else {
             //make pop up that says to populate
             System.out.println("error please populate all fields");
