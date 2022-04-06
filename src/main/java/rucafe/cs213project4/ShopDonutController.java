@@ -69,8 +69,6 @@ public class ShopDonutController {
         flavorChoiceThree.setText("A");
         flavorChoiceFour.setText("Donut");
 
-
-
     }
 
 

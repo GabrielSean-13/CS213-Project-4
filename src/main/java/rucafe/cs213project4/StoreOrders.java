@@ -8,6 +8,7 @@ import java.io.IOException;
 public class StoreOrders {
 
     private ArrayList<Order> orders;
+    private static int orderNumber = 1;
 
     public StoreOrders() {
         orders = new ArrayList<>();

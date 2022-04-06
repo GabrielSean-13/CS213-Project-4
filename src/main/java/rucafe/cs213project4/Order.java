@@ -6,7 +6,7 @@ public class Order {
 
     public static final double TAX_MULTIPLIER = 1.06625;
 
-    private int orderNumber;
+    private final int orderNumber;
     private ArrayList<MenuItem> order;
 
     public Order(int orderNumber){
@@ -14,11 +14,11 @@ public class Order {
         order = new ArrayList<>();
     }
 
-    public void addOrder(MenuItem item){
+    public void addMenuItem(MenuItem item){
         order.add(item);
     }
 
-    public void removeOrder(MenuItem item){
+    public void removeMenuItem(MenuItem item){
         order.remove(item);
     }
     // how to add and remove with interface idk
@@ -31,6 +31,10 @@ public class Order {
         }
 
         return sum;
+    }
+
+    public double orderPriceTax(){
+        return (this.orderPrice() * TAX_MULTIPLIER) ;
     }
 
     public ArrayList<MenuItem> getOrder(){
