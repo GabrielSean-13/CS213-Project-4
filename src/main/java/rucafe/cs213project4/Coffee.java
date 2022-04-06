@@ -27,7 +27,7 @@ public class Coffee extends MenuItem {
             price = PRICE_OF_SIZE_TALL;
         }else if (size.equals(GRANDE)){
             price = PRICE_OF_SIZE_GRANDE;
-        }else{
+        }else if (size.equals(VENTI){
             price = PRICE_OF_SIZE_VENTI;
         }
 
@@ -52,6 +52,25 @@ public class Coffee extends MenuItem {
 
         return this.addins;
 
+    }
+
+    @Override
+    public String toString(){
+
+        String str = this.getQuantity() + " " + this.getCoffeeSize() + " Coffee";
+        if(this.getQuantity() > 1){
+            str += "s";
+        }
+
+        if(getCoffeeAddins().size()>0){
+            str += " with:";
+            for(String s: getCoffeeAddins()){
+                str += " " + s;
+            }
+        }
+
+        // 3 Venti Coffees with: Sugar Milk
+        return str;
     }
 
 }
