@@ -43,10 +43,13 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ToggleButton mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Strawberry" GridPane.halignment="CENTER" />
-            <ToggleButton mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Vanilla" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-            <ToggleButton mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Chocolate" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
-            <ToggleButton mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Blueberry" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
+            <ToggleButton mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Strawberry" GridPane.halignment="CENTER">
+               <toggleGroup>
+                  <ToggleGroup fx:id="donutFlavor" />
+               </toggleGroup></ToggleButton>
+            <ToggleButton mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Vanilla" toggleGroup="$donutFlavor" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+            <ToggleButton mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Chocolate" toggleGroup="$donutFlavor" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+            <ToggleButton mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Blueberry" toggleGroup="$donutFlavor" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
          </children>
       </GridPane>
       <Button layoutX="158.0" layoutY="177.0" mnemonicParsing="false" onAction="#addToOrder" prefHeight="47.0" prefWidth="84.0" text="Add" />
