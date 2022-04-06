@@ -7,15 +7,15 @@ import javafx.scene.control.ListView;
 public class StoreOrdersController {
     //all instance variables in controllers should be private
     @FXML
-    private ListView<?> allOrdersOutput;
+    private ListView<String> allOrdersOutput;
 
     @FXML
-    void cancelOrder(ActionEvent event) {
+    private void cancelOrder(ActionEvent event) {
 
     }
 
     @FXML
-    void exportOrders(ActionEvent event) {
+    private void exportOrders() {
 
     }
 
