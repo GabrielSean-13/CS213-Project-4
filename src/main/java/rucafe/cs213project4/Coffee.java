@@ -27,7 +27,7 @@ public class Coffee extends MenuItem {
             price = PRICE_OF_SIZE_TALL;
         }else if (size.equals(GRANDE)){
             price = PRICE_OF_SIZE_GRANDE;
-        }else if (size.equals(VENTI){
+        }else if (size.equals(VENTI)){
             price = PRICE_OF_SIZE_VENTI;
         }
 

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -43,13 +43,13 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ToggleButton mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Strawberry" GridPane.halignment="CENTER">
+            <ToggleButton fx:id="flavorChoiceOne" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Strawberry" GridPane.halignment="CENTER">
                <toggleGroup>
                   <ToggleGroup fx:id="donutFlavor" />
                </toggleGroup></ToggleButton>
-            <ToggleButton mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Vanilla" toggleGroup="$donutFlavor" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-            <ToggleButton mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Chocolate" toggleGroup="$donutFlavor" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
-            <ToggleButton mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Blueberry" toggleGroup="$donutFlavor" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
+            <ToggleButton fx:id="flavorChoiceTwo" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Vanilla" toggleGroup="$donutFlavor" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+            <ToggleButton fx:id="flavorChoiceThree" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Chocolate" toggleGroup="$donutFlavor" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+            <ToggleButton fx:id="flavorChoiceFour" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Blueberry" toggleGroup="$donutFlavor" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
          </children>
       </GridPane>
       <Button layoutX="158.0" layoutY="177.0" mnemonicParsing="false" onAction="#addToOrder" prefHeight="47.0" prefWidth="84.0" text="Add" />
@@ -68,7 +68,7 @@
       </GridPane>
       <Button layoutX="170.0" layoutY="355.0" mnemonicParsing="false" onAction="#removeFromOrder" prefHeight="25.0" prefWidth="61.0" text="Remove" />
       <ListView layoutX="98.0" layoutY="244.0" prefHeight="100.0" prefWidth="204.0" />
-      <TextField fx:id="quantityOfOrder" layoutX="302.0" layoutY="188.0" prefHeight="25.0" prefWidth="46.0" />
       <Label layoutX="250.0" layoutY="192.0" text="Quantity:" />
+      <ChoiceBox fx:id="quantityOfOrder" layoutX="302.0" layoutY="188.0" prefHeight="25.0" prefWidth="49.0" />
    </children>
 </AnchorPane>
