@@ -10,10 +10,15 @@ public class Coffee extends MenuItem {
     public static final double PRICE_OF_SIZE_VENTI = 2.89;
     public static final double PRICE_OF_SINGLE_ADDIN = .30;
 
-    public static final String SHORT = "SHORT";
-    public static final String TALL = "TALL";
-    public static final String GRANDE = "GRANDE";
-    public static final String VENTI = "VENTI";
+    public static final String SHORT = "Short";
+    public static final String TALL = "Tall";
+    public static final String GRANDE = "Grande";
+    public static final String VENTI = "Venti";
+
+    public static final String CREAM = "Cream";
+    public static final String SYRUP = "Syrup";
+    public static final String CARAMEL = "Caramel";
+    public static final String WHIPPEDCREAM = "Whipped Cream";
 
     protected ArrayList<String> addins;
     public String size = null;
