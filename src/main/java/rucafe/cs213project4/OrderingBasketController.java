@@ -73,19 +73,22 @@ public class OrderingBasketController {
 
     }
 
+
     @FXML
-    void removeItemFromOrder(ActionEvent event) {
+    void removeItemFromOrder() {
 
-        //if an item has been selected to be removed
-
-        //else...aka if no itemselected or empty list
-
-        Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-        errorAlert.setHeaderText("The list is empty or an Order is not selected");
-        errorAlert.setContentText("Please make sure you've selected an order to cancel");
-        errorAlert.showAndWait();
-
-
+        if (totalOrderOutput.getSelectionModel().getSelectedItem() != null && (totalOrderOutput.getSelectionModel().getSelectedItem() instanceof Donut)){
+            shopMainMenuController.getDonutCustomerOrder().remove(totalOrderOutput.getSelectionModel().getSelectedItem());
+            updateOrders();
+        }else if(totalOrderOutput.getSelectionModel().getSelectedItem() != null && (totalOrderOutput.getSelectionModel().getSelectedItem() instanceof Coffee)){
+            shopMainMenuController.getCoffeeCustomerOrder().remove(totalOrderOutput.getSelectionModel().getSelectedItem());
+            updateOrders();
+        }else{
+            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+            errorAlert.setHeaderText("Item cancel is not valid");
+            errorAlert.setContentText("Please make sure you've selected an item to cancel");
+            errorAlert.showAndWait();
+        }
     }
 
 }

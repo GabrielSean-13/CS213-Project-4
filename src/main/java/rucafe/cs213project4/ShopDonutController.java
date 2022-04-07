@@ -163,7 +163,6 @@ public class ShopDonutController {
             errorAlert.setContentText("Please make sure you've selected an item to cancel");
             errorAlert.showAndWait();
         }
-
     }
 
     @FXML
