@@ -34,7 +34,6 @@ public class ShopDonutController {
     @FXML
     private ToggleGroup donutType;
 
-
     @FXML
     private ToggleButton flavorChoiceOne;
 
@@ -46,7 +45,6 @@ public class ShopDonutController {
 
     @FXML
     private ToggleButton flavorChoiceFour;
-
 
     @FXML
     private ChoiceBox<Integer> quantityOfOrder;
@@ -63,11 +61,16 @@ public class ShopDonutController {
         quantityOfOrder.getItems().addAll(ONE,TWO,THREE,FOUR,FIVE,SIX,SEVEN,EIGHT,NINE,TEN,ELEVEN,TWELVE);
 
         quantityOfOrder.setValue(ONE);
+       // yeastDonut.setSelected(true);
 
-        flavorChoiceOne.setText("Please");
-        flavorChoiceTwo.setText("Pick");
-        flavorChoiceThree.setText("A");
-        flavorChoiceFour.setText("Donut");
+        flavorChoiceOne.setText("Chocolate");
+        flavorChoiceTwo.setText("Strawberry");
+        flavorChoiceThree.setText("Cinnamon");
+        flavorChoiceFour.setText("Coconut");
+
+
+       // flavorChoiceOne.setSelected(true);
+
 
     }
 
@@ -98,7 +101,8 @@ public class ShopDonutController {
 
             newDonutOrder.quantity = quantityOfOrder.getSelectionModel().getSelectedIndex()+1;
 
-            //Order.addOrder(newDonutOrder);
+            //Order.add(newDonutOrder);
+
 
             System.out.println(newDonutOrder.toString());
 
@@ -119,7 +123,7 @@ public class ShopDonutController {
     }
 
     @FXML
-    void DonutHolesSelected(ActionEvent event) {
+    void DonutHolesSelected() {
 
         flavorChoiceOne.setText("Double Chocolate");
         flavorChoiceTwo.setText("Jelly Filled");
@@ -129,7 +133,7 @@ public class ShopDonutController {
     }
 
     @FXML
-    void cakeDonutSelected(ActionEvent event) {
+    void cakeDonutSelected() {
 
         flavorChoiceOne.setText("Red Velvet");
         flavorChoiceTwo.setText("Powder Sugar");
@@ -144,7 +148,7 @@ public class ShopDonutController {
     }
 
     @FXML
-    void yeastDonutSelected(ActionEvent event) {
+    void yeastDonutSelected() {
 
         flavorChoiceOne.setText("Chocolate");
         flavorChoiceTwo.setText("Strawberry");

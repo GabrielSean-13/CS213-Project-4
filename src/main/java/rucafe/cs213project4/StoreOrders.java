@@ -10,14 +10,20 @@ public class StoreOrders implements Customizable{
     private ArrayList<Order> orders;
     //private static int orderNumber = 1;
 
+
+    public ArrayList<Order> getOrderArrayList(){
+        return this.orders;
+    }
+
+    public void setOrderArrayList(ArrayList<Order> orders){
+        this.orders = orders;
+    }
+
     public StoreOrders() {
         orders = new ArrayList<>();
     }
 
 
-    public ArrayList<Order> getOrders(){
-        return orders;
-    }
 
 
     public boolean add(Object obj){

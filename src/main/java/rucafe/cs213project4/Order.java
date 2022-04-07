@@ -6,12 +6,14 @@ public class Order implements Customizable{
 
     public static final double TAX_MULTIPLIER = 1.06625;
 
+    private static int orderCount = 1;
     private final int orderNumber;
     private ArrayList<MenuItem> order;
 
-    public Order(int orderNumber){
-        this.orderNumber = orderNumber;
-        order = new ArrayList<>();
+    public Order(){
+        this.orderNumber = orderCount;
+        orderCount++;
+        order = new ArrayList<MenuItem>();
     }
 
     public boolean add(Object obj){
@@ -37,7 +39,7 @@ public class Order implements Customizable{
         double sum = 0;
 
         for(MenuItem item: order){
-            sum += item.itemPrice() * TAX_MULTIPLIER ;
+            sum += item.itemPrice() ;
         }
 
         return sum;
