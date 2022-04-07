@@ -1,9 +1,12 @@
 package rucafe.cs213project4;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
+import java.util.ArrayList;
 
 
 public class ShopDonutController {
@@ -21,7 +24,7 @@ public class ShopDonutController {
     public static final int ELEVEN = 11;
     public static final int TWELVE = 12;
 
-    private ShopMainMenuController shopMainMenuController;
+    private ShopMainMenuController shopMainMenuControllersDonut;
 
     //private Order order;
 
@@ -62,7 +65,21 @@ public class ShopDonutController {
     private ToggleButton yeastDonut;
 
     public void createShopMainMenuController(ShopMainMenuController shopMainMenuController){
-        this.shopMainMenuController = shopMainMenuController;
+        this.shopMainMenuControllersDonut = shopMainMenuController;
+        updateOrders();
+    }
+
+    public void updateOrders(){
+
+        ObservableList<MenuItem> created = FXCollections.observableArrayList();
+        if (shopMainMenuControllersDonut.getDonutCustomerOrder().getOrder().size() > 0) {
+            ObservableList<MenuItem> Orders = shopMainMenuControllersDonut.getDonutCustomerOrder().getOrder();
+            for (MenuItem item : Orders) {
+                created.add(item);
+            }
+        }
+        donutListView.setItems(created);
+
     }
 
     @FXML
@@ -80,14 +97,15 @@ public class ShopDonutController {
         flavorChoiceThree.setText("Cinnamon");
         flavorChoiceFour.setText("Coconut");
 
+        System.out.println(shopMainMenuControllersDonut);
+        //donutListView.setItems(shopMainMenuController.getDonutCustomerOrder().getOrder());
 
-        /*if (!shopMainMenuController.getDonutCustomerOrder().getOrder().isEmpty()){
+        if (shopMainMenuControllersDonut!=null){
 
-            donutListView.setItems(shopMainMenuController.getDonutCustomerOrder().getOrder());
-
+            donutListView.setItems(shopMainMenuControllersDonut.getDonutCustomerOrder().getOrder());
 
         }
-*/
+
 
 
     }
@@ -124,11 +142,13 @@ public class ShopDonutController {
             donutType.getSelectedToggle().setSelected(false);
             donutFlavor.getSelectedToggle().setSelected(false);
 
-            shopMainMenuController.getDonutCustomerOrder().add(newDonutOrder);
+            shopMainMenuControllersDonut.getDonutCustomerOrder().add(newDonutOrder);
 
-            System.out.println(shopMainMenuController.getDonutCustomerOrder().getOrder().toString());
+            System.out.println(shopMainMenuControllersDonut.getDonutCustomerOrder().getOrder().toString());
 
-            donutListView.setItems(shopMainMenuController.getDonutCustomerOrder().getOrder());
+            donutListView.setItems(shopMainMenuControllersDonut.getDonutCustomerOrder().getOrder());
+
+
 
         }else {
             //make pop up that says to populate

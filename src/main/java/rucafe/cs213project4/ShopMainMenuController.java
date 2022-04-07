@@ -111,7 +111,6 @@ public class ShopMainMenuController {
             stage.setOnCloseRequest(eventCalled -> enableAllButtons());
 
 
-
         } catch (Exception e) {
 
             System.err.println(e.getMessage());
@@ -210,6 +209,9 @@ public class ShopMainMenuController {
 
             stage.setOnCloseRequest(eventCalled -> enableAllButtons());
 
+            System.out.println(donutCustomerOrder);
+
+            System.out.println(getDonutCustomerOrder().getOrder().toString());
         /*
             FXMLLoader fxmlLoader = new FXMLLoader(ShopMainMenuMain.class.getResource("ShopDonutView.fxml"));
             Parent root1 = (Parent) (fxmlLoader.load());
