@@ -73,8 +73,8 @@ public class ShopDonutController {
 
         ObservableList<MenuItem> created = FXCollections.observableArrayList();
         if (shopMainMenuControllersDonut.getDonutCustomerOrder().getOrder().size() > 0) {
-            ObservableList<MenuItem> Orders = shopMainMenuControllersDonut.getDonutCustomerOrder().getOrder();
-            for (MenuItem item : Orders) {
+            ObservableList<MenuItem> Items = shopMainMenuControllersDonut.getDonutCustomerOrder().getOrder();
+            for (MenuItem item : Items) {
                 created.add(item);
             }
         }
@@ -145,8 +145,8 @@ public class ShopDonutController {
             shopMainMenuControllersDonut.getDonutCustomerOrder().add(newDonutOrder);
 
             System.out.println(shopMainMenuControllersDonut.getDonutCustomerOrder().getOrder().toString());
-
-            donutListView.setItems(shopMainMenuControllersDonut.getDonutCustomerOrder().getOrder());
+            updateOrders();
+            //donutListView.setItems(shopMainMenuControllersDonut.getDonutCustomerOrder().getOrder());
 
 
 
@@ -157,6 +157,21 @@ public class ShopDonutController {
             errorAlert.setContentText("Please make sure you've selected the Type & Flavor for the Donut(s)");
             errorAlert.showAndWait();
 
+        }
+
+    }
+
+    @FXML
+    void removeFromOrder() {
+
+        if (donutListView.getSelectionModel().getSelectedItem() != null){
+            shopMainMenuControllersDonut.getDonutCustomerOrder().remove(donutListView.getSelectionModel().getSelectedItem());
+            updateOrders();
+        }else {
+            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+            errorAlert.setHeaderText("Item cancel is not valid");
+            errorAlert.setContentText("Please make sure you've selected an item to cancel");
+            errorAlert.showAndWait();
         }
 
     }
@@ -181,10 +196,7 @@ public class ShopDonutController {
 
     }
 
-    @FXML
-    void removeFromOrder(ActionEvent event) {
 
-    }
 
     @FXML
     void yeastDonutSelected() {
