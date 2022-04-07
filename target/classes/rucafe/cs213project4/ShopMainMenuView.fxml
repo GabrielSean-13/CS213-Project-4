@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="205.0" prefWidth="296.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rucafe.cs213project4.ShopMainMenuController">
+<AnchorPane prefHeight="205.0" prefWidth="296.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rucafe.cs213project4.ShopMainMenuController">
    <children>
       <GridPane layoutX="10.0" layoutY="18.0" prefHeight="170.0" prefWidth="277.0">
          <columnConstraints>
@@ -19,14 +16,14 @@
             <RowConstraints maxHeight="89.0" minHeight="10.0" prefHeight="51.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#orderDonut" prefHeight="81.0" prefWidth="100.0" text="Donuts" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#orderCoffee" prefHeight="81.0" prefWidth="100.0" text="Coffee" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <Button mnemonicParsing="false" onAction="#displayCurrentOrder" prefHeight="36.0" prefWidth="76.0" text="Current Order" wrapText="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <Button fx:id="orderDonut" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#orderDonut" prefHeight="81.0" prefWidth="100.0" text="Donuts" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button fx:id="orderCoffee" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#orderCoffee" prefHeight="81.0" prefWidth="100.0" text="Coffee" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button fx:id="displayCurrentOrder" mnemonicParsing="false" onAction="#displayCurrentOrder" prefHeight="36.0" prefWidth="76.0" text="Current Order" wrapText="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <font>
                   <Font size="10.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#displayAllOrders" prefHeight="36.0" prefWidth="76.0" text="All Orders" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <Button fx:id="displayAllOrders" mnemonicParsing="false" onAction="#displayAllOrders" prefHeight="36.0" prefWidth="76.0" text="All Orders" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <font>
                   <Font size="10.0" />
                </font>
