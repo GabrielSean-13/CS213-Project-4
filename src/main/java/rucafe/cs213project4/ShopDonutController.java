@@ -64,6 +64,7 @@ public class ShopDonutController {
     @FXML
     public void initialize(){
 
+        order = new Order();
         quantityOfOrder.getItems().addAll(ONE,TWO,THREE,FOUR,FIVE,SIX,SEVEN,EIGHT,NINE,TEN,ELEVEN,TWELVE);
 
         quantityOfOrder.setValue(ONE);
@@ -116,6 +117,12 @@ public class ShopDonutController {
             System.out.println(newDonutOrder.toString());
 
             order.add(newDonutOrder);
+
+            shopMainMenuController.getOrder().add(newDonutOrder);
+
+            System.out.println(shopMainMenuController.getOrder().getOrder().size());
+            System.out.println(shopMainMenuController.getOrder().getOrder().toString());
+            //shopMainMenuController.setOrder();
 
             //shopMainMenuController.getStoreOrderArrayList().add(order);
 

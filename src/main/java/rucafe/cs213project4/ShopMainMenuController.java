@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class ShopMainMenuController {
 
     private StoreOrders storeOrders = new StoreOrders();
-    private Order order;
+    private Order order = new Order();
 
     //all instance variables in controllers should be private
     //this (the primary stage) must remain visible while navigating between guis
@@ -118,14 +118,26 @@ public class ShopMainMenuController {
     void orderDonut(ActionEvent event) {
         try {
 
-            FXMLLoader fxmlLoader = new FXMLLoader(ShopMainMenuMain.class.getResource("ShopDonutView.fxml"));
-            Parent root1 = (Parent) (fxmlLoader.load());
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ShopDonutView.fxml"));
+            Parent root1 = (Parent) (fxmlLoader.load()); // BorderPane pizzaCustomizer = (BorderPane) loader.load();
+            ShopDonutController shopDonutController = fxmlLoader.getController();
+            shopDonutController.createShopMainMenuController(this);
             Stage stage = new Stage();
             stage.setTitle("Order a Donut");
             stage.setScene(new Scene(root1));
             stage.resizableProperty().setValue(false);
             stage.show();
 
+        /*
+            FXMLLoader fxmlLoader = new FXMLLoader(ShopMainMenuMain.class.getResource("ShopDonutView.fxml"));
+            Parent root1 = (Parent) (fxmlLoader.load());
+            Stage stage = new Stage();
+            stage.setTitle("Order a Donut");
+            stage.setScene(new Scene(root1));
+            stage.resizableProperty().setValue(false);
+            createShopMainMenuController(shopMainMenuController);
+            stage.show();
+        */
 
         } catch (Exception e) {
 
