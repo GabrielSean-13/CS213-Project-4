@@ -42,6 +42,8 @@ public class ShopMainMenuController {
             stage.setTitle("Store Orders");
             stage.setScene(new Scene(root1));
 
+            stage.resizableProperty().setValue(false);
+
             stage.show();
 
 
@@ -63,7 +65,7 @@ public class ShopMainMenuController {
             Stage stage = new Stage();
             stage.setTitle("Current Order");
             stage.setScene(new Scene(root1));
-
+            stage.resizableProperty().setValue(false);
             stage.show();
 
 
@@ -86,7 +88,7 @@ public class ShopMainMenuController {
             Stage stage = new Stage();
             stage.setTitle("Order a Coffee");
             stage.setScene(new Scene(root1));
-
+            stage.resizableProperty().setValue(false);
             stage.show();
 
             //Create coffee instance
@@ -112,7 +114,7 @@ public class ShopMainMenuController {
             Stage stage = new Stage();
             stage.setTitle("Order a Donut");
             stage.setScene(new Scene(root1));
-
+            stage.resizableProperty().setValue(false);
             stage.show();
 
 

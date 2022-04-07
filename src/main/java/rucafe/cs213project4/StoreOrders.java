@@ -46,6 +46,18 @@ public class StoreOrders implements Customizable{
         return false;
     }
 
+    public boolean export(File file) {
+        try {
+            FileWriter output = new FileWriter(file);
+            for (Order order : orders)
+                output.write(order.toString() + "\n");
+            output.close();
+            return true;
+        } catch (IOException e) {
+            return false;
+        }
+    }
+
 
 
 
