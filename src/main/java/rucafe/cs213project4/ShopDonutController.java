@@ -3,7 +3,6 @@ package rucafe.cs213project4;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import rucafe.cs213project4.ShopMainMenuController;
 
 public class ShopDonutController {
 
@@ -22,7 +21,7 @@ public class ShopDonutController {
 
     private ShopMainMenuController shopMainMenuController;
 
-    private Order order;
+    //private Order order;
 
     @FXML
     private ToggleButton cakeDonut;
@@ -64,7 +63,7 @@ public class ShopDonutController {
     @FXML
     public void initialize(){
 
-        order = new Order();
+        //order = new Order();
         quantityOfOrder.getItems().addAll(ONE,TWO,THREE,FOUR,FIVE,SIX,SEVEN,EIGHT,NINE,TEN,ELEVEN,TWELVE);
 
         quantityOfOrder.setValue(ONE);
@@ -114,13 +113,13 @@ public class ShopDonutController {
             donutFlavor.getSelectedToggle().setSelected(false);
 
 
-            System.out.println(newDonutOrder.toString());
+            //System.out.println(newDonutOrder.toString());
 
-            order.add(newDonutOrder);
+            //order.add(newDonutOrder);
 
             shopMainMenuController.getOrder().add(newDonutOrder);
 
-            System.out.println(shopMainMenuController.getOrder().getOrder().size());
+            //System.out.println(shopMainMenuController.getOrder().getOrder().size());
             System.out.println(shopMainMenuController.getOrder().getOrder().toString());
             //shopMainMenuController.setOrder();
 

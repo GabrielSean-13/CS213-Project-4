@@ -92,15 +92,17 @@ public class ShopMainMenuController {
 
         try {
 
-            FXMLLoader fxmlLoader = new FXMLLoader(ShopMainMenuMain.class.getResource("ShopCoffeeView.fxml"));
-            Parent root1 = (Parent) (fxmlLoader.load());
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ShopCoffeeView.fxml"));
+            Parent root1 = (Parent) (fxmlLoader.load()); // BorderPane pizzaCustomizer = (BorderPane) loader.load();
+            ShopCoffeeController ShopCoffeeController = fxmlLoader.getController();
+            ShopCoffeeController.createShopMainMenuController(this);
             Stage stage = new Stage();
             stage.setTitle("Order a Coffee");
             stage.setScene(new Scene(root1));
             stage.resizableProperty().setValue(false);
             stage.show();
 
-            //Create coffee instance
+
 
 
         } catch (Exception e) {

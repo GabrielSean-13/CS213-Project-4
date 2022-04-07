@@ -7,12 +7,13 @@ import javafx.scene.control.*;
 import java.util.ArrayList;
 
 import static rucafe.cs213project4.Coffee.*;
-import static rucafe.cs213project4.Donut.*;
-import rucafe.cs213project4.Order;
 
 public class ShopCoffeeController {
 
-    private Order order;
+    //private Order order;
+
+    private ShopMainMenuController shopMainMenuController;
+
      @FXML
     private ToggleGroup coffeeType;
 
@@ -45,6 +46,14 @@ public class ShopCoffeeController {
 
     @FXML
     private ToggleButton whippedCreamAddin;
+
+    public void createShopMainMenuController(ShopMainMenuController shopMainMenuController){
+        this.shopMainMenuController = shopMainMenuController;
+    }
+
+
+
+
 
     @FXML
     void addCoffeeToOrder(ActionEvent event) {
@@ -80,8 +89,12 @@ public class ShopCoffeeController {
             String selectedCoffeeSize = selectedCoffeeSizeToString.substring(selectedCoffeeSizeToString.indexOf("'")+1, selectedCoffeeSizeToString.lastIndexOf("'"));
 
             Coffee newCoffee = new Coffee(selectedCoffeeSize, newCoffeeAddins);
+            newCoffee.quantity = 1;
 
-            order.getOrder().add(newCoffee);
+            shopMainMenuController.getOrder().add(newCoffee);
+
+            System.out.println(shopMainMenuController.getOrder().getOrder().toString());
+
 
 
 
@@ -91,7 +104,6 @@ public class ShopCoffeeController {
             caramelAddin.setSelected(false);
             whippedCreamAddin.setSelected(false);
 
-            System.out.println(order.getOrder().toString());
 
 
 
