@@ -17,7 +17,7 @@ public class Order implements Customizable{
     }
 
     public boolean add(Object obj){
-        if(obj instanceof Order){
+        if(obj instanceof MenuItem){
             MenuItem item = (MenuItem) obj;
             order.add(item);
             return true;
@@ -26,7 +26,7 @@ public class Order implements Customizable{
     }
 
     public boolean remove(Object obj){
-        if(obj instanceof Order){
+        if(obj instanceof MenuItem){
             MenuItem item = (MenuItem) obj;
             order.remove(item);
             return true;
