@@ -44,10 +44,10 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ToggleButton mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Cream" GridPane.halignment="CENTER" />
-            <ToggleButton mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Syrup" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-            <ToggleButton mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Caramel" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
-            <ToggleButton mnemonicParsing="false" prefHeight="42.0" prefWidth="65.0" text="Whipped Cream" wrapText="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
+            <ToggleButton fx:id="creamAddin" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Cream" GridPane.halignment="CENTER" />
+            <ToggleButton fx:id="syrupAddin" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Syrup" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+            <ToggleButton fx:id="caramelAddin" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Caramel" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+            <ToggleButton fx:id="whippedCreamAddin" mnemonicParsing="false" prefHeight="42.0" prefWidth="65.0" text="Whipped Cream" wrapText="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
          </children>
       </GridPane>
       <Button layoutX="158.0" layoutY="177.0" mnemonicParsing="false" onAction="#addCoffeeToOrder" prefHeight="47.0" prefWidth="84.0" text="Add" />

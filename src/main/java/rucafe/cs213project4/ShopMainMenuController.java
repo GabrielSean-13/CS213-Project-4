@@ -10,8 +10,13 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class ShopMainMenuController {
+
+    StoreOrders storeOrders = new StoreOrders();
+    private Order order;
     //all instance variables in controllers should be private
     //this (the primary stage) must remain visible while navigating between guis
+
+
     @FXML
     void displayAllOrders(ActionEvent event) {
 
@@ -22,6 +27,8 @@ public class ShopMainMenuController {
             Stage stage = new Stage();
             stage.setTitle("Store Orders");
             stage.setScene(new Scene(root1));
+
+            stage.resizableProperty().setValue(false);
 
             stage.show();
 
@@ -44,7 +51,7 @@ public class ShopMainMenuController {
             Stage stage = new Stage();
             stage.setTitle("Current Order");
             stage.setScene(new Scene(root1));
-
+            stage.resizableProperty().setValue(false);
             stage.show();
 
 
@@ -67,7 +74,7 @@ public class ShopMainMenuController {
             Stage stage = new Stage();
             stage.setTitle("Order a Coffee");
             stage.setScene(new Scene(root1));
-
+            stage.resizableProperty().setValue(false);
             stage.show();
 
 
@@ -91,7 +98,7 @@ public class ShopMainMenuController {
             Stage stage = new Stage();
             stage.setTitle("Order a Donut");
             stage.setScene(new Scene(root1));
-
+            stage.resizableProperty().setValue(false);
             stage.show();
 
 

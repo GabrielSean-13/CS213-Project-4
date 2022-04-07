@@ -2,10 +2,7 @@ package rucafe.cs213project4;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.ToggleButton;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 
 public class ShopDonutController {
 
@@ -21,6 +18,8 @@ public class ShopDonutController {
     public static final int TEN = 10;
     public static final int ELEVEN = 11;
     public static final int TWELVE = 12;
+
+    private Order order;
 
     @FXML
     private ToggleButton cakeDonut;
@@ -98,16 +97,27 @@ public class ShopDonutController {
 
             newDonutOrder.quantity = quantityOfOrder.getSelectionModel().getSelectedIndex()+1;
 
-            //Order.addOrder(newDonutOrder);
+            //add to arraylist
 
-            System.out.println(newDonutOrder.toString());
+            donutType.getSelectedToggle().setSelected(false);
+            donutFlavor.getSelectedToggle().setSelected(false);
+
+
+            //System.out.println(newDonutOrder.toString());
+
+            order.add(newDonutOrder);
+
+            System.out.println(order.getOrder().get(0));
 
 
 
 
         }else {
             //make pop up that says to populate
-            System.out.println("error please populate all fields");
+            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+            errorAlert.setHeaderText("Donut Order is not valid");
+            errorAlert.setContentText("Please make sure you've selected the Type & Flavor for the Donut(s)");
+            errorAlert.showAndWait();
 
 
 

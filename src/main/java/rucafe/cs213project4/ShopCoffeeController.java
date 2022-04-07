@@ -2,18 +2,18 @@ package rucafe.cs213project4;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.ToggleButton;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 
 import java.util.ArrayList;
 
 import static rucafe.cs213project4.Coffee.*;
+import static rucafe.cs213project4.Donut.*;
+import rucafe.cs213project4.Order;
 
 public class ShopCoffeeController {
-    //all instance variables in controllers should be private
-       @FXML
+
+    private Order order;
+     @FXML
     private ToggleGroup coffeeType;
 
     @FXML
@@ -38,7 +38,7 @@ public class ShopCoffeeController {
     private ToggleButton caramelAddin;
 
     @FXML
-    private ToggleButton creamAddiin;
+    private ToggleButton creamAddin;
 
     @FXML
     private ToggleButton syrupAddin;
@@ -49,14 +49,13 @@ public class ShopCoffeeController {
     @FXML
     void addCoffeeToOrder(ActionEvent event) {
 
-
-        if (coffeeType.getSelectedToggle() != null){
+        if (coffeeType.getSelectedToggle() != null && (creamAddin.isSelected() == true || syrupAddin.isSelected() == true || caramelAddin.isSelected() == true || whippedCreamAddin.isSelected() == true)){
 
             String selectedCoffeeSizeToString = coffeeType.getSelectedToggle().toString();
 
             ArrayList<String> newCoffeeAddins = new ArrayList<>();
 
-            if (creamAddiin.isSelected() == true){
+            if (creamAddin.isSelected() == true){
 
                 newCoffeeAddins.add(CREAM);
                 //for these we really want to access the public variable form the coffee class
@@ -82,23 +81,26 @@ public class ShopCoffeeController {
 
             Coffee newCoffee = new Coffee(selectedCoffeeSize, newCoffeeAddins);
 
-            
+            order.getOrder().add(newCoffee);
 
+            coffeeType.getSelectedToggle().setSelected(false);
+            creamAddin.setSelected(false);
+            syrupAddin.setSelected(false);
+            caramelAddin.setSelected(false);
+            whippedCreamAddin.setSelected(false);
 
-
-                    //then we want to desleect the buttons so that it's a brand new slate
+            System.out.println(order.getOrder().toString());
 
 
 
         }else{
-            //we want to have a pop up here that says wahtever
-            //then when we click okay it goes okay
+
+            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+            errorAlert.setHeaderText("Coffee Order is not valid");
+            errorAlert.setContentText("Please make sure you've selected the Size & Addins for the Coffee");
+            errorAlert.showAndWait();
 
         }
-
-
-
-
 
     }
 
