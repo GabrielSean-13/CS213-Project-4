@@ -3,6 +3,7 @@ package rucafe.cs213project4;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import rucafe.cs213project4.ShopMainMenuController;
 
 public class ShopDonutController {
 
@@ -19,8 +20,9 @@ public class ShopDonutController {
     public static final int ELEVEN = 11;
     public static final int TWELVE = 12;
 
-    private Order order;
+    private ShopMainMenuController shopMainMenuController;
 
+    private Order order;
 
     @FXML
     private ToggleButton cakeDonut;
@@ -34,7 +36,6 @@ public class ShopDonutController {
     @FXML
     private ToggleGroup donutType;
 
-
     @FXML
     private ToggleButton flavorChoiceOne;
 
@@ -47,7 +48,6 @@ public class ShopDonutController {
     @FXML
     private ToggleButton flavorChoiceFour;
 
-
     @FXML
     private ChoiceBox<Integer> quantityOfOrder;
 
@@ -57,17 +57,26 @@ public class ShopDonutController {
     @FXML
     private ToggleButton yeastDonut;
 
+    public void createShopMainMenuController(ShopMainMenuController shopMainMenuController){
+        this.shopMainMenuController = shopMainMenuController;
+    }
+
     @FXML
     public void initialize(){
 
         quantityOfOrder.getItems().addAll(ONE,TWO,THREE,FOUR,FIVE,SIX,SEVEN,EIGHT,NINE,TEN,ELEVEN,TWELVE);
 
         quantityOfOrder.setValue(ONE);
+       // yeastDonut.setSelected(true);
 
-        flavorChoiceOne.setText("Please");
-        flavorChoiceTwo.setText("Pick");
-        flavorChoiceThree.setText("A");
-        flavorChoiceFour.setText("Donut");
+        flavorChoiceOne.setText("Chocolate");
+        flavorChoiceTwo.setText("Strawberry");
+        flavorChoiceThree.setText("Cinnamon");
+        flavorChoiceFour.setText("Coconut");
+
+
+       // flavorChoiceOne.setSelected(true);
+
 
     }
 
@@ -104,11 +113,13 @@ public class ShopDonutController {
             donutFlavor.getSelectedToggle().setSelected(false);
 
 
-            //System.out.println(newDonutOrder.toString());
+            System.out.println(newDonutOrder.toString());
 
             order.add(newDonutOrder);
 
-            System.out.println(order.getOrder().toString());
+            //shopMainMenuController.getStoreOrderArrayList().add(order);
+
+            //System.out.println(shopMainMenuController.getStoreOrderArrayList().get(0));
 
 
 
@@ -130,7 +141,7 @@ public class ShopDonutController {
     }
 
     @FXML
-    void DonutHolesSelected(ActionEvent event) {
+    void DonutHolesSelected() {
 
         flavorChoiceOne.setText("Double Chocolate");
         flavorChoiceTwo.setText("Jelly Filled");
@@ -140,7 +151,7 @@ public class ShopDonutController {
     }
 
     @FXML
-    void cakeDonutSelected(ActionEvent event) {
+    void cakeDonutSelected() {
 
         flavorChoiceOne.setText("Red Velvet");
         flavorChoiceTwo.setText("Powder Sugar");
@@ -155,7 +166,7 @@ public class ShopDonutController {
     }
 
     @FXML
-    void yeastDonutSelected(ActionEvent event) {
+    void yeastDonutSelected() {
 
         flavorChoiceOne.setText("Chocolate");
         flavorChoiceTwo.setText("Strawberry");

@@ -1,5 +1,7 @@
 package rucafe.cs213project4;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,13 +10,25 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class ShopMainMenuController {
 
-    StoreOrders storeOrders = new StoreOrders();
+    private StoreOrders storeOrders = new StoreOrders();
     private Order order;
+
     //all instance variables in controllers should be private
     //this (the primary stage) must remain visible while navigating between guis
+
+
+    public ArrayList<Order> getStoreOrderArrayList(){
+        return this.storeOrders.getOrderArrayList();
+    }
+
+    public void setStoreOrderArrayList(ArrayList<Order> orders){
+        storeOrders.setOrderArrayList(orders);
+    }
+
 
 
     @FXML
@@ -76,6 +90,8 @@ public class ShopMainMenuController {
             stage.setScene(new Scene(root1));
             stage.resizableProperty().setValue(false);
             stage.show();
+
+            //Create coffee instance
 
 
         } catch (Exception e) {

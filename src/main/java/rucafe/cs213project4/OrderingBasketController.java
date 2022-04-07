@@ -20,7 +20,7 @@ public class OrderingBasketController {
     private Label totalOrderCost;
 
     @FXML
-    private ListView<?> totalOrderOutput;
+    private ListView<Order> totalOrderOutput;
 
     @FXML
     private Label totalOrderTax;
