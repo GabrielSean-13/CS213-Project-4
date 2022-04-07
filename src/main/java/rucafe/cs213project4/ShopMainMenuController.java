@@ -40,6 +40,8 @@ public class ShopMainMenuController {
 
     public ObservableList<MenuItem> getStoreOrderObservableList(){
 
+        totalCustomerOrder = new Order();
+
         totalCustomerOrder.getOrder().addAll(getCoffeeCustomerOrder().getOrder());
         totalCustomerOrder.getOrder().addAll(getDonutCustomerOrder().getOrder());
 
