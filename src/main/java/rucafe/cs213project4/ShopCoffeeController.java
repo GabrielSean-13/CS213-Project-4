@@ -146,14 +146,24 @@ public class ShopCoffeeController {
     }
 
     @FXML
+    void removeCoffeeFromOrder() {
+
+        if (totalCoffeeOrderOutput.getSelectionModel().getSelectedItem() != null){
+            shopMainMenuController.getDonutCustomerOrder().remove(totalCoffeeOrderOutput.getSelectionModel().getSelectedItem());
+            updateOrders();
+        }else {
+            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+            errorAlert.setHeaderText("Item cancel is not valid");
+            errorAlert.setContentText("Please make sure you've selected an item to cancel");
+            errorAlert.showAndWait();
+        }
+    }
+
+    @FXML
     void grandeCoffeeSelected(ActionEvent event) {
 
     }
 
-    @FXML
-    void removeCoffeeFromOrder(ActionEvent event) {
-
-    }
 
     @FXML
     void shortCoffeeSelected(ActionEvent event) {
