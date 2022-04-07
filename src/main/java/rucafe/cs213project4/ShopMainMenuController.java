@@ -15,25 +15,31 @@ import java.util.ArrayList;
 public class ShopMainMenuController {
 
     private StoreOrders storeOrders = new StoreOrders();
-    private Order order = new Order();
+    private Order donutCustomerOrder = new Order();
+    private Order CoffeeCustomerOrder = new Order();
 
     //all instance variables in controllers should be private
     //this (the primary stage) must remain visible while navigating between guis
 
 
-    public ArrayList<Order> getStoreOrderArrayList(){
+    public ObservableList<Order> getStoreOrderArrayList(){
         return this.storeOrders.getOrderArrayList();
     }
 
-    public void setStoreOrderArrayList(ArrayList<Order> orders){
+    public void setStoreOrderArrayList(ObservableList<Order> orders){
         storeOrders.setOrderArrayList(orders);
     }
 
-    public Order getOrder(){
-        return order;
+    public Order getDonutCustomerOrder(){
+        return donutCustomerOrder;
     }
 
-    public void setOrder(Order order){
+    public Order getCoffeeCustomerOrder(){
+
+        return CoffeeCustomerOrder;
+    }
+
+   /* public void setOrder(Order order){
         this.order = order;
     }
 
@@ -44,7 +50,7 @@ public class ShopMainMenuController {
 
     }
 
-
+*/
 
 
     @FXML

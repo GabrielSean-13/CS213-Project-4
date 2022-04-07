@@ -1,5 +1,8 @@
 package rucafe.cs213project4;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.util.ArrayList;
 import java.io.File;
 import java.io.FileWriter;
@@ -7,20 +10,23 @@ import java.io.IOException;
 
 public class StoreOrders implements Customizable{
 
-    private ArrayList<Order> orders;
+    private ObservableList<Order> orders;
     //private static int orderNumber = 1;
 
 
-    public ArrayList<Order> getOrderArrayList(){
+    public ObservableList<Order> getOrderArrayList(){
         return this.orders;
     }
 
-    public void setOrderArrayList(ArrayList<Order> orders){
+    public void setOrderArrayList(ObservableList<Order> orders){
         this.orders = orders;
     }
 
     public StoreOrders() {
-        orders = new ArrayList<>();
+
+        ObservableList<Order> storeOrders = FXCollections.observableArrayList();
+
+        orders = storeOrders ;
     }
 
 

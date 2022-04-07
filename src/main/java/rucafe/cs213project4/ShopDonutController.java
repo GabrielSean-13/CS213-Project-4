@@ -4,6 +4,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
+
+
 public class ShopDonutController {
 
     public static final int ONE = 1;
@@ -78,7 +80,13 @@ public class ShopDonutController {
         flavorChoiceFour.setText("Coconut");
 
 
-       // flavorChoiceOne.setSelected(true);
+        /*if (!shopMainMenuController.getDonutCustomerOrder().getOrder().isEmpty()){
+
+            donutListView.setItems(shopMainMenuController.getDonutCustomerOrder().getOrder());
+
+
+        }
+*/
 
 
     }
@@ -115,11 +123,11 @@ public class ShopDonutController {
             donutType.getSelectedToggle().setSelected(false);
             donutFlavor.getSelectedToggle().setSelected(false);
 
-            shopMainMenuController.getOrder().add(newDonutOrder);
+            shopMainMenuController.getDonutCustomerOrder().add(newDonutOrder);
 
-            System.out.println(shopMainMenuController.getOrder().getOrder().toString());
+            System.out.println(shopMainMenuController.getDonutCustomerOrder().getOrder().toString());
 
-            donutListView.setItems(shopMainMenuController.getOrder().getOrder());
+            donutListView.setItems(shopMainMenuController.getDonutCustomerOrder().getOrder());
 
         }else {
             //make pop up that says to populate

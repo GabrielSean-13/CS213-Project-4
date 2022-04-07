@@ -8,9 +8,11 @@ import javafx.scene.control.ListView;
 
 import rucafe.cs213project4.Order;
 
+import java.util.Collections;
+
 public class OrderingBasketController {
 
-    private Order order;
+    private ShopMainMenuController shopMainMenuController;
 
 
     @FXML
@@ -25,12 +27,23 @@ public class OrderingBasketController {
     @FXML
     private Label totalOrderTax;
 
+    void initialize(){
+
+        totalOrderOutput.setItems(shopMainMenuController.getStoreOrderArrayList());
+
+        shopMainMenuController.getStoreOrderArrayList().setAll(shopMainMenuController.getCoffeeCustomerOrder());
+        shopMainMenuController.getStoreOrderArrayList().setAll(shopMainMenuController.getDonutCustomerOrder());
+
+
+
+    }
+
     @FXML
     void placeOrder(ActionEvent event) {
 
 
 
-        if (order.getOrder().isEmpty() == true){
+        if (shopMainMenuController.getStoreOrderArrayList().isEmpty() == true){
 
             Alert errorAlert = new Alert(Alert.AlertType.ERROR);
             errorAlert.setHeaderText("The Order list is empty");

@@ -45,6 +45,14 @@ public class ShopCoffeeController {
     @FXML
     private ToggleButton whippedCreamAddin;
 
+    void initialize() {
+
+        totalCoffeeOrderOutput.setItems(shopMainMenuController.getCoffeeCustomerOrder().getOrder());
+
+    }
+
+
+
     public void createShopMainMenuController(ShopMainMenuController shopMainMenuController){
         this.shopMainMenuController = shopMainMenuController;
     }
@@ -89,9 +97,9 @@ public class ShopCoffeeController {
             Coffee newCoffee = new Coffee(selectedCoffeeSize, newCoffeeAddins);
             newCoffee.quantity = 1;
 
-            shopMainMenuController.getOrder().add(newCoffee);
+            shopMainMenuController.getCoffeeCustomerOrder().add(newCoffee);
 
-            System.out.println(shopMainMenuController.getOrder().getOrder().toString());
+            System.out.println(shopMainMenuController.getCoffeeCustomerOrder().getOrder().toString());
 
 
 
@@ -102,7 +110,7 @@ public class ShopCoffeeController {
             caramelAddin.setSelected(false);
             whippedCreamAddin.setSelected(false);
 
-            totalCoffeeOrderOutput.setItems(shopMainMenuController.getOrder().getOrder());
+            totalCoffeeOrderOutput.setItems(shopMainMenuController.getCoffeeCustomerOrder().getOrder());
 
 
 
