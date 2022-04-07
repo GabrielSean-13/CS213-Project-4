@@ -1,5 +1,8 @@
 package rucafe.cs213project4;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.util.ArrayList;
 
 public class Order implements Customizable{
@@ -8,18 +11,24 @@ public class Order implements Customizable{
 
     private static int orderCount = 1;
     private final int orderNumber;
-    private ArrayList<MenuItem> order;
-
-    public Order(){
+    private ObservableList<MenuItem> orderForListView;
+    //private ArrayList<MenuItem> order;
+    Order(){
         this.orderNumber = orderCount;
         orderCount++;
-        order = new ArrayList<MenuItem>();
+        //order = new ArrayList<MenuItem>();
+
+        ObservableList<MenuItem> observableList = FXCollections.observableArrayList();
+
+        orderForListView = observableList;
+
     }
 
     public boolean add(Object obj){
         if(obj instanceof MenuItem){
             MenuItem item = (MenuItem) obj;
-            order.add(item);
+            //order.add(item);
+            orderForListView.add(item);
             return true;
         }
         return false;
@@ -28,7 +37,9 @@ public class Order implements Customizable{
     public boolean remove(Object obj){
         if(obj instanceof MenuItem){
             MenuItem item = (MenuItem) obj;
-            order.remove(item);
+            //order.remove(item);
+            orderForListView.remove(item);
+
             return true;
         }
         return false;
@@ -38,7 +49,7 @@ public class Order implements Customizable{
     public double orderPrice(){
         double sum = 0;
 
-        for(MenuItem item: order){
+        for(MenuItem item: orderForListView){
             sum += item.itemPrice() ;
         }
 
@@ -49,8 +60,8 @@ public class Order implements Customizable{
         return (this.orderPrice() * TAX_MULTIPLIER) ;
     }
 
-    public ArrayList<MenuItem> getOrder(){
-        return order;
+    public ObservableList<MenuItem> getOrder(){
+        return orderForListView;
     }
 
     public int getOrderNumber(){
@@ -58,7 +69,7 @@ public class Order implements Customizable{
     }
 
     public int getQuantity(){
-        return order.size();
+        return orderForListView.size();
     }
 
 
