@@ -119,13 +119,15 @@ public class ShopDonutController {
 
             System.out.println(shopMainMenuController.getOrder().getOrder().toString());
 
+            donutListView.setItems(shopMainMenuController.getOrder().getOrder());
+
         }else {
             //make pop up that says to populate
             Alert errorAlert = new Alert(Alert.AlertType.ERROR);
             errorAlert.setHeaderText("Donut Order is not valid");
             errorAlert.setContentText("Please make sure you've selected the Type & Flavor for the Donut(s)");
             errorAlert.showAndWait();
-            
+
         }
 
     }

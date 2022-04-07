@@ -23,7 +23,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ToggleButton fx:id="yeastDonut" mnemonicParsing="false" onAction="#yeastDonutSelected" prefHeight="90.0" prefWidth="90.0" selected="true" text="Yeast Donut" GridPane.halignment="CENTER">
+            <ToggleButton fx:id="yeastDonut" mnemonicParsing="false" onAction="#yeastDonutSelected" prefHeight="90.0" prefWidth="90.0" text="Yeast Donut" GridPane.halignment="CENTER">
                <toggleGroup>
                   <ToggleGroup fx:id="donutType" />
                </toggleGroup>
@@ -43,7 +43,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ToggleButton fx:id="flavorChoiceOne" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" selected="true" text="Strawberry" GridPane.halignment="CENTER">
+            <ToggleButton fx:id="flavorChoiceOne" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Strawberry" GridPane.halignment="CENTER">
                <toggleGroup>
                   <ToggleGroup fx:id="donutFlavor" />
                </toggleGroup></ToggleButton>

@@ -37,6 +37,13 @@ public class ShopMainMenuController {
         this.order = order;
     }
 
+    public void clearOrder(){
+
+        this.order = new Order();
+
+
+    }
+
 
 
 

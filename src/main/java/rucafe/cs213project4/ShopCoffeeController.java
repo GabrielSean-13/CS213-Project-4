@@ -10,8 +10,6 @@ import static rucafe.cs213project4.Coffee.*;
 
 public class ShopCoffeeController {
 
-    //private Order order;
-
     private ShopMainMenuController shopMainMenuController;
 
      @FXML
@@ -30,7 +28,7 @@ public class ShopCoffeeController {
     private Label totalCoffeeOrderCost;
 
     @FXML
-    private ListView<Coffee> totalCoffeeOrderOutput;
+    private ListView<MenuItem> totalCoffeeOrderOutput;
 
     @FXML
     private ToggleButton ventiCoffee;
@@ -103,6 +101,8 @@ public class ShopCoffeeController {
             syrupAddin.setSelected(false);
             caramelAddin.setSelected(false);
             whippedCreamAddin.setSelected(false);
+
+            totalCoffeeOrderOutput.setItems(shopMainMenuController.getOrder().getOrder());
 
 
 
