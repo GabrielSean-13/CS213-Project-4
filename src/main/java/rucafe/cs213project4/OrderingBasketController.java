@@ -37,8 +37,6 @@ public class OrderingBasketController {
 
         totalOrderOutput.setItems(shopMainMenuController.getStoreOrderObservableList());
 
-        shopMainMenuController.getStoreOrderObservableList().setAll(shopMainMenuController.getCoffeeCustomerOrder().getOrder());
-        shopMainMenuController.getStoreOrderObservableList().setAll(shopMainMenuController.getDonutCustomerOrder().getOrder());
 
 
 
@@ -47,7 +45,7 @@ public class OrderingBasketController {
     public void updateOrders(){
 
         ObservableList<MenuItem> created = FXCollections.observableArrayList();
-        created.addAll(shopMainMenuController.getStoreOrderObservableList());
+        created.setAll(shopMainMenuController.getStoreOrderObservableList());
 
 
         totalOrderOutput.setItems(created);
