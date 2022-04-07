@@ -29,6 +29,15 @@ public class ShopMainMenuController {
         storeOrders.setOrderArrayList(orders);
     }
 
+    public Order getOrder(){
+        return order;
+    }
+
+    public void setOrder(Order order){
+        this.order = order;
+    }
+
+
 
 
     @FXML
