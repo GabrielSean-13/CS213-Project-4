@@ -74,8 +74,10 @@ public class ShopMainMenuController {
             stage.setScene(new Scene(root1));
 
             stage.resizableProperty().setValue(false);
-
+            disableAllButtons();
             stage.show();
+
+            stage.setOnCloseRequest(eventCalled -> enableAllButtons());
 
 
         } catch (Exception e) {
@@ -97,7 +99,11 @@ public class ShopMainMenuController {
             stage.setTitle("Current Order");
             stage.setScene(new Scene(root1));
             stage.resizableProperty().setValue(false);
+            disableAllButtons();
             stage.show();
+
+            stage.setOnCloseRequest(eventCalled -> enableAllButtons());
+
 
 
         } catch (Exception e) {
@@ -133,6 +139,20 @@ public class ShopMainMenuController {
         displayCurrentOrder.setDisable(true);
     }
 
+    public void enableAllButtons(){
+        orderDonut.setDisable(false);
+        orderCoffee.setDisable(false);
+        displayAllOrders.setDisable(false);
+        displayCurrentOrder.setDisable(false);
+    }
+
+    public void disableAllButtons(){
+        orderDonut.setDisable(true);
+        orderCoffee.setDisable(true);
+        displayAllOrders.setDisable(true);
+        displayCurrentOrder.setDisable(true);
+    }
+
     @FXML
     void orderCoffee(ActionEvent event) {
 
@@ -142,12 +162,16 @@ public class ShopMainMenuController {
             Parent root1 = (Parent) (fxmlLoader.load()); // BorderPane pizzaCustomizer = (BorderPane) loader.load();
             ShopCoffeeController ShopCoffeeController = fxmlLoader.getController();
             ShopCoffeeController.createShopMainMenuController(this);
-            disableNotCoffee();
+            //disableNotCoffee();
+
             Stage stage = new Stage();
             stage.setTitle("Order a Coffee");
             stage.setScene(new Scene(root1));
             stage.resizableProperty().setValue(false);
+            disableAllButtons();
             stage.show();
+
+            stage.setOnCloseRequest(eventCalled -> enableAllButtons());
 
 
 
@@ -175,7 +199,10 @@ public class ShopMainMenuController {
             stage.setTitle("Order a Donut");
             stage.setScene(new Scene(root1));
             stage.resizableProperty().setValue(false);
+            disableAllButtons();
             stage.show();
+
+            stage.setOnCloseRequest(eventCalled -> enableAllButtons());
 
         /*
             FXMLLoader fxmlLoader = new FXMLLoader(ShopMainMenuMain.class.getResource("ShopDonutView.fxml"));
