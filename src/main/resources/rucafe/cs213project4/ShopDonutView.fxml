@@ -32,7 +32,7 @@
             <ToggleButton fx:id="donutHoles" mnemonicParsing="false" onAction="#DonutHolesSelected" prefHeight="90.0" prefWidth="90.0" text="Donut Hole" toggleGroup="$donutType" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
          </children>
       </GridPane>
-      <GridPane layoutX="50.0" layoutY="128.0" prefHeight="30.0" prefWidth="300.0">
+      <GridPane layoutX="30.0" layoutY="115.0" prefHeight="57.0" prefWidth="341.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -43,13 +43,13 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ToggleButton fx:id="flavorChoiceOne" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Strawberry" GridPane.halignment="CENTER">
+            <ToggleButton fx:id="flavorChoiceOne" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="42.0" prefWidth="75.0" text="Strawberry" wrapText="true" GridPane.halignment="CENTER">
                <toggleGroup>
                   <ToggleGroup fx:id="donutFlavor" />
                </toggleGroup></ToggleButton>
-            <ToggleButton fx:id="flavorChoiceTwo" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Vanilla" toggleGroup="$donutFlavor" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-            <ToggleButton fx:id="flavorChoiceThree" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Chocolate" toggleGroup="$donutFlavor" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
-            <ToggleButton fx:id="flavorChoiceFour" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Blueberry" toggleGroup="$donutFlavor" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
+            <ToggleButton fx:id="flavorChoiceTwo" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="42.0" prefWidth="75.0" text="Vanilla" toggleGroup="$donutFlavor" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+            <ToggleButton fx:id="flavorChoiceThree" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="42.0" prefWidth="75.0" text="Chocolate" toggleGroup="$donutFlavor" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+            <ToggleButton fx:id="flavorChoiceFour" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="42.0" prefWidth="75.0" text="Blueberry" toggleGroup="$donutFlavor" wrapText="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
          </children>
       </GridPane>
       <Button layoutX="158.0" layoutY="177.0" mnemonicParsing="false" onAction="#addToOrder" prefHeight="47.0" prefWidth="84.0" text="Add" />

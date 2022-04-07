@@ -1,5 +1,7 @@
 package rucafe.cs213project4;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -14,7 +16,6 @@ public class OrderingBasketController {
 
     private ShopMainMenuController shopMainMenuController;
 
-
     @FXML
     private Label subTotalOrderCost;
 
@@ -22,28 +23,41 @@ public class OrderingBasketController {
     private Label totalOrderCost;
 
     @FXML
-    private ListView<Order> totalOrderOutput;
+    private ListView<MenuItem> totalOrderOutput;
 
     @FXML
     private Label totalOrderTax;
 
+    public void createShopMainMenuController(ShopMainMenuController shopMainMenuController){
+        this.shopMainMenuController = shopMainMenuController;
+        updateOrders();
+    }
+
     void initialize(){
 
-        totalOrderOutput.setItems(shopMainMenuController.getStoreOrderArrayList());
+        totalOrderOutput.setItems(shopMainMenuController.getStoreOrderObservableList());
 
-        shopMainMenuController.getStoreOrderArrayList().setAll(shopMainMenuController.getCoffeeCustomerOrder());
-        shopMainMenuController.getStoreOrderArrayList().setAll(shopMainMenuController.getDonutCustomerOrder());
+        shopMainMenuController.getStoreOrderObservableList().setAll(shopMainMenuController.getCoffeeCustomerOrder().getOrder());
+        shopMainMenuController.getStoreOrderObservableList().setAll(shopMainMenuController.getDonutCustomerOrder().getOrder());
 
 
+
+    }
+
+    public void updateOrders(){
+
+        ObservableList<MenuItem> created = FXCollections.observableArrayList();
+        created.addAll(shopMainMenuController.getStoreOrderObservableList());
+
+
+        totalOrderOutput.setItems(created);
 
     }
 
     @FXML
     void placeOrder(ActionEvent event) {
 
-
-
-        if (shopMainMenuController.getStoreOrderArrayList().isEmpty() == true){
+        if (shopMainMenuController.getStoreOrderObservableList().isEmpty() == true){
 
             Alert errorAlert = new Alert(Alert.AlertType.ERROR);
             errorAlert.setHeaderText("The Order list is empty");

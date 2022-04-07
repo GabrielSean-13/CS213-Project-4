@@ -1,5 +1,7 @@
 package rucafe.cs213project4;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -45,16 +47,33 @@ public class ShopCoffeeController {
     @FXML
     private ToggleButton whippedCreamAddin;
 
-    void initialize() {
 
-        totalCoffeeOrderOutput.setItems(shopMainMenuController.getCoffeeCustomerOrder().getOrder());
 
-    }
 
 
 
     public void createShopMainMenuController(ShopMainMenuController shopMainMenuController){
         this.shopMainMenuController = shopMainMenuController;
+        updateOrders();
+    }
+
+    public void updateOrders(){
+
+        ObservableList<MenuItem> created = FXCollections.observableArrayList();
+        if (shopMainMenuController.getCoffeeCustomerOrder().getOrder().size() > 0) {
+            ObservableList<MenuItem> Orders = shopMainMenuController.getCoffeeCustomerOrder().getOrder();
+            created.addAll(Orders);
+        }
+        totalCoffeeOrderOutput.setItems(created);
+
+    }
+
+
+    void initialize() {
+
+        totalCoffeeOrderOutput.setItems(shopMainMenuController.getCoffeeCustomerOrder().getOrder());
+
+
     }
 
 
