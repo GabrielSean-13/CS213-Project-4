@@ -32,17 +32,22 @@ public class ShopMainMenuController {
     private StoreOrders storeOrders = new StoreOrders();
     private Order donutCustomerOrder = new Order();
     private Order CoffeeCustomerOrder = new Order();
+    private Order totalCustomerOrder = new Order();
 
     //all instance variables in controllers should be private
     //this (the primary stage) must remain visible while navigating between guis
 
 
-    public ObservableList<Order> getStoreOrderArrayList(){
-        return this.storeOrders.getOrderArrayList();
+    public ObservableList<MenuItem> getStoreOrderObservableList(){
+
+        totalCustomerOrder.getOrder().addAll(getCoffeeCustomerOrder().getOrder());
+        totalCustomerOrder.getOrder().addAll(getDonutCustomerOrder().getOrder());
+
+        return this.totalCustomerOrder.getOrder();
     }
 
     public void setStoreOrderArrayList(ObservableList<Order> orders){
-        storeOrders.setOrderArrayList(orders);
+        storeOrders.getOrderObservableList();
     }
 
     public Order getDonutCustomerOrder(){
@@ -53,19 +58,6 @@ public class ShopMainMenuController {
 
         return CoffeeCustomerOrder;
     }
-
-   /* public void setOrder(Order order){
-        this.order = order;
-    }
-
-    public void clearOrder(){
-
-        this.order = new Order();
-
-
-    }
-
-*/
 
 
     @FXML
@@ -101,6 +93,8 @@ public class ShopMainMenuController {
 
             FXMLLoader fxmlLoader = new FXMLLoader(ShopMainMenuMain.class.getResource("OrderingBasketView.fxml"));
             Parent root1 = (Parent) (fxmlLoader.load());
+            OrderingBasketController orderingBasketController = fxmlLoader.getController();
+            orderingBasketController.createShopMainMenuController(this);
             Stage stage = new Stage();
             stage.setTitle("Current Order");
             stage.setScene(new Scene(root1));
@@ -109,6 +103,8 @@ public class ShopMainMenuController {
             stage.show();
 
             stage.setOnCloseRequest(eventCalled -> enableAllButtons());
+
+
 
 
         } catch (Exception e) {
@@ -167,8 +163,6 @@ public class ShopMainMenuController {
             Parent root1 = (Parent) (fxmlLoader.load()); // BorderPane pizzaCustomizer = (BorderPane) loader.load();
             ShopCoffeeController ShopCoffeeController = fxmlLoader.getController();
             ShopCoffeeController.createShopMainMenuController(this);
-            //disableNotCoffee();
-
             Stage stage = new Stage();
             stage.setTitle("Order a Coffee");
             stage.setScene(new Scene(root1));
@@ -177,6 +171,7 @@ public class ShopMainMenuController {
             stage.show();
 
             stage.setOnCloseRequest(eventCalled -> enableAllButtons());
+
 
 
 
@@ -209,9 +204,7 @@ public class ShopMainMenuController {
 
             stage.setOnCloseRequest(eventCalled -> enableAllButtons());
 
-            System.out.println(donutCustomerOrder);
 
-            System.out.println(getDonutCustomerOrder().getOrder().toString());
         /*
             FXMLLoader fxmlLoader = new FXMLLoader(ShopMainMenuMain.class.getResource("ShopDonutView.fxml"));
             Parent root1 = (Parent) (fxmlLoader.load());

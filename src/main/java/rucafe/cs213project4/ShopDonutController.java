@@ -72,11 +72,9 @@ public class ShopDonutController {
     public void updateOrders(){
 
         ObservableList<MenuItem> created = FXCollections.observableArrayList();
-        if (shopMainMenuControllersDonut.getDonutCustomerOrder().getOrder().size() > 0) {
+        if (shopMainMenuControllersDonut.getDonutCustomerOrder().getOrder().isEmpty() == false) {
             ObservableList<MenuItem> Orders = shopMainMenuControllersDonut.getDonutCustomerOrder().getOrder();
-            for (MenuItem item : Orders) {
-                created.add(item);
-            }
+            created.addAll(Orders);
         }
         donutListView.setItems(created);
 
@@ -97,14 +95,10 @@ public class ShopDonutController {
         flavorChoiceThree.setText("Cinnamon");
         flavorChoiceFour.setText("Coconut");
 
-        System.out.println(shopMainMenuControllersDonut);
+        //System.out.println(shopMainMenuControllersDonut);
         //donutListView.setItems(shopMainMenuController.getDonutCustomerOrder().getOrder());
 
-        if (shopMainMenuControllersDonut!=null){
 
-            donutListView.setItems(shopMainMenuControllersDonut.getDonutCustomerOrder().getOrder());
-
-        }
 
 
 
@@ -114,11 +108,6 @@ public class ShopDonutController {
 
     @FXML
     void addToOrder(ActionEvent event) {
-
-        //look at donuttype
-        //look at donutflavor
-        //look at quantity
-        //create and put into order arraylist
 
         if (donutType.getSelectedToggle() != null && donutFlavor.getSelectedToggle() != null){
 
@@ -137,10 +126,11 @@ public class ShopDonutController {
 
             newDonutOrder.quantity = quantityOfOrder.getSelectionModel().getSelectedIndex()+1;
 
-            //add to arraylist
-
             donutType.getSelectedToggle().setSelected(false);
             donutFlavor.getSelectedToggle().setSelected(false);
+
+           //we need to compare the name and type and see if they match
+            //if one matches we take its quantity and add it it the new one and put it into list
 
             shopMainMenuControllersDonut.getDonutCustomerOrder().add(newDonutOrder);
 

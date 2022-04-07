@@ -14,17 +14,18 @@ public class StoreOrders implements Customizable{
     //private static int orderNumber = 1;
 
 
-    public ObservableList<Order> getOrderArrayList(){
+    public ObservableList<Order> getOrderObservableList(){
         return this.orders;
     }
 
-    public void setOrderArrayList(ObservableList<Order> orders){
+    public void setOrderObservableList(ObservableList<Order> orders){
         this.orders = orders;
     }
 
     public StoreOrders() {
 
         ObservableList<Order> storeOrders = FXCollections.observableArrayList();
+
 
         orders = storeOrders ;
     }
