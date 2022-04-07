@@ -81,7 +81,9 @@ public class ShopCoffeeController {
 
             Coffee newCoffee = new Coffee(selectedCoffeeSize, newCoffeeAddins);
 
-            order.getOrder().add(newCoffee);
+            order.add(newCoffee);
+
+            order.
 
             coffeeType.getSelectedToggle().setSelected(false);
             creamAddin.setSelected(false);

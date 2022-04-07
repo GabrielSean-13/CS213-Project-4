@@ -21,6 +21,7 @@ public class ShopDonutController {
 
     private Order order;
 
+
     @FXML
     private ToggleButton cakeDonut;
 
@@ -107,7 +108,7 @@ public class ShopDonutController {
 
             order.add(newDonutOrder);
 
-            System.out.println(order.getOrder().get(0));
+            System.out.println(order.getOrder().toString());
 
 
 
