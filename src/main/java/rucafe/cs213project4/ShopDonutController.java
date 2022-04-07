@@ -51,6 +51,9 @@ public class ShopDonutController {
     private ChoiceBox<Integer> quantityOfOrder;
 
     @FXML
+    private ListView<MenuItem> donutListView;
+
+    @FXML
     private Label totalOrderCost;
 
     @FXML
@@ -112,23 +115,9 @@ public class ShopDonutController {
             donutType.getSelectedToggle().setSelected(false);
             donutFlavor.getSelectedToggle().setSelected(false);
 
-
-            //System.out.println(newDonutOrder.toString());
-
-            //order.add(newDonutOrder);
-
             shopMainMenuController.getOrder().add(newDonutOrder);
 
-            //System.out.println(shopMainMenuController.getOrder().getOrder().size());
             System.out.println(shopMainMenuController.getOrder().getOrder().toString());
-            //shopMainMenuController.setOrder();
-
-            //shopMainMenuController.getStoreOrderArrayList().add(order);
-
-            //System.out.println(shopMainMenuController.getStoreOrderArrayList().get(0));
-
-
-
 
         }else {
             //make pop up that says to populate
@@ -136,13 +125,8 @@ public class ShopDonutController {
             errorAlert.setHeaderText("Donut Order is not valid");
             errorAlert.setContentText("Please make sure you've selected the Type & Flavor for the Donut(s)");
             errorAlert.showAndWait();
-
-
-
+            
         }
-
-
-
 
     }
 
