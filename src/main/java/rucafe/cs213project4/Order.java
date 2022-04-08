@@ -9,16 +9,15 @@ public class Order implements Customizable{
 
     public static final double TAX_MULTIPLIER = 1.06625;
 
-    private static int orderCount = 1;
+    private static int orderCount;
     private final int orderNumber;
     private ObservableList<MenuItem> orderForListView;
 
     //private ArrayList<MenuItem> order;
     Order(){
-        this.orderNumber = orderCount;
+        this.orderNumber = orderCount/3;
         orderCount++;
         System.out.println(orderCount);
-        //order = new ArrayList<MenuItem>();
 
         ObservableList<MenuItem> observableList = FXCollections.observableArrayList();
 
