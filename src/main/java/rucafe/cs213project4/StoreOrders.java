@@ -55,8 +55,14 @@ public class StoreOrders implements Customizable{
     public boolean export(File file) {
         try {
             FileWriter output = new FileWriter(file);
-            for (Order order : orders)
-                output.write(order.toString() + " Total: $"+String.format("%.2f",order.orderPriceTax()) +"\n");
+            for (Order order : orders){
+                output.write("Order: "+order.toString() + " Total: $"+String.format("%.2f",order.orderPriceTax()));
+                output.write("\n");
+
+            }
+
+
+
             output.close();
             return true;
         } catch (IOException e) {
