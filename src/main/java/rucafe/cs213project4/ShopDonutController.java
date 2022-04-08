@@ -67,12 +67,14 @@ public class ShopDonutController {
     public void createShopMainMenuController(ShopMainMenuController shopMainMenuController){
         this.shopMainMenuControllersDonut = shopMainMenuController;
         updateOrders();
+        totalOrderCost.setText(  (String.format("%.2f",shopMainMenuController.getDonutCustomerOrder().orderPrice())));
+
     }
 
     public void updateOrders(){
 
         ObservableList<MenuItem> created = FXCollections.observableArrayList();
-        if (shopMainMenuControllersDonut.getDonutCustomerOrder().getOrder().isEmpty() == false) {
+        if (shopMainMenuControllersDonut.getDonutCustomerOrder().getOrder().size() > 0) {
             ObservableList<MenuItem> Orders = shopMainMenuControllersDonut.getDonutCustomerOrder().getOrder();
             created.addAll(Orders);
         }
@@ -92,7 +94,9 @@ public class ShopDonutController {
         flavorChoiceThree.setText("Cinnamon");
         flavorChoiceFour.setText("Coconut");
 
+
     }
+
 
 
 
@@ -102,7 +106,7 @@ public class ShopDonutController {
         if (donutType.getSelectedToggle() != null && donutFlavor.getSelectedToggle() != null) {
 
              boolean duplicateDonutFound = false;
-             
+
             String selectedDonutTypeButtonToString = donutType.getSelectedToggle().toString();
 
             String selectedDonutFlavorButtonToString = donutFlavor.getSelectedToggle().toString();
@@ -135,13 +139,7 @@ public class ShopDonutController {
 
             }
 
-
-
-
-
-
-
-
+            totalOrderCost.setText(String.format("%.2f",shopMainMenuControllersDonut.getDonutCustomerOrder().orderPrice()));
 
 
 
@@ -162,6 +160,8 @@ public class ShopDonutController {
         if (donutListView.getSelectionModel().getSelectedItem() != null){
             shopMainMenuControllersDonut.getDonutCustomerOrder().remove(donutListView.getSelectionModel().getSelectedItem());
             updateOrders();
+            totalOrderCost.setText(String.format("%.2f",shopMainMenuControllersDonut.getDonutCustomerOrder().orderPrice()));
+
         }else {
             Alert errorAlert = new Alert(Alert.AlertType.ERROR);
             errorAlert.setHeaderText("Item cancel is not valid");

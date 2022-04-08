@@ -31,13 +31,12 @@ public class OrderingBasketController {
     public void createShopMainMenuController(ShopMainMenuController shopMainMenuController){
         this.shopMainMenuController = shopMainMenuController;
         updateOrders();
+
     }
 
     void initialize(){
 
         totalOrderOutput.setItems(shopMainMenuController.getStoreOrderObservableList());
-
-
 
 
     }
@@ -49,6 +48,12 @@ public class OrderingBasketController {
 
 
         totalOrderOutput.setItems(created);
+
+        subTotalOrderCost.setText(  (String.format("%.2f",shopMainMenuController.getTotalCustomerOrder().orderPrice())));
+
+        totalOrderCost.setText(  (String.format("%.2f",shopMainMenuController.getTotalCustomerOrder().orderPriceTax())));
+
+        totalOrderTax.setText(  (String.format("%.2f",shopMainMenuController.getTotalCustomerOrder().orderPriceTax() -shopMainMenuController.getTotalCustomerOrder().orderPrice())));
 
     }
 
@@ -65,6 +70,13 @@ public class OrderingBasketController {
 
         }else{
 
+            shopMainMenuController.getStoreOrders().add(shopMainMenuController.getTotalCustomerOrder());
+            shopMainMenuController.getCoffeeCustomerOrder().getOrder().clear();
+            shopMainMenuController.getDonutCustomerOrder().getOrder().clear();
+            updateOrders();
+
+
+
             //we add the whole order arraylist to the storeorders arraylist
 
         }
@@ -77,9 +89,11 @@ public class OrderingBasketController {
 
         if (totalOrderOutput.getSelectionModel().getSelectedItem() != null && (totalOrderOutput.getSelectionModel().getSelectedItem() instanceof Donut)){
             shopMainMenuController.getDonutCustomerOrder().remove(totalOrderOutput.getSelectionModel().getSelectedItem());
+
             updateOrders();
         }else if(totalOrderOutput.getSelectionModel().getSelectedItem() != null && (totalOrderOutput.getSelectionModel().getSelectedItem() instanceof Coffee)){
             shopMainMenuController.getCoffeeCustomerOrder().remove(totalOrderOutput.getSelectionModel().getSelectedItem());
+
             updateOrders();
         }else{
             Alert errorAlert = new Alert(Alert.AlertType.ERROR);

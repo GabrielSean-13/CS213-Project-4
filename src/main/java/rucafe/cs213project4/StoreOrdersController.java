@@ -1,5 +1,7 @@
 package rucafe.cs213project4;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -16,11 +18,26 @@ public class StoreOrdersController {
     private StoreOrders storeOrders;
 
     @FXML
-    private ListView<String> allOrdersOutput;
+    private ListView<Order> allOrdersOutput;
 
-    private void displayAllOrders(){
+    public void initialize(){
 
     }
+
+    public void update(){
+
+
+        ObservableList<Order> created = FXCollections.observableArrayList();
+        created.setAll(shopMainMenuController.getStoreOrders().getOrderObservableList());
+
+        allOrdersOutput.setItems(created);
+    }
+
+    public void createShopMainMenuController(ShopMainMenuController shopMainMenuController){
+        this.shopMainMenuController = shopMainMenuController;
+        update();
+    }
+
 
     @FXML
     private void cancelOrder(ActionEvent event) {

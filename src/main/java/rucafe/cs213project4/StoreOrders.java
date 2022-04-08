@@ -67,8 +67,6 @@ public class StoreOrders implements Customizable{
 
 
 
-    //keeps a list of orders placed by the user
-    //probably hashtable?
 
     //must implement the customizable interface to provide the behavior for adding and removing orders
 
