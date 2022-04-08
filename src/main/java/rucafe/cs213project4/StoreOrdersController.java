@@ -84,10 +84,11 @@ public class StoreOrdersController {
             Stage stage = new Stage();
             File file = chooser.showSaveDialog(stage);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            if (storeOrders.export(file)) {
-                //alert.setContentText("Exported successfully.");
+            if (shopMainMenuController.getStoreOrders().export(file)) {
+                alert.setContentText("Exported successfully.");
+                //change the message pop up
             } else {
-                //alert.setContentText("An error occurred when exporting the file.");
+                alert.setContentText("An error occurred when exporting the file.");
             }
             alert.show();
         } catch (Exception e) {
