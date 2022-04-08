@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import static rucafe.cs213project4.Coffee.*;
@@ -55,6 +56,8 @@ public class ShopCoffeeController {
     public void createShopMainMenuController(ShopMainMenuController shopMainMenuController){
         this.shopMainMenuController = shopMainMenuController;
         updateOrders();
+        totalCoffeeOrderCost.setText(  (String.format("%.2f",shopMainMenuController.getCoffeeCustomerOrder().orderPrice())));
+
     }
 
     public void updateOrders(){
@@ -69,6 +72,9 @@ public class ShopCoffeeController {
     }
 
 
+
+
+
     void initialize() {
 
         totalCoffeeOrderOutput.setItems(shopMainMenuController.getCoffeeCustomerOrder().getOrder());
@@ -80,10 +86,13 @@ public class ShopCoffeeController {
 
 
 
+
     @FXML
     void addCoffeeToOrder(ActionEvent event) {
 
-        if (coffeeType.getSelectedToggle() != null && (creamAddin.isSelected() == true || syrupAddin.isSelected() == true || caramelAddin.isSelected() == true || whippedCreamAddin.isSelected() == true)){
+        if (coffeeType.getSelectedToggle() != null ){
+
+            boolean duplicateDonutFound = false;
 
             String selectedCoffeeSizeToString = coffeeType.getSelectedToggle().toString();
 
@@ -102,7 +111,7 @@ public class ShopCoffeeController {
             }
             if (caramelAddin.isSelected() == true){
 
-                newCoffeeAddins.add(CREAM);
+                newCoffeeAddins.add(CARAMEL);
 
             }
             if (whippedCreamAddin.isSelected() == true){
@@ -116,12 +125,23 @@ public class ShopCoffeeController {
             Coffee newCoffee = new Coffee(selectedCoffeeSize, newCoffeeAddins);
             newCoffee.quantity = 1;
 
-            shopMainMenuController.getCoffeeCustomerOrder().add(newCoffee);
 
-            System.out.println(shopMainMenuController.getCoffeeCustomerOrder().getOrder().toString());
+            for (MenuItem num : shopMainMenuController.getCoffeeCustomerOrder().getOrder()) {
+                if (num.compare(newCoffee) == true){
 
+                    duplicateDonutFound = true;
+                    num.quantity += newCoffee.quantity;
+                    updateOrders();
 
+                }
+            }
 
+            if (duplicateDonutFound == false){
+
+                shopMainMenuController.getCoffeeCustomerOrder().add(newCoffee);
+                updateOrders();
+
+            }
 
             coffeeType.getSelectedToggle().setSelected(false);
             creamAddin.setSelected(false);
@@ -131,7 +151,9 @@ public class ShopCoffeeController {
 
             totalCoffeeOrderOutput.setItems(shopMainMenuController.getCoffeeCustomerOrder().getOrder());
 
+            System.out.println(shopMainMenuController.getCoffeeCustomerOrder().orderPrice());
 
+            totalCoffeeOrderCost.setText(  (String.format("%.2f",shopMainMenuController.getCoffeeCustomerOrder().orderPrice())));
 
 
         }else{
@@ -151,12 +173,15 @@ public class ShopCoffeeController {
         if (totalCoffeeOrderOutput.getSelectionModel().getSelectedItem() != null){
             shopMainMenuController.getCoffeeCustomerOrder().remove(totalCoffeeOrderOutput.getSelectionModel().getSelectedItem());
             updateOrders();
+            totalCoffeeOrderCost.setText(  (String.format("%.2f",shopMainMenuController.getCoffeeCustomerOrder().orderPrice())));
+
         }else {
             Alert errorAlert = new Alert(Alert.AlertType.ERROR);
             errorAlert.setHeaderText("Item cancel is not valid");
             errorAlert.setContentText("Please make sure you've selected an item to cancel");
             errorAlert.showAndWait();
         }
+
     }
 
     @FXML

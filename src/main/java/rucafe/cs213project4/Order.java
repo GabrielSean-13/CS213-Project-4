@@ -12,10 +12,12 @@ public class Order implements Customizable{
     private static int orderCount = 1;
     private final int orderNumber;
     private ObservableList<MenuItem> orderForListView;
+
     //private ArrayList<MenuItem> order;
     Order(){
         this.orderNumber = orderCount;
         orderCount++;
+        System.out.println(orderCount);
         //order = new ArrayList<MenuItem>();
 
         ObservableList<MenuItem> observableList = FXCollections.observableArrayList();
@@ -50,10 +52,17 @@ public class Order implements Customizable{
         double sum = 0;
 
         for(MenuItem item: orderForListView){
-            sum += item.itemPrice() ;
+            sum += item.itemPrice() * item.getQuantity() ;
         }
 
         return sum;
+    }
+
+    public String toString(){
+
+        return orderNumber + " " + orderForListView.toString();
+
+
     }
 
     public double orderPriceTax(){

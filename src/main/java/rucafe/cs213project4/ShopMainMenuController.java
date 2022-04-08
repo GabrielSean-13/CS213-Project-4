@@ -65,6 +65,10 @@ public class ShopMainMenuController {
         return CoffeeCustomerOrder;
     }
 
+    public Order getTotalCustomerOrder(){return totalCustomerOrder;}
+
+    public StoreOrders getStoreOrders(){return storeOrders;}
+
 
     @FXML
     void displayAllOrders(ActionEvent event) {
@@ -73,6 +77,8 @@ public class ShopMainMenuController {
 
             FXMLLoader fxmlLoader = new FXMLLoader(ShopMainMenuMain.class.getResource("StoreOrdersView.fxml"));
             Parent root1 = (Parent) (fxmlLoader.load());
+            StoreOrdersController StoreOrdersController = fxmlLoader.getController();
+            StoreOrdersController.createShopMainMenuController(this);
             Stage stage = new Stage();
             stage.setTitle("Store Orders");
             stage.setScene(new Scene(root1));
@@ -211,16 +217,6 @@ public class ShopMainMenuController {
             stage.setOnCloseRequest(eventCalled -> enableAllButtons());
 
 
-        /*
-            FXMLLoader fxmlLoader = new FXMLLoader(ShopMainMenuMain.class.getResource("ShopDonutView.fxml"));
-            Parent root1 = (Parent) (fxmlLoader.load());
-            Stage stage = new Stage();
-            stage.setTitle("Order a Donut");
-            stage.setScene(new Scene(root1));
-            stage.resizableProperty().setValue(false);
-            createShopMainMenuController(shopMainMenuController);
-            stage.show();
-        */
 
         } catch (Exception e) {
 
