@@ -83,24 +83,14 @@ public class ShopDonutController {
     @FXML
     public void initialize(){
 
-
-        //order = new Order();
         quantityOfOrder.getItems().addAll(ONE,TWO,THREE,FOUR,FIVE,SIX,SEVEN,EIGHT,NINE,TEN,ELEVEN,TWELVE);
 
         quantityOfOrder.setValue(ONE);
-       // yeastDonut.setSelected(true);
 
         flavorChoiceOne.setText("Chocolate");
         flavorChoiceTwo.setText("Strawberry");
         flavorChoiceThree.setText("Cinnamon");
         flavorChoiceFour.setText("Coconut");
-
-        //System.out.println(shopMainMenuControllersDonut);
-        //donutListView.setItems(shopMainMenuController.getDonutCustomerOrder().getOrder());
-
-
-
-
 
     }
 
@@ -109,34 +99,49 @@ public class ShopDonutController {
     @FXML
     void addToOrder(ActionEvent event) {
 
-        if (donutType.getSelectedToggle() != null && donutFlavor.getSelectedToggle() != null){
+        if (donutType.getSelectedToggle() != null && donutFlavor.getSelectedToggle() != null) {
 
-            //if here everything is filled out
-            //god level java workaround
-
+             boolean duplicateDonutFound = false;
+             
             String selectedDonutTypeButtonToString = donutType.getSelectedToggle().toString();
 
             String selectedDonutFlavorButtonToString = donutFlavor.getSelectedToggle().toString();
 
-            String selectedDonutType = selectedDonutTypeButtonToString.substring(selectedDonutTypeButtonToString.indexOf("'")+1, selectedDonutTypeButtonToString.lastIndexOf("'"));
+            String selectedDonutType = selectedDonutTypeButtonToString.substring(selectedDonutTypeButtonToString.indexOf("'") + 1, selectedDonutTypeButtonToString.lastIndexOf("'"));
 
-            String selectedDonutFlavor = selectedDonutFlavorButtonToString.substring(selectedDonutFlavorButtonToString.indexOf("'")+1, selectedDonutFlavorButtonToString.lastIndexOf("'"));
+            String selectedDonutFlavor = selectedDonutFlavorButtonToString.substring(selectedDonutFlavorButtonToString.indexOf("'") + 1, selectedDonutFlavorButtonToString.lastIndexOf("'"));
 
             Donut newDonutOrder = new Donut(selectedDonutType, selectedDonutFlavor);
 
-            newDonutOrder.quantity = quantityOfOrder.getSelectionModel().getSelectedIndex()+1;
+            newDonutOrder.quantity = quantityOfOrder.getSelectionModel().getSelectedIndex() + 1;
 
             donutType.getSelectedToggle().setSelected(false);
             donutFlavor.getSelectedToggle().setSelected(false);
 
-           //we need to compare the name and type and see if they match
-            //if one matches we take its quantity and add it it the new one and put it into list
+            for (MenuItem num : shopMainMenuControllersDonut.getDonutCustomerOrder().getOrder()) {
+                if (num.compare(newDonutOrder) == true){
 
-            shopMainMenuControllersDonut.getDonutCustomerOrder().add(newDonutOrder);
+                    duplicateDonutFound = true;
+                    num.quantity += newDonutOrder.quantity;
+                    updateOrders();
 
-            System.out.println(shopMainMenuControllersDonut.getDonutCustomerOrder().getOrder().toString());
-            updateOrders();
-            //donutListView.setItems(shopMainMenuControllersDonut.getDonutCustomerOrder().getOrder());
+                }
+            }
+
+            if (duplicateDonutFound == false){
+
+                shopMainMenuControllersDonut.getDonutCustomerOrder().add(newDonutOrder);
+                updateOrders();
+
+            }
+
+
+
+
+
+
+
+
 
 
 
