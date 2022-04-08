@@ -57,6 +57,13 @@ public class Order implements Customizable{
         return sum;
     }
 
+    public String toString(){
+
+        return orderNumber + " " + orderForListView.toString();
+
+
+    }
+
     public double orderPriceTax(){
         return (this.orderPrice() * TAX_MULTIPLIER) ;
     }

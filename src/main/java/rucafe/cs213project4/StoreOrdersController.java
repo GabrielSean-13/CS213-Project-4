@@ -10,6 +10,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.util.ArrayList;
 
 public class StoreOrdersController {
     //all instance variables in controllers should be private
@@ -18,19 +19,28 @@ public class StoreOrdersController {
     private StoreOrders storeOrders;
 
     @FXML
-    private ListView<Order> allOrdersOutput;
+    private ListView<String> allOrdersOutput;
 
     public void initialize(){
 
     }
 
+
+
+
+
+
     public void update(){
 
 
-        ObservableList<Order> created = FXCollections.observableArrayList();
-        created.setAll(shopMainMenuController.getStoreOrders().getOrderObservableList());
+        ObservableList<String> lvElem = FXCollections.observableArrayList();
 
-        allOrdersOutput.setItems(created);
+        for (Order order: shopMainMenuController.getStoreOrders().getOrderObservableList())  {
+            lvElem.add(order.toString());
+        }
+
+
+        allOrdersOutput.setItems(lvElem);
     }
 
     public void createShopMainMenuController(ShopMainMenuController shopMainMenuController){
@@ -42,11 +52,21 @@ public class StoreOrdersController {
     @FXML
     private void cancelOrder(ActionEvent event) {
 
-        //if there's nothing in the arraylist
-        Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-        errorAlert.setHeaderText("The list is empty or an Order is not selected");
-        errorAlert.setContentText("Please make sure you've selected an order to cancel");
-        errorAlert.showAndWait();
+        if (allOrdersOutput.getSelectionModel().getSelectedItem() != null){
+
+            shopMainMenuController.getStoreOrders().getOrderObservableList().remove((allOrdersOutput.getSelectionModel().getSelectedIndex()));
+
+            update();
+            
+        }else {
+
+            //if there's nothing in the arraylist
+            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+            errorAlert.setHeaderText("The list is empty or an Order is not selected");
+            errorAlert.setContentText("Please make sure you've selected an order to cancel");
+            errorAlert.showAndWait();
+
+        }
 
     }
 
