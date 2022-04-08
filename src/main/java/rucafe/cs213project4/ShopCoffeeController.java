@@ -150,9 +150,6 @@ public class ShopCoffeeController {
             whippedCreamAddin.setSelected(false);
 
             totalCoffeeOrderOutput.setItems(shopMainMenuController.getCoffeeCustomerOrder().getOrder());
-
-            System.out.println(shopMainMenuController.getCoffeeCustomerOrder().orderPrice());
-
             totalCoffeeOrderCost.setText(  (String.format("%.2f",shopMainMenuController.getCoffeeCustomerOrder().orderPrice())));
 
 

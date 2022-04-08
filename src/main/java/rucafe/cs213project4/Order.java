@@ -8,16 +8,11 @@ import java.util.ArrayList;
 public class Order implements Customizable{
 
     public static final double TAX_MULTIPLIER = 1.06625;
-
-    private static int orderCount;
-    private final int orderNumber;
+    private int orderNumber;
     private ObservableList<MenuItem> orderForListView;
 
     //private ArrayList<MenuItem> order;
     Order(){
-        this.orderNumber = orderCount/3;
-        orderCount++;
-        System.out.println(orderCount);
 
         ObservableList<MenuItem> observableList = FXCollections.observableArrayList();
 
@@ -78,6 +73,13 @@ public class Order implements Customizable{
 
     public int getQuantity(){
         return orderForListView.size();
+    }
+
+    public void setOrderNumber(int uniqueOrderNumber){
+
+        this.orderNumber = uniqueOrderNumber;
+
+
     }
 
 
