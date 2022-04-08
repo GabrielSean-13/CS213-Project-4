@@ -35,7 +35,7 @@ public class StoreOrdersController {
 
         ObservableList<String> lvElem = FXCollections.observableArrayList();
 
-        for (Order order: shopMainMenuController.getStoreOrders().getOrderObservableList())  {
+        for (Order order: shopMainMenuController.getStoreOrders().getOrderList())  {
             lvElem.add(order.toString());
         }
 
@@ -54,8 +54,8 @@ public class StoreOrdersController {
 
         if (allOrdersOutput.getSelectionModel().getSelectedItem() != null){
 
-            shopMainMenuController.getStoreOrders().getOrderObservableList().remove((allOrdersOutput.getSelectionModel().getSelectedIndex()));
-
+            shopMainMenuController.getStoreOrders().getOrderList().remove((allOrdersOutput.getSelectionModel().getSelectedIndex()));
+            //getOrderObservableList > getOrderList
             update();
             
         }else {

@@ -65,8 +65,6 @@ public class ShopMainMenuController {
         return CoffeeCustomerOrder;
     }
 
-    public Order getTotalCustomerOrder(){return totalCustomerOrder;}
-
     public StoreOrders getStoreOrders(){return storeOrders;}
 
 
