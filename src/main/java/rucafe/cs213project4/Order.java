@@ -16,7 +16,7 @@ public class Order implements Customizable{
     //private ArrayList<MenuItem> order;
     Order(){
         this.orderNumber = orderCount;
-
+        orderCount++;
         System.out.println(orderCount);
         //order = new ArrayList<MenuItem>();
 
