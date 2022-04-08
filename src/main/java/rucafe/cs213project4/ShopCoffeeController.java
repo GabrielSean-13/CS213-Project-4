@@ -149,7 +149,7 @@ public class ShopCoffeeController {
     void removeCoffeeFromOrder() {
 
         if (totalCoffeeOrderOutput.getSelectionModel().getSelectedItem() != null){
-            shopMainMenuController.getDonutCustomerOrder().remove(totalCoffeeOrderOutput.getSelectionModel().getSelectedItem());
+            shopMainMenuController.getCoffeeCustomerOrder().remove(totalCoffeeOrderOutput.getSelectionModel().getSelectedItem());
             updateOrders();
         }else {
             Alert errorAlert = new Alert(Alert.AlertType.ERROR);
