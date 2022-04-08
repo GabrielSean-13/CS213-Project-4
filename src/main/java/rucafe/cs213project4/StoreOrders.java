@@ -14,7 +14,7 @@ public class StoreOrders implements Customizable{
     //private static int orderNumber = 1;
 
 
-    public ObservableList<Order> getOrderObservableList(){
+    public ObservableList<Order> getOrderList(){
         return this.orders;
     }
 

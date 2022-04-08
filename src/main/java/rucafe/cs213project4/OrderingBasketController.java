@@ -35,7 +35,7 @@ public class OrderingBasketController {
 
     void initialize(){
 
-        totalOrderOutput.setItems(shopMainMenuController.getStoreOrderObservableList());
+        totalOrderOutput.setItems(shopMainMenuController.getOrderObservableList());
 
 
 
@@ -45,7 +45,7 @@ public class OrderingBasketController {
     public void updateOrders(){
 
         ObservableList<MenuItem> created = FXCollections.observableArrayList();
-        created.setAll(shopMainMenuController.getStoreOrderObservableList());
+        created.setAll(shopMainMenuController.getOrderObservableList());
 
 
         totalOrderOutput.setItems(created);
@@ -55,7 +55,7 @@ public class OrderingBasketController {
     @FXML
     void placeOrder(ActionEvent event) {
 
-        if (shopMainMenuController.getStoreOrderObservableList().isEmpty() == true){
+        if (shopMainMenuController.getOrderObservableList().isEmpty()){
 
             Alert errorAlert = new Alert(Alert.AlertType.ERROR);
             errorAlert.setHeaderText("The Order list is empty");
@@ -64,7 +64,9 @@ public class OrderingBasketController {
 
 
         }else{
+            //Order order = new Order();
 
+            shopMainMenuController.getStoreOrderObservableList().add(shopMainMenuController.getTotalCustomerOrder());
             //we add the whole order arraylist to the storeorders arraylist
 
         }

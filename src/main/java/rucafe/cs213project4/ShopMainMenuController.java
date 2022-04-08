@@ -37,8 +37,15 @@ public class ShopMainMenuController {
     //all instance variables in controllers should be private
     //this (the primary stage) must remain visible while navigating between guis
 
+    public ObservableList<Order> getStoreOrderObservableList(){
+        return storeOrders.getOrderList();
+    }
 
-    public ObservableList<MenuItem> getStoreOrderObservableList(){
+    public Order getTotalCustomerOrder() {
+        return totalCustomerOrder;
+    }
+
+    public ObservableList<MenuItem> getOrderObservableList(){
 
         totalCustomerOrder = new Order();
 
@@ -48,9 +55,6 @@ public class ShopMainMenuController {
         return this.totalCustomerOrder.getOrder();
     }
 
-    public void setStoreOrderArrayList(ObservableList<Order> orders){
-        storeOrders.getOrderObservableList();
-    }
 
     public Order getDonutCustomerOrder(){
         return donutCustomerOrder;
