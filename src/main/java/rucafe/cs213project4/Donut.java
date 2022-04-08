@@ -53,4 +53,13 @@ public class Donut extends MenuItem {
         return str;
     }
 
+    public boolean compare(MenuItem menuItem){
+        if(menuItem instanceof Donut){
+            if(this.getFlavor().equals(((Donut) menuItem).getFlavor())
+                    && this.getDonutType().equals(((Donut) menuItem).getDonutType())){
+                return true;
+            }
+        }
+        return false;
+    }
 }

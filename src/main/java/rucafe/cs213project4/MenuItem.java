@@ -18,4 +18,14 @@ public class MenuItem {
         return this.quantity;
     }
 
+
+    public boolean compare(MenuItem menuItem){
+        if(menuItem instanceof Donut && this instanceof Donut){
+            return true;
+        }else if(menuItem instanceof Coffee && this instanceof Coffee){
+            return true;
+        }
+        return false;
+    }
+
 }

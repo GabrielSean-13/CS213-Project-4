@@ -78,6 +78,16 @@ public class Coffee extends MenuItem implements Customizable{
         return false;
     }
 
+    public boolean compare(MenuItem menuItem){
+        if(menuItem instanceof Coffee){
+            if(this.getCoffeeAddins().equals(((Coffee) menuItem).getCoffeeAddins())
+                    && this.getCoffeeSize().equals(((Coffee) menuItem).getCoffeeSize()))  {
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     public String toString(){
 
