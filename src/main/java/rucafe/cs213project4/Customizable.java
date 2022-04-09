@@ -8,8 +8,11 @@ package rucafe.cs213project4;
  * @author Mark Holleran, Abhitej Bokka
  */
 public interface Customizable {
+
     boolean add(Object obj);
+
     boolean remove(Object obj);
+
 }
 
 
