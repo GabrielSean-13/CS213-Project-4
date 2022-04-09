@@ -29,9 +29,17 @@ public class ShopMainMenuController {
     @FXML
     private Button displayAllOrders;
 
-    private StoreOrders storeOrders = new StoreOrders();
-    private Order donutCustomerOrder = new Order();
-    private Order CoffeeCustomerOrder = new Order();
+    private int runningUniqueOrderNumber = 0;
+    public int getUniqueOrderNumber(){
+
+        ++runningUniqueOrderNumber;
+
+        return runningUniqueOrderNumber;
+    }
+
+    private final StoreOrders storeOrders = new StoreOrders();
+    private final Order donutCustomerOrder = new Order();
+    private final Order CoffeeCustomerOrder = new Order();
     private Order totalCustomerOrder = new Order();
 
     //all instance variables in controllers should be private

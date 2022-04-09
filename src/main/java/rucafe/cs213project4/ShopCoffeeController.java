@@ -6,7 +6,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import static rucafe.cs213project4.Coffee.*;
@@ -55,6 +54,7 @@ public class ShopCoffeeController {
 
     public void createShopMainMenuController(ShopMainMenuController shopMainMenuController){
         this.shopMainMenuController = shopMainMenuController;
+        totalCoffeeOrderOutput.setItems(shopMainMenuController.getCoffeeCustomerOrder().getOrder());
         updateOrders();
         totalCoffeeOrderCost.setText(  (String.format("%.2f",shopMainMenuController.getCoffeeCustomerOrder().orderPrice())));
 
@@ -77,7 +77,7 @@ public class ShopCoffeeController {
 
     void initialize() {
 
-        totalCoffeeOrderOutput.setItems(shopMainMenuController.getCoffeeCustomerOrder().getOrder());
+
 
 
     }
@@ -150,9 +150,6 @@ public class ShopCoffeeController {
             whippedCreamAddin.setSelected(false);
 
             totalCoffeeOrderOutput.setItems(shopMainMenuController.getCoffeeCustomerOrder().getOrder());
-
-            System.out.println(shopMainMenuController.getCoffeeCustomerOrder().orderPrice());
-
             totalCoffeeOrderCost.setText(  (String.format("%.2f",shopMainMenuController.getCoffeeCustomerOrder().orderPrice())));
 
 

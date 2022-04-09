@@ -29,7 +29,7 @@ public class OrderingBasketController {
     private Label totalOrderTax;
 
     public void createShopMainMenuController(ShopMainMenuController shopMainMenuController){
-        
+
         this.shopMainMenuController = shopMainMenuController;
         updateOrders();
 
@@ -64,8 +64,10 @@ public class OrderingBasketController {
             errorAlert.setContentText("The list of Orders must be populated before placing an Order");
             errorAlert.showAndWait();
 
-        }else{
+            //System.out.println(shopMainMenuController.getUniqueOrderNumber());
 
+        }else{
+            shopMainMenuController.getTotalCustomerOrder().setOrderNumber(shopMainMenuController.getUniqueOrderNumber());
             shopMainMenuController.getStoreOrders().add(shopMainMenuController.getTotalCustomerOrder());
             shopMainMenuController.getCoffeeCustomerOrder().getOrder().clear();
             shopMainMenuController.getDonutCustomerOrder().getOrder().clear();
