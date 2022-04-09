@@ -12,7 +12,7 @@ import static rucafe.cs213project4.Coffee.*;
 /**
  * Class that represents the GUI interface for ordering a Coffee
  *
- * Within this class are all the GUI's components and their
+ * Within this class are all the GUI components and their
  * corresponding functionality
  *
  * @author Mark Holleran, Abhitej Bokka
