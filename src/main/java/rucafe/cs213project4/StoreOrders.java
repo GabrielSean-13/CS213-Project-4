@@ -2,13 +2,14 @@ package rucafe.cs213project4;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
 /**
  * Class that represents a StoreOrders Object
- *
+ * <p>
  * Methods within this class can create a StoreOrders Object,
  * return the ObservableList of Order Objects within a StoreOrders Object,
  * add and remove an Order Object to/from the ObservableList,
@@ -16,7 +17,7 @@ import java.io.IOException;
  *
  * @author Mark Holleran, Abhitej Bokka
  */
-public class StoreOrders implements Customizable{
+public class StoreOrders implements Customizable {
 
     private final ObservableList<Order> orders;
 
@@ -32,13 +33,12 @@ public class StoreOrders implements Customizable{
      * Adds an Order Object to the ObservableList of a StoreOrders Object
      *
      * @param obj Order Object to be added
-     *
      * @return True if Order Object was added from the ObservableList of a StoreOrders Object, false otherwise
      */
     @Override
-    public boolean add(Object obj){
+    public boolean add(Object obj) {
 
-        if(obj instanceof Order){
+        if (obj instanceof Order) {
             Order order = (Order) obj;
             orders.add(order);
             return true;
@@ -50,12 +50,11 @@ public class StoreOrders implements Customizable{
      * Removes an Order Object from the ObservableList of a StoreOrders Object
      *
      * @param obj Order Object to be removed
-     *
      * @return True if Order Object was removed from the ObservableList of a StoreOrders Object, false otherwise
      */
-    public boolean remove(Object obj){
+    public boolean remove(Object obj) {
 
-        if(obj instanceof Order){
+        if (obj instanceof Order) {
             Order order = (Order) obj;
             orders.remove(order);
             return true;
@@ -68,7 +67,7 @@ public class StoreOrders implements Customizable{
      *
      * @return ObservableList of Order Objects
      */
-    public ObservableList<Order> getOrderList(){
+    public ObservableList<Order> getOrderList() {
         return this.orders;
     }
 
@@ -76,14 +75,14 @@ public class StoreOrders implements Customizable{
      * Exports all Order Objects within the StoreOrder's ObservableList to a text file
      *
      * @param file File to be written to
-     *
      * @return True if file successfully written to, false otherwise
      */
     public boolean export(File file) {
         try {
             FileWriter output = new FileWriter(file);
-            for (Order order : orders){
-                output.write("Order: "+order.toString() + " Total: $"+String.format("%.2f",order.orderPriceTax()));
+            for (Order order : orders) {
+                output.write("Order: " + order.toString() + " Total: $"
+                        + String.format("%.2f", order.orderPriceTax()));
                 output.write("\n");
             }
             output.close();

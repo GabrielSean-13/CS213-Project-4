@@ -10,10 +10,8 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
-import java.util.ArrayList;
 
 public class StoreOrdersController {
-    //all instance variables in controllers should be private
 
     private ShopMainMenuController shopMainMenuController;
     private StoreOrders storeOrders;
@@ -21,48 +19,39 @@ public class StoreOrdersController {
     @FXML
     private ListView<String> allOrdersOutput;
 
-    public void initialize(){
+    public void initialize() {
 
     }
 
-
-
-
-
-
-
-
-    public void update(){
+    public void update() {
 
 
         ObservableList<String> lvElem = FXCollections.observableArrayList();
 
-        for (Order order: shopMainMenuController.getStoreOrders().getOrderList())  {
+        for (Order order : shopMainMenuController.getStoreOrders().getOrderList()) {
 
-            lvElem.add(order.toString() + " " +"Total: $" + String.format("%.2f",order.orderPriceTax()));
+            lvElem.add(order.toString() + " " + "Total: $" + String.format("%.2f", order.orderPriceTax()));
         }
 
         allOrdersOutput.setItems(lvElem);
     }
 
-    public void createShopMainMenuController(ShopMainMenuController shopMainMenuController){
+    public void createShopMainMenuController(ShopMainMenuController shopMainMenuController) {
         this.shopMainMenuController = shopMainMenuController;
         update();
     }
 
 
     @FXML
-    private void cancelOrder(ActionEvent event) {
+    private void cancelOrder() {
 
-        if (allOrdersOutput.getSelectionModel().getSelectedItem() != null){
+        if (allOrdersOutput.getSelectionModel().getSelectedItem() != null) {
 
             shopMainMenuController.getStoreOrders().getOrderList().remove((allOrdersOutput.getSelectionModel().getSelectedIndex()));
-            //getOrderObservableList > getOrderList
             update();
-            
-        }else {
 
-            //if there's nothing in the arraylist
+        } else {
+
             Alert errorAlert = new Alert(Alert.AlertType.ERROR);
             errorAlert.setHeaderText("The list is empty or an Order is not selected");
             errorAlert.setContentText("Please make sure you've selected an order to cancel");
@@ -75,11 +64,9 @@ public class StoreOrdersController {
     @FXML
     private void exportOrders() {
 
-        if (shopMainMenuController.getStoreOrderObservableList().isEmpty() == false) {
+        if (!shopMainMenuController.getStoreOrderObservableList().isEmpty()) {
 
             try {
-
-
                 FileChooser chooser = new FileChooser();
 
                 chooser.setTitle("Select a text file or create one to export to");
@@ -98,18 +85,21 @@ public class StoreOrdersController {
             } catch (Exception e) {
 
             }
-        }else{
-
-            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-
-            errorAlert.setHeaderText("There are no Orders to export");
-            errorAlert.setContentText("place an Order before trying to export.");
-
-            errorAlert.showAndWait();
-
+        } else {
+            createAlert();
         }
-    }
 
     }
+
+    private void createAlert(){
+        Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+
+        errorAlert.setHeaderText("There are no Orders to export");
+        errorAlert.setContentText("place an Order before trying to export.");
+
+        errorAlert.showAndWait();
+    }
+
+}
 
 

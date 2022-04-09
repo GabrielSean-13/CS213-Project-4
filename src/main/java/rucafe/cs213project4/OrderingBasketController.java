@@ -2,7 +2,6 @@ package rucafe.cs213project4;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
@@ -11,7 +10,7 @@ import javafx.scene.control.ListView;
 
 /**
  * Class that represents the GUI interface for an Order Object
- *
+ * <p>
  * Within th
  */
 public class OrderingBasketController {
@@ -30,7 +29,7 @@ public class OrderingBasketController {
     @FXML
     private Label totalOrderTax;
 
-    public void createShopMainMenuController(ShopMainMenuController shopMainMenuController){
+    public void createShopMainMenuController(ShopMainMenuController shopMainMenuController) {
 
         this.shopMainMenuController = shopMainMenuController;
         totalOrderOutput.setItems(shopMainMenuController.getOrderObservableList());
@@ -40,30 +39,30 @@ public class OrderingBasketController {
     }
 
 
-    public void updateOrders(){
+    public void updateOrders() {
 
         ObservableList<MenuItem> created = FXCollections.observableArrayList();
         created.setAll(shopMainMenuController.getOrderObservableList());
 
         totalOrderOutput.setItems(created);
 
-        subTotalOrderCost.setText(  (String.format("%.2f",shopMainMenuController.getTotalCustomerOrder().orderPrice())));
-        totalOrderCost.setText(  (String.format("%.2f",shopMainMenuController.getTotalCustomerOrder().orderPriceTax())));
-        totalOrderTax.setText(  (String.format("%.2f",shopMainMenuController.getTotalCustomerOrder().orderPriceTax() -shopMainMenuController.getTotalCustomerOrder().orderPrice())));
+        subTotalOrderCost.setText((String.format("%.2f", shopMainMenuController.getTotalCustomerOrder().orderPrice())));
+        totalOrderCost.setText((String.format("%.2f", shopMainMenuController.getTotalCustomerOrder().orderPriceTax())));
+        totalOrderTax.setText((String.format("%.2f", shopMainMenuController.getTotalCustomerOrder().orderPriceTax() - shopMainMenuController.getTotalCustomerOrder().orderPrice())));
 
     }
 
     @FXML
-    void placeOrder(ActionEvent event) {
+    void placeOrder() {
 
-        if (shopMainMenuController.getOrderObservableList().isEmpty()){
+        if (shopMainMenuController.getOrderObservableList().isEmpty()) {
 
             Alert errorAlert = new Alert(Alert.AlertType.ERROR);
             errorAlert.setHeaderText("The Order list is empty");
             errorAlert.setContentText("The list of Orders must be populated before placing an Order");
             errorAlert.showAndWait();
 
-        }else{
+        } else {
             shopMainMenuController.getTotalCustomerOrder().setOrderNumber(shopMainMenuController.getUniqueOrderNumber());
             shopMainMenuController.getStoreOrders().add(shopMainMenuController.getTotalCustomerOrder());
             shopMainMenuController.getCoffeeCustomerOrder().getOrder().clear();
@@ -76,15 +75,15 @@ public class OrderingBasketController {
     @FXML
     void removeItemFromOrder() {
 
-        if (totalOrderOutput.getSelectionModel().getSelectedItem() != null && (totalOrderOutput.getSelectionModel().getSelectedItem() instanceof Donut)){
+        if (totalOrderOutput.getSelectionModel().getSelectedItem() != null && (totalOrderOutput.getSelectionModel().getSelectedItem() instanceof Donut)) {
             shopMainMenuController.getDonutCustomerOrder().remove(totalOrderOutput.getSelectionModel().getSelectedItem());
             updateOrders();
 
-        }else if(totalOrderOutput.getSelectionModel().getSelectedItem() != null && (totalOrderOutput.getSelectionModel().getSelectedItem() instanceof Coffee)){
+        } else if (totalOrderOutput.getSelectionModel().getSelectedItem() != null && (totalOrderOutput.getSelectionModel().getSelectedItem() instanceof Coffee)) {
             shopMainMenuController.getCoffeeCustomerOrder().remove(totalOrderOutput.getSelectionModel().getSelectedItem());
             updateOrders();
 
-        }else{
+        } else {
             Alert errorAlert = new Alert(Alert.AlertType.ERROR);
             errorAlert.setHeaderText("Item cancel is not valid");
             errorAlert.setContentText("Please make sure you've selected an item to cancel");

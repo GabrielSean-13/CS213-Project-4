@@ -8,7 +8,25 @@ package rucafe.cs213project4;
  * @author Mark Holleran, Abhitej Bokka
  */
 public interface Customizable {
+
+
+    /**
+     * Serves multiple purposes of adding objects to observable lists
+     *
+     * Used to add an Object like a MenuItem to an order or Addins on a Coffee
+     *
+     * @param obj Object containing the required object to be added to a list
+     */
     boolean add(Object obj);
+
+
+    /**
+     * Serves multiple purposes of adding objects to observable lists
+     *
+     * Used to remove an Object like a MenuItem from an order or Addins on a Coffee
+     *
+     * @param obj Object containing the required object to be removed from a list
+     */
     boolean remove(Object obj);
 }
 

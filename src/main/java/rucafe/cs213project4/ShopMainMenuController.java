@@ -1,19 +1,13 @@
 package rucafe.cs213project4;
 
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
 import javafx.stage.Stage;
-
-import java.io.IOException;
-import java.util.ArrayList;
 
 public class ShopMainMenuController {
 
@@ -30,7 +24,8 @@ public class ShopMainMenuController {
     private Button displayAllOrders;
 
     private int runningUniqueOrderNumber = 0;
-    public int getUniqueOrderNumber(){
+
+    public int getUniqueOrderNumber() {
 
         ++runningUniqueOrderNumber;
 
@@ -42,10 +37,7 @@ public class ShopMainMenuController {
     private final Order CoffeeCustomerOrder = new Order();
     private Order totalCustomerOrder = new Order();
 
-    //all instance variables in controllers should be private
-    //this (the primary stage) must remain visible while navigating between guis
-
-    public ObservableList<Order> getStoreOrderObservableList(){
+    public ObservableList<Order> getStoreOrderObservableList() {
         return storeOrders.getOrderList();
     }
 
@@ -53,7 +45,7 @@ public class ShopMainMenuController {
         return totalCustomerOrder;
     }
 
-    public ObservableList<MenuItem> getOrderObservableList(){
+    public ObservableList<MenuItem> getOrderObservableList() {
 
         totalCustomerOrder = new Order();
 
@@ -64,16 +56,18 @@ public class ShopMainMenuController {
     }
 
 
-    public Order getDonutCustomerOrder(){
+    public Order getDonutCustomerOrder() {
         return donutCustomerOrder;
     }
 
-    public Order getCoffeeCustomerOrder(){
+    public Order getCoffeeCustomerOrder() {
 
         return CoffeeCustomerOrder;
     }
 
-    public StoreOrders getStoreOrders(){return storeOrders;}
+    public StoreOrders getStoreOrders() {
+        return storeOrders;
+    }
 
 
     @FXML
@@ -123,49 +117,22 @@ public class ShopMainMenuController {
             stage.setOnCloseRequest(eventCalled -> enableAllButtons());
 
 
-
-
         } catch (Exception e) {
 
             System.err.println(e.getMessage());
         }
 
 
-
     }
 
-    public void disableNotCoffee(){
-        orderDonut.setDisable(true);
-        displayAllOrders.setDisable(true);
-        displayCurrentOrder.setDisable(true);
-    }
-
-    public void disableNotDonut(){
-        orderCoffee.setDisable(true);
-        displayAllOrders.setDisable(true);
-        displayCurrentOrder.setDisable(true);
-    }
-
-    public void disableNotCurrent(){
-        orderDonut.setDisable(true);
-        orderCoffee.setDisable(true);
-        displayAllOrders.setDisable(true);
-    }
-
-    public void disableNotAll(){
-        orderDonut.setDisable(true);
-        orderCoffee.setDisable(true);
-        displayCurrentOrder.setDisable(true);
-    }
-
-    public void enableAllButtons(){
+    public void enableAllButtons() {
         orderDonut.setDisable(false);
         orderCoffee.setDisable(false);
         displayAllOrders.setDisable(false);
         displayCurrentOrder.setDisable(false);
     }
 
-    public void disableAllButtons(){
+    public void disableAllButtons() {
         orderDonut.setDisable(true);
         orderCoffee.setDisable(true);
         displayAllOrders.setDisable(true);
@@ -173,12 +140,12 @@ public class ShopMainMenuController {
     }
 
     @FXML
-    void orderCoffee(ActionEvent event) {
+    void orderCoffee() {
 
         try {
 
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ShopCoffeeView.fxml"));
-            Parent root1 = (Parent) (fxmlLoader.load()); // BorderPane pizzaCustomizer = (BorderPane) loader.load();
+            Parent root1 = (Parent) (fxmlLoader.load());
             ShopCoffeeController ShopCoffeeController = fxmlLoader.getController();
             ShopCoffeeController.createShopMainMenuController(this);
             Stage stage = new Stage();
@@ -191,26 +158,20 @@ public class ShopMainMenuController {
             stage.setOnCloseRequest(eventCalled -> enableAllButtons());
 
 
-
-
-
         } catch (Exception e) {
 
             System.err.println(e.getMessage());
         }
 
 
-
-
-
     }
 
     @FXML
-    void orderDonut(ActionEvent event) {
+    void orderDonut() {
         try {
 
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ShopDonutView.fxml"));
-            Parent root1 = (Parent) (fxmlLoader.load()); // BorderPane pizzaCustomizer = (BorderPane) loader.load();
+            Parent root1 = (Parent) (fxmlLoader.load());    
             ShopDonutController shopDonutController = fxmlLoader.getController();
             shopDonutController.createShopMainMenuController(this);
             Stage stage = new Stage();
@@ -221,7 +182,6 @@ public class ShopMainMenuController {
             stage.show();
 
             stage.setOnCloseRequest(eventCalled -> enableAllButtons());
-
 
 
         } catch (Exception e) {

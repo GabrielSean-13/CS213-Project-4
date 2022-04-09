@@ -5,7 +5,7 @@ import javafx.collections.ObservableList;
 
 /**
  * Class that represents an Order Object
- *
+ * <p>
  * Methods within this class can construct an Order Object,
  * add and remove an Object from the Order Object's ObservableList,
  * calculate the price of an Order with or without tax,
@@ -15,7 +15,7 @@ import javafx.collections.ObservableList;
  *
  * @author Mark Holleran, Abhitej Bokka
  */
-public class Order implements Customizable{
+public class Order implements Customizable {
 
     public static final double TAX_MULTIPLIER = 1.06625;
 
@@ -26,21 +26,18 @@ public class Order implements Customizable{
     /**
      * Default Order Object Constructor
      */
-    Order(){
-        ObservableList<MenuItem> observableList = FXCollections.observableArrayList();
-        orderForListView = observableList;
+    public Order() {
+        orderForListView = FXCollections.observableArrayList();
     }
 
     /**
      * Adds a MenuItem Object to the ObservableList of MenuItems of the Order Object
      *
      * @param obj MenuItem Object to be added
-     *
      * @return True if MenuItem Object is added, false otherwise
      */
-    public boolean add(Object obj){
-        if(obj instanceof MenuItem){
-            MenuItem item = (MenuItem) obj;
+    public boolean add(Object obj) {
+        if (obj instanceof MenuItem item) {
             orderForListView.add(item);
             return true;
         }
@@ -51,15 +48,11 @@ public class Order implements Customizable{
      * Removes a MenuItem Object from the ObservableList of MenuItems of the Order Object
      *
      * @param obj MenuItem Object to be removed
-     *
      * @return True if MenuItem Object is removed, false otherwise
      */
-    public boolean remove(Object obj){
-        if(obj instanceof MenuItem){
-            MenuItem item = (MenuItem) obj;
-            //order.remove(item);
+    public boolean remove(Object obj) {
+        if (obj instanceof MenuItem item) {
             orderForListView.remove(item);
-
             return true;
         }
         return false;
@@ -70,11 +63,11 @@ public class Order implements Customizable{
      *
      * @return Double representing the total Price of an Order Object
      */
-    public double orderPrice(){
+    public double orderPrice() {
         double sum = 0;
 
-        for(MenuItem item: orderForListView){
-            sum += item.itemPrice() * item.getQuantity() ;
+        for (MenuItem item : orderForListView) {
+            sum += item.itemPrice() * item.getQuantity();
         }
 
         return sum;
@@ -85,8 +78,8 @@ public class Order implements Customizable{
      *
      * @return Double representing the total Price with tax of an Order Object
      */
-    public double orderPriceTax(){
-        return (this.orderPrice() * TAX_MULTIPLIER) ;
+    public double orderPriceTax() {
+        return (this.orderPrice() * TAX_MULTIPLIER);
     }
 
     /**
@@ -94,26 +87,8 @@ public class Order implements Customizable{
      *
      * @return ObservableList containing MenuItems
      */
-    public ObservableList<MenuItem> getOrder(){
+    public ObservableList<MenuItem> getOrder() {
         return orderForListView;
-    }
-
-    /**
-     * Returns the unique order number of the Order Object
-     *
-     * @return Integer representing the Order Object's unique order number
-     */
-    public int getOrderNumber(){
-        return orderNumber;
-    }
-
-    /**
-     * Returns the number of MenuItems within the Order Object's ObservableList
-     *
-     * @return Integer representing the Order Object's ObservableList size
-     */
-    public int getQuantity(){
-        return orderForListView.size();
     }
 
     /**
@@ -121,7 +96,7 @@ public class Order implements Customizable{
      *
      * @param uniqueOrderNumber Integer representing an order number
      */
-    public void setOrderNumber(int uniqueOrderNumber){
+    public void setOrderNumber(int uniqueOrderNumber) {
         this.orderNumber = uniqueOrderNumber;
     }
 
@@ -132,7 +107,7 @@ public class Order implements Customizable{
      * the order number and all the Order's MenuItems within
      * it's ObservableList
      */
-    public String toString(){
+    public String toString() {
         return orderNumber + " " + orderForListView.toString();
     }
 }

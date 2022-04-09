@@ -43,12 +43,10 @@ public class Donut extends MenuItem {
      */
     @Override
     public double itemPrice(){
-        if(type.equals(YEAST)){
-            price = YEAST_PRICE;
-        }else if(type.equals(CAKE)){
-            price = CAKE_PRICE;
-        }else if(type.equals(HOLE)){
-            price = HOLE_PRICE;
+        switch (type) {
+            case YEAST -> price = YEAST_PRICE;
+            case CAKE -> price = CAKE_PRICE;
+            case HOLE -> price = HOLE_PRICE;
         }
         return this.price;
     }
@@ -80,10 +78,8 @@ public class Donut extends MenuItem {
      */
     public boolean compare(MenuItem menuItem){
         if(menuItem instanceof Donut){
-            if(this.getFlavor().equals(((Donut) menuItem).getFlavor())
-                    && this.getDonutType().equals(((Donut) menuItem).getDonutType())){
-                return true;
-            }
+            return this.getFlavor().equals(((Donut) menuItem).getFlavor())
+                    && this.getDonutType().equals(((Donut) menuItem).getDonutType());
         }
         return false;
     }
@@ -100,7 +96,7 @@ public class Donut extends MenuItem {
         if(this.getQuantity() > 1){
             str += "s";
         }
-        // 1 Glazed Yeast Donut
+
         return str;
     }
 }
