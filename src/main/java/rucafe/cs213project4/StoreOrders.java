@@ -7,26 +7,49 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+/**
+ *
+ *
+ * @author Mark Holleran, Abhitej Bokka
+ */
 public class StoreOrders implements Customizable{
 
     private ObservableList<Order> orders;
 
-    public ObservableList<Order> getOrderList(){
-        return this.orders;
-    }
 
-    public void setOrderObservableList(ObservableList<Order> orders){
-        this.orders = orders;
-    }
-
+    /**
+     * Default constructor for creating a StoreOrders Object
+     */
     public StoreOrders() {
 
         ObservableList<Order> storeOrders = FXCollections.observableArrayList();
         orders = storeOrders ;
     }
 
+    /**
+     *
+     * @return
+     */
+    public ObservableList<Order> getOrderList(){
+        return this.orders;
+    }
 
-@Override
+    /**
+     *
+     * @param orders
+     */
+    public void setOrderObservableList(ObservableList<Order> orders){
+        this.orders = orders;
+    }
+
+
+    /**
+     *
+     * @param obj
+     * 
+     * @return
+     */
+    @Override
     public boolean add(Object obj){
 
         if(obj instanceof Order){
@@ -37,6 +60,12 @@ public class StoreOrders implements Customizable{
         return false;
     }
 
+    /**
+     *
+     * @param obj
+     *
+     * @return
+     */
     public boolean remove(Object obj){
 
         if(obj instanceof Order){
@@ -47,22 +76,24 @@ public class StoreOrders implements Customizable{
         return false;
     }
 
+    /**
+     * Exports all Order Objects within the StoreOrder's ObservableList to a textfile
+     *
+     * @param file File to be written to
+     *
+     * @return True if file successfully written to, false otherwise
+     */
     public boolean export(File file) {
         try {
             FileWriter output = new FileWriter(file);
             for (Order order : orders){
                 output.write("Order: "+order.toString() + " Total: $"+String.format("%.2f",order.orderPriceTax()));
                 output.write("\n");
-
             }
-
-
-
             output.close();
             return true;
         } catch (IOException e) {
             return false;
         }
     }
-
 }
