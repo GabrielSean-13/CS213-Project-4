@@ -19,8 +19,6 @@ public class ShopMainMenuMain extends Application {
 
     public ShopMainMenuMain(){}
 
-
-
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(ShopMainMenuMain.class.getResource("ShopMainMenuView.fxml"));
