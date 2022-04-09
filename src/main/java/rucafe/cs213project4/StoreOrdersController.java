@@ -30,7 +30,7 @@ public class StoreOrdersController {
 
         for (Order order : shopMainMenuController.getStoreOrders().getOrderList()) {
 
-            lvElem.add(order.toString() + " " + "Total: $" + String.format("%.2f", order.orderPriceTax()));
+            lvElem.add("Order: " + order.toString() + " " + "Total: $" + String.format("%.2f", order.orderPriceTax()));
         }
 
         allOrdersOutput.setItems(lvElem);
