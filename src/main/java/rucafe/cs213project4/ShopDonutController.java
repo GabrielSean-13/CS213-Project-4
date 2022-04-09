@@ -140,6 +140,7 @@ public class ShopDonutController {
             }
 
             totalOrderCost.setText(String.format("%.2f",shopMainMenuControllersDonut.getDonutCustomerOrder().orderPrice()));
+            quantityOfOrder.setValue(ONE);
 
 
 

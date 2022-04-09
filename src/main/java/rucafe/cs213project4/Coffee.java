@@ -72,7 +72,7 @@ public class Coffee extends MenuItem implements Customizable{
      *
      * @return String representing the Coffee Object's Size parameter
      */
-    public String getCoffeeSize(){
+        public String getCoffeeSize(){
         return this.size;
     }
 
