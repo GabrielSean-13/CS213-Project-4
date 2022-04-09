@@ -18,22 +18,10 @@ public class ShopCoffeeController {
     private ToggleGroup coffeeType;
 
     @FXML
-    private ToggleButton grandeCoffee;
-
-    @FXML
-    private ToggleButton shortCoffee;
-
-    @FXML
-    private ToggleButton tallCoffee;
-
-    @FXML
     private Label totalCoffeeOrderCost;
 
     @FXML
     private ListView<MenuItem> totalCoffeeOrderOutput;
-
-    @FXML
-    private ToggleButton ventiCoffee;
 
     @FXML
     private ToggleButton caramelAddin;
@@ -46,11 +34,6 @@ public class ShopCoffeeController {
 
     @FXML
     private ToggleButton whippedCreamAddin;
-
-
-
-
-
 
     public void createShopMainMenuController(ShopMainMenuController shopMainMenuController){
         this.shopMainMenuController = shopMainMenuController;
@@ -71,97 +54,71 @@ public class ShopCoffeeController {
 
     }
 
+    public ArrayList<String> addTopping(){
+        ArrayList<String> newCoffeeAddins = new ArrayList<>();
+        if (creamAddin.isSelected()){
+            newCoffeeAddins.add(CREAM);
+        }
+        if (syrupAddin.isSelected()){
+            newCoffeeAddins.add(SYRUP);
+        }
+        if (caramelAddin.isSelected()){
+            newCoffeeAddins.add(CARAMEL);
+        }
+        if (whippedCreamAddin.isSelected()){
+            newCoffeeAddins.add(WHIPPEDCREAM);
+        }
 
-
-
-
-    void initialize() {
-
-
-
-
+        return newCoffeeAddins;
     }
 
-
-
-
-
-
     @FXML
-    void addCoffeeToOrder(ActionEvent event) {
+    public void addCoffeeToOrder() {
 
         if (coffeeType.getSelectedToggle() != null ){
 
             boolean duplicateDonutFound = false;
-
             String selectedCoffeeSizeToString = coffeeType.getSelectedToggle().toString();
-
-            ArrayList<String> newCoffeeAddins = new ArrayList<>();
-
-            if (creamAddin.isSelected() == true){
-
-                newCoffeeAddins.add(CREAM);
-                //for these we really want to access the public variable form the coffee class
-
-            }
-            if (syrupAddin.isSelected() == true){
-
-                newCoffeeAddins.add(SYRUP);
-
-            }
-            if (caramelAddin.isSelected() == true){
-
-                newCoffeeAddins.add(CARAMEL);
-
-            }
-            if (whippedCreamAddin.isSelected() == true){
-
-                newCoffeeAddins.add(WHIPPEDCREAM);
-
-            }
-
-            String selectedCoffeeSize = selectedCoffeeSizeToString.substring(selectedCoffeeSizeToString.indexOf("'")+1, selectedCoffeeSizeToString.lastIndexOf("'"));
-
-            Coffee newCoffee = new Coffee(selectedCoffeeSize, newCoffeeAddins);
+            String selectedCoffeeSize = selectedCoffeeSizeToString.substring(selectedCoffeeSizeToString.indexOf("'")+1,
+                    selectedCoffeeSizeToString.lastIndexOf("'"));
+            Coffee newCoffee = new Coffee(selectedCoffeeSize, addTopping());
             newCoffee.quantity = 1;
-
 
             for (MenuItem num : shopMainMenuController.getCoffeeCustomerOrder().getOrder()) {
                 if (num.compare(newCoffee) == true){
-
                     duplicateDonutFound = true;
                     num.quantity += newCoffee.quantity;
                     updateOrders();
-
                 }
             }
 
             if (duplicateDonutFound == false){
-
                 shopMainMenuController.getCoffeeCustomerOrder().add(newCoffee);
                 updateOrders();
-
             }
 
-            coffeeType.getSelectedToggle().setSelected(false);
-            creamAddin.setSelected(false);
-            syrupAddin.setSelected(false);
-            caramelAddin.setSelected(false);
-            whippedCreamAddin.setSelected(false);
-
+            resetButtons();
             totalCoffeeOrderOutput.setItems(shopMainMenuController.getCoffeeCustomerOrder().getOrder());
             totalCoffeeOrderCost.setText(  (String.format("%.2f",shopMainMenuController.getCoffeeCustomerOrder().orderPrice())));
 
-
         }else{
-
-            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-            errorAlert.setHeaderText("Coffee Order is not valid");
-            errorAlert.setContentText("Please make sure you've selected the Size & Addins for the Coffee");
-            errorAlert.showAndWait();
-
+            coffeeAlert();
         }
+    }
 
+    private void resetButtons(){
+        coffeeType.getSelectedToggle().setSelected(false);
+        creamAddin.setSelected(false);
+        syrupAddin.setSelected(false);
+        caramelAddin.setSelected(false);
+        whippedCreamAddin.setSelected(false);
+    }
+
+    private void coffeeAlert(){
+        Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+        errorAlert.setHeaderText("Coffee Order is not valid");
+        errorAlert.setContentText("Please make sure you've selected the Size & Addins for the Coffee");
+        errorAlert.showAndWait();
     }
 
     @FXML
@@ -182,24 +139,26 @@ public class ShopCoffeeController {
     }
 
     @FXML
-    void grandeCoffeeSelected(ActionEvent event) {
+    void grandeCoffeeSelected() {
 
     }
 
 
     @FXML
-    void shortCoffeeSelected(ActionEvent event) {
+    void shortCoffeeSelected() {
 
     }
 
     @FXML
-    void tallCoffeeSelected(ActionEvent event) {
+    void tallCoffeeSelected() {
 
     }
 
     @FXML
-    void ventiCoffeeSelected(ActionEvent event) {
+    void ventiCoffeeSelected() {
 
     }
+
+
 
 }

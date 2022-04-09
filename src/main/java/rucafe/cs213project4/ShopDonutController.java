@@ -6,9 +6,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
-import java.util.ArrayList;
-
-
 public class ShopDonutController {
 
     public static final int ONE = 1;
@@ -25,8 +22,6 @@ public class ShopDonutController {
     public static final int TWELVE = 12;
 
     private ShopMainMenuController shopMainMenuControllersDonut;
-
-    //private Order order;
 
     @FXML
     private ToggleButton cakeDonut;

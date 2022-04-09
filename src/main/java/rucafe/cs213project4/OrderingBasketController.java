@@ -8,10 +8,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 
-import rucafe.cs213project4.Order;
-
-import java.util.Collections;
-
 public class OrderingBasketController {
 
     private ShopMainMenuController shopMainMenuController;
@@ -35,12 +31,6 @@ public class OrderingBasketController {
 
     }
 
-    void initialize(){
-
-        totalOrderOutput.setItems(shopMainMenuController.getOrderObservableList());
-
-    }
-
     public void updateOrders(){
 
         ObservableList<MenuItem> created = FXCollections.observableArrayList();
@@ -55,7 +45,7 @@ public class OrderingBasketController {
     }
 
     @FXML
-    void placeOrder(ActionEvent event) {
+    void placeOrder() {
 
         if (shopMainMenuController.getOrderObservableList().isEmpty()){
 
