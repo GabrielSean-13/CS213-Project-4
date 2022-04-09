@@ -92,17 +92,17 @@ public class OrderingBasketController {
      *
      */
     @FXML
-    void removeItemFromOrder(ActionEvent event) {
+    void removeItemFromOrder() {
 
-        if (totalOrderOutput.getSelectionModel().getSelectedItem() != null && (totalOrderOutput.getSelectionModel().getSelectedItem() instanceof Donut)) {
+        if (totalOrderOutput.getSelectionModel().getSelectedItem() != null && (totalOrderOutput.getSelectionModel().getSelectedItem() instanceof Donut)){
             shopMainMenuController.getDonutCustomerOrder().remove(totalOrderOutput.getSelectionModel().getSelectedItem());
             updateOrders();
 
-        } else if (totalOrderOutput.getSelectionModel().getSelectedItem() != null && (totalOrderOutput.getSelectionModel().getSelectedItem() instanceof Coffee)) {
+        }else if(totalOrderOutput.getSelectionModel().getSelectedItem() != null && (totalOrderOutput.getSelectionModel().getSelectedItem() instanceof Coffee)){
             shopMainMenuController.getCoffeeCustomerOrder().remove(totalOrderOutput.getSelectionModel().getSelectedItem());
             updateOrders();
 
-        } else {
+        }else{
             Alert errorAlert = new Alert(Alert.AlertType.ERROR);
             errorAlert.setHeaderText("Item cancel is not valid");
             errorAlert.setContentText("Please make sure you've selected an item to cancel");
