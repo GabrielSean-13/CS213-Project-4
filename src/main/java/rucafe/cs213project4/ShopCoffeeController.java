@@ -5,14 +5,14 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-
 import java.util.ArrayList;
-
 import static rucafe.cs213project4.Coffee.*;
 
+/**
+ *
+ */
 public class ShopCoffeeController {
 
-    private ShopMainMenuController shopMainMenuController;
 
     @FXML
     private ToggleGroup coffeeType;
@@ -25,12 +25,6 @@ public class ShopCoffeeController {
 
     @FXML
     private ToggleButton tallCoffee;
-
-    @FXML
-    private Label totalCoffeeOrderCost;
-
-    @FXML
-    private ListView<MenuItem> totalCoffeeOrderOutput;
 
     @FXML
     private ToggleButton ventiCoffee;
@@ -47,8 +41,20 @@ public class ShopCoffeeController {
     @FXML
     private ToggleButton whippedCreamAddin;
 
+    @FXML
+    private Label totalCoffeeOrderCost;
 
-    public void createShopMainMenuController(ShopMainMenuController shopMainMenuController) {
+    @FXML
+    private ListView<MenuItem> totalCoffeeOrderOutput;
+
+    private ShopMainMenuController shopMainMenuController;
+
+
+    /**
+     *
+     * @param shopMainMenuController
+     */
+    public void createShopMainMenuController(ShopMainMenuController shopMainMenuController){
         this.shopMainMenuController = shopMainMenuController;
         totalCoffeeOrderOutput.setItems(shopMainMenuController.getCoffeeCustomerOrder().getOrder());
         updateOrders();
@@ -56,7 +62,10 @@ public class ShopCoffeeController {
 
     }
 
-    public void updateOrders() {
+    /**
+     *
+     */
+    public void updateOrders(){
 
         ObservableList<MenuItem> created = FXCollections.observableArrayList();
         if (shopMainMenuController.getCoffeeCustomerOrder().getOrder().size() > 0) {
@@ -133,6 +142,9 @@ public class ShopCoffeeController {
         whippedCreamAddin.setSelected(false);
     }
 
+    /**
+     *
+     */
     @FXML
     void removeCoffeeFromOrder() {
 
@@ -147,28 +159,5 @@ public class ShopCoffeeController {
             errorAlert.setContentText("Please make sure you've selected an item to cancel");
             errorAlert.showAndWait();
         }
-
     }
-
-    @FXML
-    void grandeCoffeeSelected(ActionEvent event) {
-
-    }
-
-
-    @FXML
-    void shortCoffeeSelected(ActionEvent event) {
-
-    }
-
-    @FXML
-    void tallCoffeeSelected(ActionEvent event) {
-
-    }
-
-    @FXML
-    void ventiCoffeeSelected(ActionEvent event) {
-
-    }
-
 }
