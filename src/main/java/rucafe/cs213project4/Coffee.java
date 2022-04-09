@@ -2,6 +2,15 @@ package rucafe.cs213project4;
 
 import java.util.ArrayList;
 
+/**
+ * Class that represents a Coffee MenuItem Object
+ *
+ * Methods within this class can create a Coffee Object, add or remove addins, calculate Coffee price,
+ * construct a Coffee Object, get Coffee size, get Coffee addins, compare between two Coffee Objects, and
+ * return a string representation of a Coffee Object
+ *
+ * @author Mark Holleran, Abhitej Bokka
+ */
 public class Coffee extends MenuItem implements Customizable{
 
     public static final double PRICE_OF_SIZE_SHORT = 1.69;
@@ -21,11 +30,31 @@ public class Coffee extends MenuItem implements Customizable{
     public static final String WHIPPEDCREAM = "Whipped Cream";
 
     protected ArrayList<String> addins;
+
     public String size = null;
 
+
+    /**
+     * Constructs a Coffee Object given a Size and Arraylist of Addins as parameters
+     *
+     * @param size String representing the Size of the Coffee Object
+     * @param addins Arraylist of String Objects containing the Addins of the Coffee Object
+     *
+     */
+    public Coffee(String size, ArrayList<String> addins){
+        this.size = size;
+        this.addins = addins;
+        this.price = itemPrice();
+    }
+
+    /**
+     * Calculates the price of a Coffee Object based on
+     * it's size and number of addins.
+     *
+     * @return Double representing the cost of the Coffee Object
+     */
     @Override
     public double itemPrice(){
-
         if (size.equals(SHORT)){
             price = PRICE_OF_SIZE_SHORT;
         }else if (size.equals(TALL)){
@@ -35,31 +64,33 @@ public class Coffee extends MenuItem implements Customizable{
         }else if (size.equals(VENTI)){
             price = PRICE_OF_SIZE_VENTI;
         }
-
         return this.price + (addins.size() * PRICE_OF_SINGLE_ADDIN);
-
     }
 
-    public Coffee(String size, ArrayList<String> addins){
-
-        this.size = size;
-        this.addins = addins;
-        this.price = itemPrice();
-
-    }
-
+    /**
+     * Returns the target Coffee Object's Size parameter
+     *
+     * @return String representing the Coffee Object's Size parameter
+     */
     public String getCoffeeSize(){
-
         return this.size;
     }
 
+    /**
+     * Returns the target Coffee Object's ArrayList of Addins
+     *
+     * @return ArrayList of Strings containing all of the Addins that the Coffee Object has
+     */
     public ArrayList<String> getCoffeeAddins(){
-
         return this.addins;
-
     }
 
-
+    /**
+     * Adds an Addin to the target Coffee Object's ArrayList of Addins
+     *
+     * @param obj String containing the Addin to be added
+     * @return True if successfully added, false otherwise
+     */
     public boolean add(Object obj){
         if(obj instanceof String){
             String topping = (String) obj;
@@ -69,15 +100,29 @@ public class Coffee extends MenuItem implements Customizable{
         return false;
     }
 
+    /**
+     * Removes an Addin from the target Coffee Object's Arraylist of Addins
+     *
+     * @param obj String containing he Addin to be removed
+     *
+     * @return True if successfully removed, false otherwise
+     */
     public boolean remove(Object obj){
         if(obj instanceof String){
             String topping = (String) obj;
-            addins.add(topping);
+            addins.remove(topping);
             return true;
         }
         return false;
     }
 
+    /**
+     *Compares two Coffee Objects for equality
+     *
+     * @param menuItem Coffee Object to be compared with the target Coffee Object
+     *
+     * @return True if both objects are the same size and contain the same Addins, false otherwise
+     */
     public boolean compare(MenuItem menuItem){
         if(menuItem instanceof Coffee){
             if(this.getCoffeeAddins().equals(((Coffee) menuItem).getCoffeeAddins())
@@ -88,33 +133,26 @@ public class Coffee extends MenuItem implements Customizable{
         return false;
     }
 
+    /**
+     * Returns a String representation of a Coffee object
+     *
+     * @return String representation of a Coffee Object containing its quantity, size, and Addins
+     */
     @Override
     public String toString(){
 
-        String str = this.getQuantity() + " " + this.getCoffeeSize() + " Coffee";
+        StringBuilder coffeeToString = new StringBuilder(this.getQuantity() + " " + this.getCoffeeSize() + " Coffee");
         if(this.getQuantity() > 1){
-            str += "s";
+            coffeeToString.append("s");
         }
 
         if(getCoffeeAddins().size()>0){
-            str += " with:";
+            coffeeToString.append(" with:");
             for(String s: getCoffeeAddins()){
-                str += " " + s;
+                coffeeToString.append(" ").append(s);
             }
         }
 
-        // 3 Venti Coffees with: Sugar Milk
-        return str;
+        return coffeeToString.toString();
     }
-
 }
-
-
-//This allows the user to add the coffee to the ordering basket. The GUI shall provide the
-//options of the sizes: Short, Tall, Grande and Venti, and the options of the add-ins: cream, syrup, milk, caramel,
-//and whipped cream. While adding or removing the add-ins or changing the sizes, the GUI shall display the
-//running sub-total of the coffee, with 2 decimal places.
-
-//The price for a Short black coffee is $1.69. Each
-//add-in costs $0.30. The price increase for the next size is $0.40. For example, the price increase for a Grande is
-//$0.80, therefore a Grande black coffee is $2.49, and a Grande coffee with cream and syrup would be $3.09.

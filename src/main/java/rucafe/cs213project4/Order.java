@@ -3,15 +3,25 @@ package rucafe.cs213project4;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.util.ArrayList;
-
+/**
+ * Class that represents an Order Object
+ *
+ * Methods within this class can construct an Order Object,
+ * add and remove an Object from the Order Object's ObservableList,
+ * calculate the price of an Order with or without tax,
+ * get the Order Object's order number, get the Order Object's quantity,
+ * get the Order Object's ObservableList, set the Order OBject's order number,
+ * and represent an Order Object as a String
+ *
+ * @author Mark Holleran, Abhitej Bokka
+ */
 public class Order implements Customizable{
 
     public static final double TAX_MULTIPLIER = 1.06625;
+
     private int orderNumber;
     private ObservableList<MenuItem> orderForListView;
 
-    //private ArrayList<MenuItem> order;
     Order(){
 
         ObservableList<MenuItem> observableList = FXCollections.observableArrayList();
@@ -40,7 +50,6 @@ public class Order implements Customizable{
         }
         return false;
     }
-    // how to add and remove with interface idk
 
     public double orderPrice(){
         double sum = 0;
@@ -55,7 +64,6 @@ public class Order implements Customizable{
     public String toString(){
 
         return orderNumber + " " + orderForListView.toString();
-
 
     }
 
@@ -82,9 +90,4 @@ public class Order implements Customizable{
 
     }
 
-
-
-    //has unique order number and keeps the list of menu items added by the user
-
-    //must implement a customizable interface to provide the behavior of adding and removing menu items
 }

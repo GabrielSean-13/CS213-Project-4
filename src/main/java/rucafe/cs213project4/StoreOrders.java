@@ -3,7 +3,6 @@ package rucafe.cs213project4;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.util.ArrayList;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -11,8 +10,6 @@ import java.io.IOException;
 public class StoreOrders implements Customizable{
 
     private ObservableList<Order> orders;
-    //private static int orderNumber = 1;
-
 
     public ObservableList<Order> getOrderList(){
         return this.orders;
@@ -25,8 +22,6 @@ public class StoreOrders implements Customizable{
     public StoreOrders() {
 
         ObservableList<Order> storeOrders = FXCollections.observableArrayList();
-
-
         orders = storeOrders ;
     }
 
@@ -70,12 +65,4 @@ public class StoreOrders implements Customizable{
         }
     }
 
-
-
-
-
-    //must implement the customizable interface to provide the behavior for adding and removing orders
-
-    //also have to export all store orders placed to a text file
-    //file must include: list of store orders each one including all the details of the order
 }
