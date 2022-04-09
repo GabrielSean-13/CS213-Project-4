@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import java.io.File;
 
 public class StoreOrdersController {
+    //all instance variables in controllers should be private
 
     private ShopMainMenuController shopMainMenuController;
     private StoreOrders storeOrders;
@@ -23,7 +24,18 @@ public class StoreOrdersController {
 
     }
 
+<<<<<<< Updated upstream
     public void update() {
+=======
+
+
+
+
+
+
+
+    public void update(){
+>>>>>>> Stashed changes
 
 
         ObservableList<String> lvElem = FXCollections.observableArrayList();
@@ -43,15 +55,17 @@ public class StoreOrdersController {
 
 
     @FXML
-    private void cancelOrder() {
+    private void cancelOrder(ActionEvent event) {
 
         if (allOrdersOutput.getSelectionModel().getSelectedItem() != null) {
 
             shopMainMenuController.getStoreOrders().getOrderList().remove((allOrdersOutput.getSelectionModel().getSelectedIndex()));
+            //getOrderObservableList > getOrderList
             update();
 
         } else {
 
+            //if there's nothing in the arraylist
             Alert errorAlert = new Alert(Alert.AlertType.ERROR);
             errorAlert.setHeaderText("The list is empty or an Order is not selected");
             errorAlert.setContentText("Please make sure you've selected an order to cancel");
@@ -64,9 +78,17 @@ public class StoreOrdersController {
     @FXML
     private void exportOrders() {
 
+<<<<<<< Updated upstream
         if (!shopMainMenuController.getStoreOrderObservableList().isEmpty()) {
 
             try {
+=======
+        if (shopMainMenuController.getStoreOrderObservableList().isEmpty() == false) {
+
+            try {
+
+
+>>>>>>> Stashed changes
                 FileChooser chooser = new FileChooser();
 
                 chooser.setTitle("Select a text file or create one to export to");
@@ -85,6 +107,7 @@ public class StoreOrdersController {
             } catch (Exception e) {
 
             }
+<<<<<<< Updated upstream
         } else {
             createAlert();
         }
@@ -101,5 +124,20 @@ public class StoreOrdersController {
     }
 
 }
+=======
+        }else{
+
+            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+
+            errorAlert.setHeaderText("There are no Orders to export");
+            errorAlert.setContentText("place an Order before trying to export.");
+
+            errorAlert.showAndWait();
+
+        }
+    }
+
+    }
+>>>>>>> Stashed changes
 
 
