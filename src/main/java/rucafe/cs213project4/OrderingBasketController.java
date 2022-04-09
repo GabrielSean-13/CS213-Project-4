@@ -54,7 +54,6 @@ public class OrderingBasketController {
             errorAlert.setContentText("The list of Orders must be populated before placing an Order");
             errorAlert.showAndWait();
 
-
         }else{
             shopMainMenuController.getTotalCustomerOrder().setOrderNumber(shopMainMenuController.getUniqueOrderNumber());
             shopMainMenuController.getStoreOrders().add(shopMainMenuController.getTotalCustomerOrder());

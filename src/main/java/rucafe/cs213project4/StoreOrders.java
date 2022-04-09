@@ -2,7 +2,6 @@ package rucafe.cs213project4;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -46,7 +45,7 @@ public class StoreOrders implements Customizable{
     /**
      *
      * @param obj
-     * 
+     *
      * @return
      */
     @Override
