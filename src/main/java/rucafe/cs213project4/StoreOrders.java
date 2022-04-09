@@ -33,14 +33,6 @@ public class StoreOrders implements Customizable{
         return this.orders;
     }
 
-    /**
-     *
-     * @param orders
-     */
-    public void setOrderObservableList(ObservableList<Order> orders){
-        this.orders = orders;
-    }
-
 
     /**
      *
