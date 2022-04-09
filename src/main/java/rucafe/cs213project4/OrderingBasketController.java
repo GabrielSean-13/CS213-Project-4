@@ -8,6 +8,12 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 
+
+/**
+ * Class that represents the GUI interface for an Order Object
+ *
+ * Within th
+ */
 public class OrderingBasketController {
 
     private ShopMainMenuController shopMainMenuController;
@@ -27,9 +33,12 @@ public class OrderingBasketController {
     public void createShopMainMenuController(ShopMainMenuController shopMainMenuController){
 
         this.shopMainMenuController = shopMainMenuController;
+        totalOrderOutput.setItems(shopMainMenuController.getOrderObservableList());
+
         updateOrders();
 
     }
+
 
     public void updateOrders(){
 
@@ -45,7 +54,7 @@ public class OrderingBasketController {
     }
 
     @FXML
-    void placeOrder() {
+    void placeOrder(ActionEvent event) {
 
         if (shopMainMenuController.getOrderObservableList().isEmpty()){
 

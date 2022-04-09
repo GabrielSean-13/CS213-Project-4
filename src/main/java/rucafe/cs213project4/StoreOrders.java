@@ -7,38 +7,33 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 /**
+ * Class that represents a StoreOrders Object
  *
+ * Methods within this class can create a StoreOrders Object,
+ * return the ObservableList of Order Objects within a StoreOrders Object,
+ * add and remove an Order Object to/from the ObservableList,
+ * and export all Order Objects to a text file
  *
  * @author Mark Holleran, Abhitej Bokka
  */
 public class StoreOrders implements Customizable{
 
-    private ObservableList<Order> orders;
+    private final ObservableList<Order> orders;
 
 
     /**
      * Default constructor for creating a StoreOrders Object
      */
     public StoreOrders() {
-
-        ObservableList<Order> storeOrders = FXCollections.observableArrayList();
-        orders = storeOrders ;
+        orders = FXCollections.observableArrayList();
     }
 
     /**
+     * Adds an Order Object to the ObservableList of a StoreOrders Object
      *
-     * @return
-     */
-    public ObservableList<Order> getOrderList(){
-        return this.orders;
-    }
-
-
-    /**
+     * @param obj Order Object to be added
      *
-     * @param obj
-     *
-     * @return
+     * @return True if Order Object was added from the ObservableList of a StoreOrders Object, false otherwise
      */
     @Override
     public boolean add(Object obj){
@@ -52,10 +47,11 @@ public class StoreOrders implements Customizable{
     }
 
     /**
+     * Removes an Order Object from the ObservableList of a StoreOrders Object
      *
-     * @param obj
+     * @param obj Order Object to be removed
      *
-     * @return
+     * @return True if Order Object was removed from the ObservableList of a StoreOrders Object, false otherwise
      */
     public boolean remove(Object obj){
 
@@ -68,7 +64,16 @@ public class StoreOrders implements Customizable{
     }
 
     /**
-     * Exports all Order Objects within the StoreOrder's ObservableList to a textfile
+     * Returns the Observable parameter of a StoreOrders Object
+     *
+     * @return ObservableList of Order Objects
+     */
+    public ObservableList<Order> getOrderList(){
+        return this.orders;
+    }
+
+    /**
+     * Exports all Order Objects within the StoreOrder's ObservableList to a text file
      *
      * @param file File to be written to
      *

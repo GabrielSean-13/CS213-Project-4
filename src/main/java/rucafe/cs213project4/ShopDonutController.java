@@ -6,6 +6,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
+import java.util.ArrayList;
+
+
 public class ShopDonutController {
 
     public static final int ONE = 1;
@@ -22,6 +25,8 @@ public class ShopDonutController {
     public static final int TWELVE = 12;
 
     private ShopMainMenuController shopMainMenuControllersDonut;
+
+    //private Order order;
 
     @FXML
     private ToggleButton cakeDonut;
@@ -66,7 +71,7 @@ public class ShopDonutController {
 
     }
 
-    protected void updateOrders(){
+    public void updateOrders(){
 
         ObservableList<MenuItem> created = FXCollections.observableArrayList();
         if (shopMainMenuControllersDonut.getDonutCustomerOrder().getOrder().size() > 0) {
@@ -92,55 +97,61 @@ public class ShopDonutController {
 
     }
 
-    private Donut createDonut(){
-        String selectedDonutTypeButtonToString = donutType.getSelectedToggle().toString();
-        String selectedDonutFlavorButtonToString = donutFlavor.getSelectedToggle().toString();
-        String selectedDonutType = selectedDonutTypeButtonToString.substring(selectedDonutTypeButtonToString.indexOf("'") + 1, selectedDonutTypeButtonToString.lastIndexOf("'"));
-        String selectedDonutFlavor = selectedDonutFlavorButtonToString.substring(selectedDonutFlavorButtonToString.indexOf("'") + 1, selectedDonutFlavorButtonToString.lastIndexOf("'"));
-        Donut newDonutOrder = new Donut(selectedDonutType, selectedDonutFlavor);
-        newDonutOrder.quantity = quantityOfOrder.getSelectionModel().getSelectedIndex() + 1;
 
-        donutType.getSelectedToggle().setSelected(false);
-        donutFlavor.getSelectedToggle().setSelected(false);
 
-        return newDonutOrder;
-    }
 
     @FXML
-    public void addToOrder() {
+    void addToOrder(ActionEvent event) {
 
         if (donutType.getSelectedToggle() != null && donutFlavor.getSelectedToggle() != null) {
 
              boolean duplicateDonutFound = false;
 
-            Donut newDonutOrder = createDonut();
+            String selectedDonutTypeButtonToString = donutType.getSelectedToggle().toString();
+
+            String selectedDonutFlavorButtonToString = donutFlavor.getSelectedToggle().toString();
+
+            String selectedDonutType = selectedDonutTypeButtonToString.substring(selectedDonutTypeButtonToString.indexOf("'") + 1, selectedDonutTypeButtonToString.lastIndexOf("'"));
+
+            String selectedDonutFlavor = selectedDonutFlavorButtonToString.substring(selectedDonutFlavorButtonToString.indexOf("'") + 1, selectedDonutFlavorButtonToString.lastIndexOf("'"));
+
+            Donut newDonutOrder = new Donut(selectedDonutType, selectedDonutFlavor);
+
+            newDonutOrder.quantity = quantityOfOrder.getSelectionModel().getSelectedIndex() + 1;
+
+            donutType.getSelectedToggle().setSelected(false);
+            donutFlavor.getSelectedToggle().setSelected(false);
 
             for (MenuItem num : shopMainMenuControllersDonut.getDonutCustomerOrder().getOrder()) {
-                if (num.compare(newDonutOrder)){
+                if (num.compare(newDonutOrder) == true){
+
                     duplicateDonutFound = true;
                     num.quantity += newDonutOrder.quantity;
                     updateOrders();
+
                 }
             }
 
-            if (duplicateDonutFound){
+            if (duplicateDonutFound == false){
+
                 shopMainMenuControllersDonut.getDonutCustomerOrder().add(newDonutOrder);
                 updateOrders();
+
             }
 
             totalOrderCost.setText(String.format("%.2f",shopMainMenuControllersDonut.getDonutCustomerOrder().orderPrice()));
 
+
+
         }else {
-            donutAlert();
+            //make pop up that says to populate
+            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+            errorAlert.setHeaderText("Donut Order is not valid");
+            errorAlert.setContentText("Please make sure you've selected the Type & Flavor for the Donut(s)");
+            errorAlert.showAndWait();
+
         }
 
-    }
-
-    private void donutAlert(){
-        Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-        errorAlert.setHeaderText("Donut Order is not valid");
-        errorAlert.setContentText("Please make sure you've selected the Type & Flavor for the Donut(s)");
-        errorAlert.showAndWait();
     }
 
     @FXML

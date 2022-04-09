@@ -30,7 +30,8 @@ public class Coffee extends MenuItem implements Customizable{
     public static final String WHIPPEDCREAM = "Whipped Cream";
 
     protected ArrayList<String> addins;
-    protected String size;
+
+    public String size = null;
 
 
     /**

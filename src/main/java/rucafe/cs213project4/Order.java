@@ -19,14 +19,14 @@ public class Order implements Customizable{
 
     public static final double TAX_MULTIPLIER = 1.06625;
 
-    protected int orderNumber;
-    protected ObservableList<MenuItem> orderForListView;
+    private int orderNumber;
+    private ObservableList<MenuItem> orderForListView;
 
 
     /**
      * Default Order Object Constructor
      */
-    public Order(){
+    Order(){
         ObservableList<MenuItem> observableList = FXCollections.observableArrayList();
         orderForListView = observableList;
     }

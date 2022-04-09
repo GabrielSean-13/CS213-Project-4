@@ -100,7 +100,7 @@ public class Donut extends MenuItem {
         if(this.getQuantity() > 1){
             str += "s";
         }
-
+        // 1 Glazed Yeast Donut
         return str;
     }
 }
