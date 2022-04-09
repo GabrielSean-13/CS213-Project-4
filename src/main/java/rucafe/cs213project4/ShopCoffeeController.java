@@ -2,17 +2,22 @@ package rucafe.cs213project4;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+
 import java.util.ArrayList;
+
 import static rucafe.cs213project4.Coffee.*;
 
 /**
+ * Class that represents the GUI interface for ordering a Coffee
  *
+ * Within this class are all the GUI's components and their
+ * corresponding functionality
+ *
+ * @author Mark Holleran, Abhitej Bokka
  */
 public class ShopCoffeeController {
-
 
     @FXML
     private ToggleGroup coffeeType;
@@ -49,34 +54,40 @@ public class ShopCoffeeController {
 
     private ShopMainMenuController shopMainMenuController;
 
-
     /**
+     * Pulls all current data such as the most recent StoreOrders Object,
+     * Order Objects for both Donut and Coffee orders, and an Order Objet
+     * for the combination of Coffee and Donut Order Objects. The Listview
+     * component is then updated with the most up-to-date list of all the Coffee Objects
+     * from an ObservableList displayed in the ListView
      *
-     * @param shopMainMenuController
+     * @param shopMainMenuController Controller that holds all the current state of program information
      */
     public void createShopMainMenuController(ShopMainMenuController shopMainMenuController){
         this.shopMainMenuController = shopMainMenuController;
         totalCoffeeOrderOutput.setItems(shopMainMenuController.getCoffeeCustomerOrder().getOrder());
         updateOrders();
         totalCoffeeOrderCost.setText((String.format("%.2f", shopMainMenuController.getCoffeeCustomerOrder().orderPrice())));
-
     }
 
     /**
-     *
+     * Updates the ListView with the most up-to-date ObservableList
+     * holding Coffee Objects.
      */
     public void updateOrders(){
-
         ObservableList<MenuItem> created = FXCollections.observableArrayList();
         if (shopMainMenuController.getCoffeeCustomerOrder().getOrder().size() > 0) {
             ObservableList<MenuItem> Orders = shopMainMenuController.getCoffeeCustomerOrder().getOrder();
             created.addAll(Orders);
         }
         totalCoffeeOrderOutput.setItems(created);
-
     }
 
-
+    /**
+     * Adds selected Addins to a Coffee Object's ArrayList of Addins
+     *
+     * @return ArrayList of Strings containing the Addins that were selected
+     */
     private ArrayList<String> createAddins(){
         ArrayList<String> newCoffeeAddins = new ArrayList<>();
         if (creamAddin.isSelected()) {
@@ -94,19 +105,20 @@ public class ShopCoffeeController {
         return newCoffeeAddins;
     }
 
+    /**
+     * When the Add button is pressed, a Coffee Object is made
+     * and added to the ObservableList of Coffee Objects from ShopMainMenuController
+     * and the current total is updated
+     */
     @FXML
     void addCoffeeToOrder() {
-
         if (coffeeType.getSelectedToggle() != null) {
-
             boolean duplicateDonutFound = false;
             String selectedCoffeeSizeToString = coffeeType.getSelectedToggle().toString();
             ArrayList<String> newCoffeeAddins = createAddins();
-
             String selectedCoffeeSize = selectedCoffeeSizeToString.substring(selectedCoffeeSizeToString.indexOf("'") + 1, selectedCoffeeSizeToString.lastIndexOf("'"));
             Coffee newCoffee = new Coffee(selectedCoffeeSize, newCoffeeAddins);
             newCoffee.quantity = 1;
-
             for (MenuItem num : shopMainMenuController.getCoffeeCustomerOrder().getOrder()) {
                 if (num.compare(newCoffee)) {
                     duplicateDonutFound = true;
@@ -114,7 +126,6 @@ public class ShopCoffeeController {
                     updateOrders();
                 }
             }
-
             if (!duplicateDonutFound) {
                 shopMainMenuController.getCoffeeCustomerOrder().add(newCoffee);
                 updateOrders();
@@ -127,6 +138,10 @@ public class ShopCoffeeController {
         }
     }
 
+    /**
+     * Creates and displays an errorAlert Message box when an Addin
+     * but no coffee size is selected or when nothing is selected
+     */
     private void createError(){
         Alert errorAlert = new Alert(Alert.AlertType.ERROR);
         errorAlert.setHeaderText("Coffee Order is not valid");
@@ -134,6 +149,9 @@ public class ShopCoffeeController {
         errorAlert.showAndWait();
     }
 
+    /**
+     * Resets all buttons after a Coffee objects has been made
+     */
     private void editButtons(){
         coffeeType.getSelectedToggle().setSelected(false);
         creamAddin.setSelected(false);
@@ -143,16 +161,15 @@ public class ShopCoffeeController {
     }
 
     /**
-     *
+     * Removes a selected Coffee Object from the ObservableList
+     * and updates the ObservableList along with the total
      */
     @FXML
     void removeCoffeeFromOrder() {
-
         if (totalCoffeeOrderOutput.getSelectionModel().getSelectedItem() != null) {
             shopMainMenuController.getCoffeeCustomerOrder().remove(totalCoffeeOrderOutput.getSelectionModel().getSelectedItem());
             updateOrders();
             totalCoffeeOrderCost.setText((String.format("%.2f", shopMainMenuController.getCoffeeCustomerOrder().orderPrice())));
-
         } else {
             Alert errorAlert = new Alert(Alert.AlertType.ERROR);
             errorAlert.setHeaderText("Item cancel is not valid");

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  * Class that represents a Coffee MenuItem Object
- * <p>
+ *
  * Methods within this class can create a Coffee Object, add or remove addins, calculate Coffee price,
  * construct a Coffee Object, get Coffee size, get Coffee addins, compare between two Coffee Objects, and
  * return a string representation of a Coffee Object
@@ -48,7 +48,7 @@ public class Coffee extends MenuItem implements Customizable {
 
     /**
      * Calculates the price of a Coffee Object based on
-     * it's size and number of addins.
+     * its size and number of addins.
      *
      * @return Double representing the cost of the Coffee Object
      */
@@ -78,7 +78,7 @@ public class Coffee extends MenuItem implements Customizable {
     /**
      * Returns the target Coffee Object's ArrayList of Addins
      *
-     * @return ArrayList of Strings containing all of the Addins that the Coffee Object has
+     * @return ArrayList of Strings containing all the Addins that the Coffee Object has
      */
     public ArrayList<String> getCoffeeAddins() {
         return this.addins;

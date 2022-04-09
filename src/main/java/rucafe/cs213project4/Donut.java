@@ -16,7 +16,18 @@ public class Donut extends MenuItem {
     public static final String YEAST = "Yeast Donut";
     public static final String CAKE = "Cake Donut";
     public static final String HOLE = "Donut Hole";
-
+    public static final String DOUBLE_CHOCOLATE = "Double Chocolate";
+    public static final String JELLY_FILLED = "Jelly Filled";
+    public static final String OREO = "Oreo";
+    public static final String FRENCH = "French";
+    public static final String RED_VELVET = "Red Velvet";
+    public static final String POWDERED_SUGAR = "Powdered Sugar";
+    public static final String BAKED_JELLY = "Baked Jelly";
+    public static final String BOSTON_CREAM = "Boston Cream";
+    public static final String CHOCOLATE = "Chocolate";
+    public static final String STRAWBERRY = "Strawberry";
+    public static final String CINNAMON = "Cinnamon";
+    public static final String COCONUT = "Coconut";
     public static final double YEAST_PRICE = 1.59;
     public static final double CAKE_PRICE = 1.79;
     public static final double HOLE_PRICE = 0.39;

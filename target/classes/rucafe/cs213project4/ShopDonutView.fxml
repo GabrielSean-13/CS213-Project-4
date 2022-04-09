@@ -23,13 +23,13 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ToggleButton fx:id="yeastDonut" mnemonicParsing="false" onAction="#yeastDonutSelected" prefHeight="90.0" prefWidth="90.0" text="Yeast Donut" GridPane.halignment="CENTER">
+            <ToggleButton fx:id="yeastDonut" mnemonicParsing="false" prefHeight="90.0" prefWidth="90.0" text="Yeast Donut" GridPane.halignment="CENTER">
                <toggleGroup>
                   <ToggleGroup fx:id="donutType" />
                </toggleGroup>
             </ToggleButton>
-            <ToggleButton fx:id="cakeDonut" mnemonicParsing="false" onAction="#cakeDonutSelected" prefHeight="90.0" prefWidth="90.0" text="Cake Donut" toggleGroup="$donutType" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-            <ToggleButton fx:id="donutHoles" mnemonicParsing="false" onAction="#DonutHolesSelected" prefHeight="90.0" prefWidth="90.0" text="Donut Hole" toggleGroup="$donutType" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+            <ToggleButton fx:id="cakeDonut" mnemonicParsing="false" prefHeight="90.0" prefWidth="90.0" text="Cake Donut" toggleGroup="$donutType" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+            <ToggleButton fx:id="donutHoles" mnemonicParsing="false" prefHeight="90.0" prefWidth="90.0" text="Donut Hole" toggleGroup="$donutType" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
          </children>
       </GridPane>
       <GridPane layoutX="30.0" layoutY="115.0" prefHeight="57.0" prefWidth="341.0">

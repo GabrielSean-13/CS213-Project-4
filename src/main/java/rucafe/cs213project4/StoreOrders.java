@@ -2,14 +2,13 @@ package rucafe.cs213project4;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
 /**
  * Class that represents a StoreOrders Object
- * <p>
+ *
  * Methods within this class can create a StoreOrders Object,
  * return the ObservableList of Order Objects within a StoreOrders Object,
  * add and remove an Order Object to/from the ObservableList,
@@ -20,7 +19,6 @@ import java.io.IOException;
 public class StoreOrders implements Customizable {
 
     private final ObservableList<Order> orders;
-
 
     /**
      * Default constructor for creating a StoreOrders Object

@@ -10,7 +10,6 @@ package rucafe.cs213project4;
  */
 public class MenuItem {
 
-
     protected int quantity;
     protected double price;
 
@@ -36,6 +35,7 @@ public class MenuItem {
      * Compares two MenuItem Objects for equality
      *
      * @param menuItem MenuItem to compare with the target MenuItem Object
+     *
      * @return True if both MenuItem Objects are of the same instance, false otherwise
      */
     public boolean compare(MenuItem menuItem) {
