@@ -1,33 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="205.0" prefWidth="296.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rucafe.cs213project4.ShopMainMenuController">
+<AnchorPane prefHeight="450.0" prefWidth="274.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rucafe.cs213project4.ShopMainMenuController">
    <children>
-      <GridPane layoutX="10.0" layoutY="18.0" prefHeight="170.0" prefWidth="277.0">
+      <GridPane prefHeight="450.0" prefWidth="296.0">
          <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="248.0" minWidth="10.0" prefWidth="124.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="181.0" minWidth="0.0" prefWidth="124.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="248.0" minWidth="10.0" prefWidth="210.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="224.60000000000002" minWidth="0.0" prefWidth="219.60000000000002" />
          </columnConstraints>
          <rowConstraints>
-            <RowConstraints maxHeight="139.0" minHeight="10.0" prefHeight="99.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="89.0" minHeight="10.0" prefHeight="51.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="139.0" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="134.59999237060546" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="135.60000000000002" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Button fx:id="orderDonut" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#orderDonut" prefHeight="81.0" prefWidth="100.0" text="Donuts" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <Button fx:id="orderCoffee" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#orderCoffee" prefHeight="81.0" prefWidth="100.0" text="Coffee" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <Button fx:id="displayCurrentOrder" mnemonicParsing="false" onAction="#displayCurrentOrder" prefHeight="36.0" prefWidth="76.0" text="Current Order" wrapText="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <Button fx:id="orderDonut" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#orderDonut" prefHeight="45.0" prefWidth="90.0" text="Order Donut" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Button fx:id="orderCoffee" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#orderCoffee" prefHeight="45.0" prefWidth="90.0" text="Order Coffee" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Button fx:id="displayCurrentOrder" mnemonicParsing="false" onAction="#displayCurrentOrder" prefHeight="45.0" prefWidth="90.0" text="Current Order" wrapText="true" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                <font>
                   <Font size="10.0" />
                </font>
             </Button>
-            <Button fx:id="displayAllOrders" mnemonicParsing="false" onAction="#displayAllOrders" prefHeight="36.0" prefWidth="76.0" text="All Orders" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <Button fx:id="displayAllOrders" mnemonicParsing="false" onAction="#displayAllOrders" prefHeight="45.0" prefWidth="90.0" text="All Orders" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                <font>
                   <Font size="10.0" />
                </font>
             </Button>
+            <ImageView fx:id="donutImageView" fitHeight="120.0" fitWidth="254.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/donutImage.png" />
+               </image></ImageView>
+            <ImageView fx:id="coffeeImageView" fitHeight="118.0" fitWidth="226.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+               <image>
+                  <Image url="@images/coffeeImage.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="currentImageView" fitHeight="120.0" fitWidth="127.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
+               <image>
+                  <Image url="@images/basketImage.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="allImageView" fitHeight="116.0" fitWidth="226.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <image>
+                  <Image url="@images/cartImage.png" />
+               </image>
+            </ImageView>
          </children>
       </GridPane>
    </children>
