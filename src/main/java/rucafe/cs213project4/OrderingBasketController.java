@@ -97,8 +97,8 @@ public class OrderingBasketController {
             updateOrders();
         }else{
             Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-            errorAlert.setHeaderText("Item cancel is not valid");
-            errorAlert.setContentText("Please make sure you've selected an item to cancel");
+            errorAlert.setHeaderText("Item couldn't be removed");
+            errorAlert.setContentText("Please make sure you've selected an Item to remove");
             errorAlert.showAndWait();
         }
     }

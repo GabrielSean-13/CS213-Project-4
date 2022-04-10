@@ -90,7 +90,6 @@ public class StoreOrders implements Customizable {
         }
     }
 
-
     /**
      * Exports all Order Objects within the StoreOrder's ObservableList to a text file without Price
      *

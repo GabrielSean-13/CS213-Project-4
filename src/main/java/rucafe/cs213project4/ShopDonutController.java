@@ -71,6 +71,9 @@ public class ShopDonutController {
     @FXML
     private ToggleButton yeastDonut;
 
+    private static final int ZEROSIZE = 0;
+
+
     /**
      * Pulls all current data such as the most recent StoreOrders Object,
      * Order Objects for both Donut and Coffee orders, and an Order Objet
@@ -93,7 +96,7 @@ public class ShopDonutController {
     public void updateOrders() {
 
         ObservableList<MenuItem> created = FXCollections.observableArrayList();
-        if (shopMainMenuControllersDonut.getDonutCustomerOrder().getOrder().size() > 0) {
+        if (shopMainMenuControllersDonut.getDonutCustomerOrder().getOrder().size() > ZEROSIZE) {
             ObservableList<MenuItem> Orders = shopMainMenuControllersDonut.getDonutCustomerOrder().getOrder();
             created.addAll(Orders);
         }
@@ -107,17 +110,12 @@ public class ShopDonutController {
      */
     @FXML
     public void initialize() {
-
         quantityOfOrder.getItems().addAll(ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, ELEVEN, TWELVE);
-
         quantityOfOrder.setValue(ONE);
-
         flavorChoiceOne.setText("Please");
         flavorChoiceTwo.setText("Select");
         flavorChoiceThree.setText("A");
         flavorChoiceFour.setText("Donut");
-
-
     }
 
     /**

@@ -54,13 +54,11 @@ public class StoreOrdersController {
         allOrdersOutput.setItems(updatedObservableList);
     }
 
-
     /**
      * Cancels an Order by removing it from the ListView then updating the Listview
      */
     @FXML
     private void cancelOrder() {
-
         if (allOrdersOutput.getSelectionModel().getSelectedItem() != null) {
             shopMainMenuController.getStoreOrders().getOrderList().remove((allOrdersOutput.getSelectionModel().getSelectedIndex()));
             update();
@@ -104,11 +102,13 @@ public class StoreOrdersController {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         if (priceSelection.isSelected() && shopMainMenuController.getStoreOrders().export(file)) {
             alert.setHeaderText("Successfully Exported.");
-            alert.setContentText("The text file now contains all store Orders");
+            alert.setContentText("The text file now contains all store Orders with price");
+
         }else if(!priceSelection.isSelected() && shopMainMenuController.getStoreOrders().exportNoPrice(file)){
             alert.setHeaderText("Successfully Exported.");
             alert.setContentText("The text file now contains all store Orders");
         } else {
+            alert.setHeaderText("Error");
             alert.setContentText("Error occurred when exporting Orders.");
         }
         alert.show();

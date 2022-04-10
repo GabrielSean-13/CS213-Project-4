@@ -2,7 +2,7 @@ package rucafe.cs213project4;
 
 /**
  * Class representing a MenuItem Object which is extended by Coffee and Donut Objects
- * <p>
+ *
  * Methods within this class can get a MenuItem's price, get a MenuItem's quantity,
  * and compare two MenuItem Objects for equality
  *
