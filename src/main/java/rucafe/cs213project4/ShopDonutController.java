@@ -57,7 +57,10 @@ public class ShopDonutController {
     private ToggleButton flavorChoiceFour;
 
     @FXML
-    private ChoiceBox<Integer> quantityOfOrder;
+    private ComboBox<Integer> quantityOfOrder;
+
+    @FXML
+    private ChoiceBox<Integer> quantityOfOrders;
 
     @FXML
     private ListView<MenuItem> donutListView;

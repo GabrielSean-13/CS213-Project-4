@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.ToggleButton?>
-<?import javafx.scene.control.ToggleGroup?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rucafe.cs213project4.ShopDonutController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="428.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rucafe.cs213project4.ShopDonutController">
    <children>
       <GridPane layoutX="50.0" layoutY="14.0" prefHeight="107.0" prefWidth="300.0">
         <columnConstraints>
@@ -68,7 +60,7 @@
       </GridPane>
       <Button layoutX="170.0" layoutY="355.0" mnemonicParsing="false" onAction="#removeFromOrder" prefHeight="25.0" prefWidth="61.0" text="Remove" />
       <ListView fx:id="donutListView" layoutX="98.0" layoutY="244.0" prefHeight="100.0" prefWidth="204.0" />
-      <Label layoutX="250.0" layoutY="192.0" text="Quantity:" />
-      <ChoiceBox fx:id="quantityOfOrder" layoutX="302.0" layoutY="188.0" prefHeight="25.0" prefWidth="49.0" />
+      <Label layoutX="259.0" layoutY="192.0" text="Quantity:" />
+      <ComboBox fx:id="quantityOfOrder" layoutX="318.0" layoutY="187.0" prefHeight="26.0" prefWidth="62.0" />
    </children>
 </AnchorPane>
