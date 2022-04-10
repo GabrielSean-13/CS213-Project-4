@@ -6,7 +6,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ListView;
-import javafx.scene.control.ToggleGroup;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -31,7 +30,6 @@ public class StoreOrdersController {
     @FXML
     private CheckBox priceSelection;
 
-    public void initialize() {
 
     /**
      * Pulls all current data such as the most recent StoreOrders Object,
@@ -90,10 +88,10 @@ public class StoreOrdersController {
                 Stage stage = new Stage();
                 File file = chooser.showSaveDialog(stage);
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                if(!priceSelection.isSelected() && shopMainMenuController.getStoreOrders().exportNoPrice(file)){
+                if (priceSelection.isSelected() && shopMainMenuController.getStoreOrders().export(file)) {
                     alert.setHeaderText("Exported successfully.");
                     alert.setContentText("The text file now contains all store Orders");
-                }else if (priceSelection.isSelected() && shopMainMenuController.getStoreOrders().export(file)) {
+                } if(!priceSelection.isSelected() && shopMainMenuController.getStoreOrders().exportNoPrice(file)){
                     alert.setHeaderText("Exported successfully.");
                     alert.setContentText("The text file now contains all store Orders");
                 } else {
