@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce0cda64-8bd2-4036-8efe-b73a701d5ad4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rucafe/cs213project4/Customizable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rucafe/cs213project4/Customizable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rucafe/cs213project4/MenuItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rucafe/cs213project4/MenuItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rucafe/cs213project4/OrderingBasketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rucafe/cs213project4/OrderingBasketController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rucafe/cs213project4/ShopCoffeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rucafe/cs213project4/ShopCoffeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rucafe/cs213project4/ShopDonutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rucafe/cs213project4/ShopDonutController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rucafe/cs213project4/ShopMainMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rucafe/cs213project4/ShopMainMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rucafe/cs213project4/StoreOrdersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rucafe/cs213project4/StoreOrdersController.java" afterDir="false" />
-    </list>
+    <list default="true" id="ce0cda64-8bd2-4036-8efe-b73a701d5ad4" name="Changes" comment="changed some of the alert working" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
