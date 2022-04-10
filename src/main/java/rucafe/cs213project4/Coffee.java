@@ -30,8 +30,7 @@ public class Coffee extends MenuItem implements Customizable {
     public static final String WHIPPEDCREAM = "Whipped Cream";
 
     protected ArrayList<String> addins;
-
-    public String size = null;
+    protected String size = null;
 
 
     /**
@@ -54,14 +53,11 @@ public class Coffee extends MenuItem implements Customizable {
      */
     @Override
     public double itemPrice() {
-        if (size.equals(SHORT)) {
-            price = PRICE_OF_SIZE_SHORT;
-        } else if (size.equals(TALL)) {
-            price = PRICE_OF_SIZE_TALL;
-        } else if (size.equals(GRANDE)) {
-            price = PRICE_OF_SIZE_GRANDE;
-        } else if (size.equals(VENTI)) {
-            price = PRICE_OF_SIZE_VENTI;
+        switch (size) {
+            case SHORT -> price = PRICE_OF_SIZE_SHORT;
+            case TALL -> price = PRICE_OF_SIZE_TALL;
+            case GRANDE -> price = PRICE_OF_SIZE_GRANDE;
+            case VENTI -> price = PRICE_OF_SIZE_VENTI;
         }
         return this.price + (addins.size() * PRICE_OF_SINGLE_ADDIN);
     }
@@ -91,8 +87,7 @@ public class Coffee extends MenuItem implements Customizable {
      * @return True if successfully added, false otherwise
      */
     public boolean add(Object obj) {
-        if (obj instanceof String) {
-            String topping = (String) obj;
+        if (obj instanceof String topping) {
             addins.add(topping);
             return true;
         }
@@ -106,8 +101,7 @@ public class Coffee extends MenuItem implements Customizable {
      * @return True if successfully removed, false otherwise
      */
     public boolean remove(Object obj) {
-        if (obj instanceof String) {
-            String topping = (String) obj;
+        if (obj instanceof String topping) {
             addins.remove(topping);
             return true;
         }
@@ -122,10 +116,8 @@ public class Coffee extends MenuItem implements Customizable {
      */
     public boolean compare(MenuItem menuItem) {
         if (menuItem instanceof Coffee) {
-            if (this.getCoffeeAddins().equals(((Coffee) menuItem).getCoffeeAddins())
-                    && this.getCoffeeSize().equals(((Coffee) menuItem).getCoffeeSize())) {
-                return true;
-            }
+            return this.getCoffeeAddins().equals(((Coffee) menuItem).getCoffeeAddins())
+                    && this.getCoffeeSize().equals(((Coffee) menuItem).getCoffeeSize());
         }
         return false;
     }

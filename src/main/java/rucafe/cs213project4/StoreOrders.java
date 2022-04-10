@@ -36,8 +36,7 @@ public class StoreOrders implements Customizable {
     @Override
     public boolean add(Object obj) {
 
-        if (obj instanceof Order) {
-            Order order = (Order) obj;
+        if (obj instanceof Order order) {
             orders.add(order);
             return true;
         }
@@ -52,8 +51,7 @@ public class StoreOrders implements Customizable {
      */
     public boolean remove(Object obj) {
 
-        if (obj instanceof Order) {
-            Order order = (Order) obj;
+        if (obj instanceof Order order) {
             orders.remove(order);
             return true;
         }

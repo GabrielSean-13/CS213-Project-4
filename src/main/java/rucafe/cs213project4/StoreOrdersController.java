@@ -22,14 +22,12 @@ import java.io.File;
 public class StoreOrdersController {
 
     private ShopMainMenuController shopMainMenuController;
-    private StoreOrders storeOrders;
 
     @FXML
     private ListView<String> allOrdersOutput;
 
     @FXML
     private CheckBox priceSelection;
-
 
     /**
      * Pulls all current data such as the most recent StoreOrders Object,
@@ -83,28 +81,36 @@ public class StoreOrdersController {
             try {
                 FileChooser chooser = new FileChooser();
                 chooser.setTitle("Select a text file or create one to export to");
-                chooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Text Files", "*.txt"),
-                        new FileChooser.ExtensionFilter("All Files", "*.*"));
+                chooser.getExtensionFilters().add(
+                        new FileChooser.ExtensionFilter("Text Documents", "*.txt"));
                 Stage stage = new Stage();
                 File file = chooser.showSaveDialog(stage);
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                if (priceSelection.isSelected() && shopMainMenuController.getStoreOrders().export(file)) {
-                    alert.setHeaderText("Exported successfully.");
-                    alert.setContentText("The text file now contains all store Orders");
-                } if(!priceSelection.isSelected() && shopMainMenuController.getStoreOrders().exportNoPrice(file)){
-                    alert.setHeaderText("Exported successfully.");
-                    alert.setContentText("The text file now contains all store Orders");
-                } else {
-                    alert.setContentText("Error occurred when exporting Orders.");
-                }
-                alert.show();
+                displayExportAlert(file);
             } catch (Exception e) {
-                createAlert();
+
             }
         } else {
             createAlert();
         }
 
+    }
+
+    /**
+     * Creates and displays an Export Alert Message Box depending on success of export
+     *
+     * @param file File to store the exports
+     */
+    private void displayExportAlert(File file){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        if (priceSelection.isSelected() && shopMainMenuController.getStoreOrders().export(file)) {
+
+        } if(!priceSelection.isSelected() && shopMainMenuController.getStoreOrders().exportNoPrice(file)){
+            alert.setHeaderText("Successfully Exported.");
+            alert.setContentText("The text file now contains all store Orders");
+        } else {
+            alert.setContentText("Error occurred when exporting Orders.");
+        }
+        alert.show();
     }
 
     /**

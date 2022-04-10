@@ -6,12 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="17a12ff6-c1b6-4d13-a0ec-00d38d6a3395" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rucafe/cs213project4/ShopDonutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rucafe/cs213project4/ShopDonutController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/rucafe/cs213project4/ShopCoffeeView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/rucafe/cs213project4/ShopCoffeeView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/rucafe/cs213project4/ShopDonutView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/rucafe/cs213project4/ShopDonutView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/rucafe/cs213project4/ShopCoffeeView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/rucafe/cs213project4/ShopCoffeeView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/rucafe/cs213project4/ShopDonutController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/rucafe/cs213project4/ShopDonutController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/rucafe/cs213project4/ShopDonutView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/rucafe/cs213project4/ShopDonutView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rucafe/cs213project4/Coffee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rucafe/cs213project4/Coffee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rucafe/cs213project4/StoreOrdersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rucafe/cs213project4/StoreOrdersController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
