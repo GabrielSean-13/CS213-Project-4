@@ -26,9 +26,7 @@ public class Order implements Customizable {
     /**
      * Default Order Object Constructor
      */
-    public Order() {
-        orderForListView = FXCollections.observableArrayList();
-    }
+    public Order() { orderForListView = FXCollections.observableArrayList();}
 
     /**
      * Adds a MenuItem Object to the ObservableList of MenuItems of the Order Object
@@ -65,11 +63,9 @@ public class Order implements Customizable {
      */
     public double orderPrice() {
         double sum = 0;
-
         for (MenuItem item : orderForListView) {
             sum += item.itemPrice() * item.getQuantity();
         }
-
         return sum;
     }
 

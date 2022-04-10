@@ -28,6 +28,7 @@ public class Donut extends MenuItem {
     public static final String STRAWBERRY = "Strawberry";
     public static final String CINNAMON = "Cinnamon";
     public static final String COCONUT = "Coconut";
+    public final static int SINGLEADDINTHRESHOLD = 1;
     public static final double YEAST_PRICE = 1.59;
     public static final double CAKE_PRICE = 1.79;
     public static final double HOLE_PRICE = 0.39;
@@ -43,7 +44,6 @@ public class Donut extends MenuItem {
     public Donut(String donutType, String donutFlavor){
         type = donutType;
         flavor = donutFlavor;
-
         this.itemPrice();
     }
 
@@ -104,7 +104,7 @@ public class Donut extends MenuItem {
     public String toString(){
 
         String str = this.getQuantity() + " " + this.getFlavor() + " " + this.getDonutType();
-        if(this.getQuantity() > 1){
+        if(this.getQuantity() > SINGLEADDINTHRESHOLD){
             str += "s";
         }
 

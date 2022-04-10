@@ -4,9 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-
 import java.util.ArrayList;
-
 import static rucafe.cs213project4.Coffee.*;
 
 /**
@@ -54,6 +52,10 @@ public class ShopCoffeeController {
 
     private ShopMainMenuController shopMainMenuController;
 
+    private static final int STRINGOFFSET = 1;
+    private static final int ZEROSIZE = 0;
+    private static final int INITIALCOFFEEQUANTITY = 1;
+
     /**
      * Pulls all current data such as the most recent StoreOrders Object,
      * Order Objects for both Donut and Coffee orders, and an Order Objet
@@ -76,7 +78,7 @@ public class ShopCoffeeController {
      */
     public void updateOrders(){
         ObservableList<MenuItem> created = FXCollections.observableArrayList();
-        if (shopMainMenuController.getCoffeeCustomerOrder().getOrder().size() > 0) {
+        if (shopMainMenuController.getCoffeeCustomerOrder().getOrder().size() > ZEROSIZE) {
             ObservableList<MenuItem> Orders = shopMainMenuController.getCoffeeCustomerOrder().getOrder();
             created.addAll(Orders);
         }
@@ -116,9 +118,9 @@ public class ShopCoffeeController {
             boolean duplicateDonutFound = false;
             String selectedCoffeeSizeToString = coffeeType.getSelectedToggle().toString();
             ArrayList<String> newCoffeeAddins = createAddins();
-            String selectedCoffeeSize = selectedCoffeeSizeToString.substring(selectedCoffeeSizeToString.indexOf("'") + 1, selectedCoffeeSizeToString.lastIndexOf("'"));
+            String selectedCoffeeSize = selectedCoffeeSizeToString.substring(selectedCoffeeSizeToString.indexOf("'") + STRINGOFFSET, selectedCoffeeSizeToString.lastIndexOf("'"));
             Coffee newCoffee = new Coffee(selectedCoffeeSize, newCoffeeAddins);
-            newCoffee.quantity = 1;
+            newCoffee.quantity = INITIALCOFFEEQUANTITY;
             for (MenuItem num : shopMainMenuController.getCoffeeCustomerOrder().getOrder()) {
                 if (num.compare(newCoffee)) {
                     duplicateDonutFound = true;

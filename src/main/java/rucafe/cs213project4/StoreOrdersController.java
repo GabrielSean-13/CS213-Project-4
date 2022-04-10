@@ -54,13 +54,11 @@ public class StoreOrdersController {
         allOrdersOutput.setItems(updatedObservableList);
     }
 
-
     /**
      * Cancels an Order by removing it from the ListView then updating the Listview
      */
     @FXML
     private void cancelOrder() {
-
         if (allOrdersOutput.getSelectionModel().getSelectedItem() != null) {
             shopMainMenuController.getStoreOrders().getOrderList().remove((allOrdersOutput.getSelectionModel().getSelectedIndex()));
             update();

@@ -32,11 +32,10 @@ public class Coffee extends MenuItem implements Customizable {
     protected ArrayList<String> addins;
     protected String size = null;
 
-
     /**
      * Constructs a Coffee Object given a Size and Arraylist of Addins as parameters
      *
-     * @param size   String representing the Size of the Coffee Object
+     * @param size String representing the Size of the Coffee Object
      * @param addins Arraylist of String Objects containing the Addins of the Coffee Object
      */
     public Coffee(String size, ArrayList<String> addins) {
@@ -129,19 +128,16 @@ public class Coffee extends MenuItem implements Customizable {
      */
     @Override
     public String toString() {
-
         StringBuilder coffeeToString = new StringBuilder(this.getQuantity() + " " + this.getCoffeeSize() + " Coffee");
         if (this.getQuantity() > 1) {
             coffeeToString.append("s");
         }
-
         if (getCoffeeAddins().size() > 0) {
             coffeeToString.append(" with:");
             for (String s : getCoffeeAddins()) {
                 coffeeToString.append(" ").append(s);
             }
         }
-
         return coffeeToString.toString();
     }
 }
