@@ -130,7 +130,7 @@ public class ShopDonutController {
         String selectedDonutType = selectedDonutTypeButtonToString.substring(selectedDonutTypeButtonToString.indexOf("'") + INDEX_OFFSET, selectedDonutTypeButtonToString.lastIndexOf("'"));
         String selectedDonutFlavor = selectedDonutFlavorButtonToString.substring(selectedDonutFlavorButtonToString.indexOf("'") + INDEX_OFFSET, selectedDonutFlavorButtonToString.lastIndexOf("'"));
         Donut newDonutOrder = new Donut(selectedDonutType, selectedDonutFlavor);
-        newDonutOrder.quantity = quantityOfOrder.getSelectionModel().getSelectedIndex() + INDEX_OFFSET;
+        newDonutOrder.setQuantity(quantityOfOrder.getSelectionModel().getSelectedIndex() + INDEX_OFFSET);
         donutType.getSelectedToggle().setSelected(false);
         donutFlavor.getSelectedToggle().setSelected(false);
         return newDonutOrder;
@@ -149,7 +149,7 @@ public class ShopDonutController {
             for (MenuItem num : shopMainMenuControllersDonut.getDonutCustomerOrder().getOrder()) {
                 if (num.compare(newDonutOrder)) {
                     duplicateDonutFound = true;
-                    num.quantity += newDonutOrder.quantity;
+                    num.setQuantity(num.getQuantity() + newDonutOrder.getQuantity());
                     updateOrders();
                 }
             }

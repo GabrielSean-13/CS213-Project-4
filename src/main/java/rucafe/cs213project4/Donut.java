@@ -10,8 +10,8 @@ package rucafe.cs213project4;
  */
 public class Donut extends MenuItem {
 
-    protected String flavor;
-    protected String type;
+    private String flavor;
+    private String type;
 
     public static final String YEAST = "Yeast Donut";
     public static final String CAKE = "Cake Donut";
@@ -44,7 +44,6 @@ public class Donut extends MenuItem {
     public Donut(String donutType, String donutFlavor){
         type = donutType;
         flavor = donutFlavor;
-        this.itemPrice();
     }
 
     /**
@@ -55,11 +54,11 @@ public class Donut extends MenuItem {
     @Override
     public double itemPrice(){
         switch (type) {
-            case YEAST -> price = YEAST_PRICE;
-            case CAKE -> price = CAKE_PRICE;
-            case HOLE -> price = HOLE_PRICE;
+            case YEAST -> setItemPrice(YEAST_PRICE);
+            case CAKE -> setItemPrice(CAKE_PRICE);
+            case HOLE -> setItemPrice(HOLE_PRICE);
         }
-        return this.price;
+        return super.itemPrice();
     }
 
     /**

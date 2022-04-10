@@ -10,8 +10,8 @@ package rucafe.cs213project4;
  */
 public class MenuItem {
 
-    protected int quantity;
-    protected double price;
+    private int quantity;
+    private double price;
 
     /**
      * Returns the price of a MenuItem Object
@@ -23,12 +23,31 @@ public class MenuItem {
     }
 
     /**
+     * Returns the price of a MenuItem Object
+     *
+     * @return Double representing the target MenuItem Object's Price parameter
+     */
+    public void setItemPrice(double priceGiven) {
+        this.price = priceGiven;
+    }
+
+    /**
      * Returns the quantity of a MenuItem Object
      *
-     * @return Double representing the target MenuItem Object's Quantity parameter
+     * @return Integer representing the target MenuItem Object's Quantity parameter
      */
     public int getQuantity() {
         return this.quantity;
+    }
+
+
+    /**
+     * Sets the quantity of a MenuItem Object
+     *
+     * @param quantity int representing the target MenuItem Object's Quantity parameter
+     */
+    public void setQuantity(int quantity){
+        this.quantity = quantity;
     }
 
     /**

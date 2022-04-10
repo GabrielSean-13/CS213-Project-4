@@ -71,6 +71,7 @@ public class ShopMainMenuController {
     }
 
     /**
+     * Returns the Order for the donuts
      *
      * @return Order Object containing Donut order
      */
@@ -79,6 +80,7 @@ public class ShopMainMenuController {
     }
 
     /**
+     * Returns the Order for the coffees
      *
      * @return Order Object containing Coffee order
      */
@@ -87,6 +89,7 @@ public class ShopMainMenuController {
     }
 
     /**
+     * Returns all the orders made
      *
      * @return StoreOrder Object containing all the Order Objects
      */

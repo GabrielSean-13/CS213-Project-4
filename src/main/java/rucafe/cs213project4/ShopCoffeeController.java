@@ -120,11 +120,11 @@ public class ShopCoffeeController {
             ArrayList<String> newCoffeeAddins = createAddins();
             String selectedCoffeeSize = selectedCoffeeSizeToString.substring(selectedCoffeeSizeToString.indexOf("'") + STRINGOFFSET, selectedCoffeeSizeToString.lastIndexOf("'"));
             Coffee newCoffee = new Coffee(selectedCoffeeSize, newCoffeeAddins);
-            newCoffee.quantity = INITIALCOFFEEQUANTITY;
+            newCoffee.setQuantity(INITIALCOFFEEQUANTITY);
             for (MenuItem num : shopMainMenuController.getCoffeeCustomerOrder().getOrder()) {
                 if (num.compare(newCoffee)) {
                     duplicateDonutFound = true;
-                    num.quantity += newCoffee.quantity;
+                    num.setQuantity(num.getQuantity() + newCoffee.getQuantity());
                     updateOrders();
                 }
             }

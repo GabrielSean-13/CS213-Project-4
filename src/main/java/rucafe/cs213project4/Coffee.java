@@ -29,8 +29,8 @@ public class Coffee extends MenuItem implements Customizable {
     public static final String CARAMEL = "Caramel";
     public static final String WHIPPEDCREAM = "Whipped Cream";
 
-    protected ArrayList<String> addins;
-    protected String size = null;
+    private ArrayList<String> addins;
+    private String size = null;
 
     /**
      * Constructs a Coffee Object given a Size and Arraylist of Addins as parameters
@@ -41,7 +41,6 @@ public class Coffee extends MenuItem implements Customizable {
     public Coffee(String size, ArrayList<String> addins) {
         this.size = size;
         this.addins = addins;
-        this.price = itemPrice();
     }
 
     /**
@@ -53,12 +52,12 @@ public class Coffee extends MenuItem implements Customizable {
     @Override
     public double itemPrice() {
         switch (size) {
-            case SHORT -> price = PRICE_OF_SIZE_SHORT;
-            case TALL -> price = PRICE_OF_SIZE_TALL;
-            case GRANDE -> price = PRICE_OF_SIZE_GRANDE;
-            case VENTI -> price = PRICE_OF_SIZE_VENTI;
+            case SHORT -> this.setItemPrice(PRICE_OF_SIZE_SHORT);
+            case TALL -> this.setItemPrice(PRICE_OF_SIZE_TALL);
+            case GRANDE -> this.setItemPrice(PRICE_OF_SIZE_GRANDE);
+            case VENTI -> this.setItemPrice(PRICE_OF_SIZE_VENTI);
         }
-        return this.price + (addins.size() * PRICE_OF_SINGLE_ADDIN);
+        return super.itemPrice() + (addins.size() * PRICE_OF_SINGLE_ADDIN);
     }
 
     /**
