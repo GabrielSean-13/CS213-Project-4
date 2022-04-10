@@ -14,6 +14,11 @@ public class MenuItem {
     private double price;
 
     /**
+     * Default constructor for MenuItem
+     */
+     MenuItem(){}
+    
+    /**
      * Returns the price of a MenuItem Object
      *
      * @return Double representing the target MenuItem Object's Price parameter
@@ -25,7 +30,7 @@ public class MenuItem {
     /**
      * Returns the price of a MenuItem Object
      *
-     * @return Double representing the target MenuItem Object's Price parameter
+     * @param priceGiven price for menuitem to be set to
      */
     public void setItemPrice(double priceGiven) {
         this.price = priceGiven;

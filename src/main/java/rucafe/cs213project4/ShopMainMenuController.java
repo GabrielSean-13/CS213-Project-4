@@ -38,6 +38,11 @@ public class ShopMainMenuController {
     private Order totalCustomerOrder = new Order();
 
     /**
+     * Default constructor for ShopMainMenuController
+     */
+    ShopMainMenuController(){}
+
+    /**
      * Returns a StoreOrder Object's ObservableList
      * containing a combination of the Coffee and Donut ObservableLists
      *

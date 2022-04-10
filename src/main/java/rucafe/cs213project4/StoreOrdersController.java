@@ -29,6 +29,11 @@ public class StoreOrdersController {
     private CheckBox priceSelection;
 
     /**
+     * Default constructor for StoreOrdersController
+     */
+    StoreOrdersController(){}
+
+    /**
      * Pulls all current data such as the most recent StoreOrders Object,
      * Order Objects for both Donut and Coffee orders, and an Order Objet
      * for the combination of Coffee and Donut Order Objects. The Listview
