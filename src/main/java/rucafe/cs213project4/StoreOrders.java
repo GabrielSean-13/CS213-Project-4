@@ -76,11 +76,34 @@ public class StoreOrders implements Customizable {
      * @return True if file successfully written to, false otherwise
      */
     public boolean export(File file) {
+
+
         try {
             FileWriter output = new FileWriter(file);
             for (Order order : orders) {
                 output.write("Order: " + order.toString() + " Total: $"
                         + String.format("%.2f", order.orderPriceTax()));
+                output.write("\n");
+            }
+            output.close();
+            return true;
+        } catch (IOException e) {
+            return false;
+        }
+    }
+
+
+    /**
+     * Exports all Order Objects within the StoreOrder's ObservableList to a text file without Price
+     *
+     * @param file File to be written to
+     * @return True if file successfully written to, false otherwise
+     */
+    public boolean exportNoPrice(File file) {
+        try {
+            FileWriter output = new FileWriter(file);
+            for (Order order : orders) {
+                output.write("Order: " + order.toString());
                 output.write("\n");
             }
             output.close();
