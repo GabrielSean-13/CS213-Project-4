@@ -4,21 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="89dfbc3c-4790-41f9-a139-6fb37d81fdcd" name="Changes" comment="changed some of the alert working">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rucafe/cs213project4/Coffee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rucafe/cs213project4/Coffee.java" afterDir="false" />
+    <list default="true" id="ce0cda64-8bd2-4036-8efe-b73a701d5ad4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rucafe/cs213project4/Donut.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rucafe/cs213project4/Donut.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rucafe/cs213project4/MenuItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rucafe/cs213project4/MenuItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rucafe/cs213project4/ShopCoffeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rucafe/cs213project4/ShopCoffeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rucafe/cs213project4/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rucafe/cs213project4/Order.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rucafe/cs213project4/ShopDonutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rucafe/cs213project4/ShopDonutController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rucafe/cs213project4/ShopMainMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rucafe/cs213project4/ShopMainMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/rucafe/cs213project4/Coffee.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/rucafe/cs213project4/Coffee.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/rucafe/cs213project4/Donut.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/rucafe/cs213project4/Donut.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/rucafe/cs213project4/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/rucafe/cs213project4/Order.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/rucafe/cs213project4/ShopCoffeeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/rucafe/cs213project4/ShopCoffeeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/rucafe/cs213project4/ShopDonutController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/rucafe/cs213project4/ShopDonutController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/rucafe/cs213project4/StoreOrders.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/rucafe/cs213project4/StoreOrders.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/rucafe/cs213project4/StoreOrdersController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/rucafe/cs213project4/StoreOrdersController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rucafe/cs213project4/ShopMainMenuMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rucafe/cs213project4/ShopMainMenuMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rucafe/cs213project4/StoreOrdersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rucafe/cs213project4/StoreOrdersController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

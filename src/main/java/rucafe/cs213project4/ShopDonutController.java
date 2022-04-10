@@ -94,14 +94,12 @@ public class ShopDonutController {
      * holding Donut Objects
      */
     public void updateOrders() {
-
         ObservableList<MenuItem> created = FXCollections.observableArrayList();
         if (shopMainMenuControllersDonut.getDonutCustomerOrder().getOrder().size() > ZEROSIZE) {
             ObservableList<MenuItem> Orders = shopMainMenuControllersDonut.getDonutCustomerOrder().getOrder();
             created.addAll(Orders);
         }
         donutListView.setItems(created);
-
     }
 
     /**

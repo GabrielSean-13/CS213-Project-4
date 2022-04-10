@@ -18,10 +18,8 @@ import javafx.collections.ObservableList;
 public class Order implements Customizable {
 
     public static final double TAX_MULTIPLIER = 1.06625;
-
     private int orderNumber;
     private ObservableList<MenuItem> orderForListView;
-
 
     /**
      * Default Order Object Constructor

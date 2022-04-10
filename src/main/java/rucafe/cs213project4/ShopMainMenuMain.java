@@ -37,7 +37,6 @@ public class ShopMainMenuMain extends Application {
         stage.setScene(scene);
         stage.resizableProperty().setValue(false);
         stage.show();
-
     }
 
     /**

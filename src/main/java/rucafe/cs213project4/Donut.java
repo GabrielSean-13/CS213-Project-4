@@ -101,12 +101,10 @@ public class Donut extends MenuItem {
      */
     @Override
     public String toString(){
-
         String str = this.getQuantity() + " " + this.getFlavor() + " " + this.getDonutType();
         if(this.getQuantity() > SINGLEADDINTHRESHOLD){
             str += "s";
         }
-
         return str;
     }
 }
