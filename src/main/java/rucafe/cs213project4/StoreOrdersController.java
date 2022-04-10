@@ -103,8 +103,9 @@ public class StoreOrdersController {
     private void displayExportAlert(File file){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         if (priceSelection.isSelected() && shopMainMenuController.getStoreOrders().export(file)) {
-
-        } if(!priceSelection.isSelected() && shopMainMenuController.getStoreOrders().exportNoPrice(file)){
+            alert.setHeaderText("Successfully Exported.");
+            alert.setContentText("The text file now contains all store Orders");
+        }else if(!priceSelection.isSelected() && shopMainMenuController.getStoreOrders().exportNoPrice(file)){
             alert.setHeaderText("Successfully Exported.");
             alert.setContentText("The text file now contains all store Orders");
         } else {

@@ -33,7 +33,7 @@ public class ShopMainMenuMain extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(ShopMainMenuMain.class.getResource("ShopMainMenuView.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("RUCafe");
+        stage.setTitle("RUCafeWest");
         stage.setScene(scene);
         stage.resizableProperty().setValue(false);
         stage.show();
