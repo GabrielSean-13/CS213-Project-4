@@ -5,7 +5,7 @@ import javafx.collections.ObservableList;
 
 /**
  * Class that represents an Order Object
- * <p>
+ *
  * Methods within this class can construct an Order Object,
  * add and remove an Object from the Order Object's ObservableList,
  * calculate the price of an Order with or without tax,
