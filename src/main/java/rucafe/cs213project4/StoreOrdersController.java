@@ -31,7 +31,7 @@ public class StoreOrdersController {
     /**
      * Default constructor for StoreOrdersController
      */
-    StoreOrdersController(){}
+    public StoreOrdersController(){}
 
     /**
      * Pulls all current data such as the most recent StoreOrders Object,

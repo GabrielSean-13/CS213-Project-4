@@ -77,7 +77,7 @@ public class ShopDonutController {
     /**
      * Default constructor ShopDonutController
      */
-    ShopDonutController(){}
+    public ShopDonutController(){}
 
     /**
      * Pulls all current data such as the most recent StoreOrders Object,

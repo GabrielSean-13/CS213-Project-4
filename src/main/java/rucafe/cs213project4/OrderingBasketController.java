@@ -34,7 +34,7 @@ public class OrderingBasketController {
     /**
      * Default constructor for the OrderingBasketController
      */
-    OrderingBasketController(){}
+    public OrderingBasketController(){}
 
 
     /**

@@ -40,7 +40,7 @@ public class ShopMainMenuController {
     /**
      * Default constructor for ShopMainMenuController
      */
-    ShopMainMenuController(){}
+    public ShopMainMenuController(){}
 
     /**
      * Returns a StoreOrder Object's ObservableList

@@ -59,7 +59,7 @@ public class ShopCoffeeController {
     /**
      * Default constructor ShopCoffeeController
      */
-    ShopCoffeeController(){}
+    public ShopCoffeeController(){}
 
     /**
      * Pulls all current data such as the most recent StoreOrders Object,

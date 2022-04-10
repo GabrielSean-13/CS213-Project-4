@@ -16,7 +16,7 @@ public class MenuItem {
     /**
      * Default constructor for MenuItem
      */
-     MenuItem(){}
+     public MenuItem(){}
     
     /**
      * Returns the price of a MenuItem Object
