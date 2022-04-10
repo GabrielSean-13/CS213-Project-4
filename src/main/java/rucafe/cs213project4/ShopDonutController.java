@@ -187,8 +187,8 @@ public class ShopDonutController {
             totalOrderCost.setText(String.format("%.2f", shopMainMenuControllersDonut.getDonutCustomerOrder().orderPrice()));
         } else {
             Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-            errorAlert.setHeaderText("Item cancel is not valid");
-            errorAlert.setContentText("Please make sure you've selected an item to cancel");
+            errorAlert.setHeaderText("Donut removal Error");
+            errorAlert.setContentText("Please make sure you've selected an a Donut to remove");
             errorAlert.showAndWait();
         }
     }
