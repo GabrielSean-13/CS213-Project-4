@@ -4,7 +4,6 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 /**
@@ -17,9 +16,19 @@ import java.io.IOException;
  */
 public class ShopMainMenuMain extends Application {
 
+    /**
+     * Default constructor for creating the ShopMainMenu
+     */
     public ShopMainMenuMain() {
     }
 
+    /**
+     * Loads mainmenu fxml file, creates the scene and sets the title, scene, and scale
+     *
+     * @param stage Stage where everything will be displayed
+     *
+     * @throws IOException If fxml file is not found or there's an error
+     */
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(ShopMainMenuMain.class.getResource("ShopMainMenuView.fxml"));
@@ -31,6 +40,11 @@ public class ShopMainMenuMain extends Application {
 
     }
 
+    /**
+     * Launches the window
+     *
+     * @param args Commandline argument
+     */
     public static void main(String[] args) {
         launch();
     }

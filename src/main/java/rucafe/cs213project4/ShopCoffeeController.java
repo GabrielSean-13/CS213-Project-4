@@ -12,7 +12,7 @@ import static rucafe.cs213project4.Coffee.*;
 /**
  * Class that represents the GUI interface for ordering a Coffee
  *
- * Within this class are all the GUI's components and their
+ * Within this class are all the GUI components and their
  * corresponding functionality
  *
  * @author Mark Holleran, Abhitej Bokka
@@ -145,7 +145,7 @@ public class ShopCoffeeController {
     private void createError(){
         Alert errorAlert = new Alert(Alert.AlertType.ERROR);
         errorAlert.setHeaderText("Coffee Order is not valid");
-        errorAlert.setContentText("Please make sure you've selected the Size & Addins for the Coffee");
+        errorAlert.setContentText("Please make sure you've selected the Size for the Coffee");
         errorAlert.showAndWait();
     }
 
@@ -172,8 +172,8 @@ public class ShopCoffeeController {
             totalCoffeeOrderCost.setText((String.format("%.2f", shopMainMenuController.getCoffeeCustomerOrder().orderPrice())));
         } else {
             Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-            errorAlert.setHeaderText("Item cancel is not valid");
-            errorAlert.setContentText("Please make sure you've selected an item to cancel");
+            errorAlert.setHeaderText("Coffee removal Error");
+            errorAlert.setContentText("Please make sure you've selected a Coffee to remove");
             errorAlert.showAndWait();
         }
     }
